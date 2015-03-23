@@ -1,0 +1,13 @@
+{
+    "name": "qiumeilin/show",
+    "authors": [
+        {
+            "name": "niceguy-php",
+            "email": "yyxqml@163.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "4.7.x-dev",
+        "yiisoft/yii2-mongodb": "2.0.3"
+    }
+}

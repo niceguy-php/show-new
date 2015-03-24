@@ -56,9 +56,12 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function rules()
     {
+        $m = ['username'=>'帐号', 'email'=>'邮箱', 'password'=>'密码'];
         return [
-            [['username', 'email', 'password'], 'required'],
-            ['email', 'email'],
+            [['username', 'email', 'password'], 'required','message'=>"请输入{attribute}"],
+            ['username','unique','message'=>'名称已被占用'],
+            ['email', 'email','message'=>'邮箱格式不正确'],
+            ['email', 'unique','message'=>'邮箱已被占用'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ];

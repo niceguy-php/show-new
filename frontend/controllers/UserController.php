@@ -82,5 +82,22 @@ class UserController extends ActiveController{
         return $this->result;
     }
 
+    public function actionFindpassword()
+    {
+        $post = \Yii::$app->request->post();
+        $email = $post['email'];
+        $mail = \Yii::$app->mailer->compose();
+        $mail->setTo($email)
+            ->setSubject('Message subject')
+            ->setTextBody('Plain text content')
+            ->setHtmlBody('<b>HTML content</b>');
+
+        if( !$mail->send()){
+            $this->result['code'] = -1;
+        }
+        return $this->result;
+
+    }
+
 
 }

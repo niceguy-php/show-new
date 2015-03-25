@@ -104,6 +104,8 @@ class UserController extends ActiveController{
     public function actionSendemail()
     {
         $model = new PasswordResetRequestForm();
+        //格式为PasswordResetRequestForm[email才能被正确load
+       // $model->load(\Yii::$app->request->post());
         $model->email = \Yii::$app->request->post('email');
         if ( $model->validate()) {
             if ($model->sendEmail()) {

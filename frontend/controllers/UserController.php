@@ -10,6 +10,7 @@ namespace frontend\controllers;
 
 use yii\rest\ActiveController;
 use yii\web\Response;
+use frontend\models\PasswordResetRequestForm;
 use yii\filters\auth\HttpBasicAuth;
 
 use common\models\User;
@@ -82,8 +83,9 @@ class UserController extends ActiveController{
         return $this->result;
     }
 
-    public function actionFindpassword()
+    /*public function actionFindpassword()
     {
+
         $post = \Yii::$app->request->post();
         $email = $post['email'];
         $mail = \Yii::$app->mailer->compose();
@@ -97,8 +99,27 @@ class UserController extends ActiveController{
         }
         return $this->result;
 
-    }
+    }*/
 
+    public function actionSendemail()
+    {
+        $model = new PasswordResetRequestForm();
+        $model->email = \Yii::$app->request->post('email');
+        if ( $model->validate()) {
+            if ($model->sendEmail()) {
+                return $this->result;
+            } else {
+                $this->result['data']['email'] = '发送失败';
+                $this->result['code'] = -1;
+            }
+        }else{
+            $errors = $model->errors;
+            $this->result['data'] = $errors;
+            $this->result['code'] = -1;
+        }
+        //$this->result['data'] = \Yii::$app->request->post();
+        return $this->result;
+    }
     public function actionResetPass()
     {
 

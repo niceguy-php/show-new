@@ -99,5 +99,10 @@ class UserController extends ActiveController{
 
     }
 
+    public function actionResetPass()
+    {
+
+    }
+
 
 }

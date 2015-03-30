@@ -28,6 +28,7 @@ return [
                     'forceTranslation' => true,
                     'fileMap' => [
                         'app' => 'app.php',
+                        'app-gallery'=>'gallery.php',
                         'app-index'=>'app-index.php',
                         'app/error' => 'error.php',
                     ],

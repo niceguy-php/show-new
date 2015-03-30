@@ -40,9 +40,9 @@ class Country extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'code' => Yii::t('country', 'Code'),
-            'name' => Yii::t('country', 'Name'),
-            'population' => Yii::t('country', 'Population'),
+            'code' => Yii::t('app-country', 'Code'),
+            'name' => Yii::t('app-country', 'Name'),
+            'population' => Yii::t('app-country', 'Population'),
         ];
     }
 }

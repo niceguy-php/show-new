@@ -9,6 +9,7 @@ $params = array_merge(
 return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
+    'language' => 'zh-CN',
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
@@ -16,6 +17,24 @@ return [
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
+        ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en-US',
+                    // 'sourceLanguage' => 'zh-CN',
+                    'forceTranslation' => true,
+                    'fileMap' => [
+                        'app' => 'app.php',
+                        'app-gallery'=>'gallery.php',
+                        'app-index'=>'app-index.php',
+                        'app/error' => 'error.php',
+                    ],
+                    //'fileMap' => 'app.php'
+                ],
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

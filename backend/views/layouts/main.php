@@ -25,7 +25,7 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' =>  \Yii::t('app-gallery','My Company'),
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -40,7 +40,10 @@ AppAsset::register($this);
                 $menuItems[] = [
                     'label' =>\Yii::t('app-gallery','Logout'). ' (' . Yii::$app->user->identity->username . ')',
                     'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']
+                    'linkOptions' => ['data-method' => 'post'],
+                    ['label' => \Yii::t('app-gallery','Articles'), 'url' => ['/article/index']],
+                    ['label' => \Yii::t('app-gallery','Exhibition Halls'), 'url' => ['/exhibition-hall/index']],
+                    ['label' => \Yii::t('app-gallery','Galleries'), 'url' => ['/gallery/index']],
                 ];
             }
             echo Nav::widget([

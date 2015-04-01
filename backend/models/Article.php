@@ -44,17 +44,17 @@ class Article extends \yii\db\ActiveRecord
      * @inheritdoc
      */
     public function attributeLabels()
-    {
-        return [
-            'id' => Yii::t('app-gallery', 'ID'),
-            'title' => Yii::t('app-gallery', 'Title'),
-            'created_at' => Yii::t('app-gallery', 'Created At'),
-            'content' => Yii::t('app-gallery', 'Content'),
-            'user_id' => Yii::t('app-gallery', 'User ID'),
-            'user_realname' => Yii::t('app-gallery', 'User Realname'),
-            'updated_at' => Yii::t('app-gallery', 'Updated At'),
-        ];
-    }
+{
+    return [
+        'id' => Yii::t('app-gallery', 'ID'),
+        'title' => Yii::t('app-gallery', 'Title'),
+        'created_at' => Yii::t('app-gallery', 'Created At'),
+        'content' => Yii::t('app-gallery', 'Content'),
+        'user_id' => Yii::t('app-gallery', 'User ID'),
+        'user_realname' => Yii::t('app-gallery', 'User Realname'),
+        'updated_at' => Yii::t('app-gallery', 'Updated At'),
+    ];
+}
 
     /**
      * @return \yii\db\ActiveQuery

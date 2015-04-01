@@ -70,8 +70,6 @@ return [
     'Artists'=>'参展艺术家',
 
 
-    //系统统一的一些配置
-    'reset it'=>'重置密码',
     'Description'=>'描述',
     'Update'=>'编辑',
     'Delete'=>'删除',
@@ -81,15 +79,5 @@ return [
     'Username'=>'帐号',
     'Password'=>'密码',
     'Remember Me'=>'记住密码',
-    'If you forgot your password you can '=>'忘记密码？ ',
-    'Request password reset'=>'申请重置密码',
-    'Welcome to GoolYa'=>'欢迎来到沽雅移动美术馆！',
-    'GoolYa'=>'沽雅移动美术馆',
-    'GoolYa Description'=>'www.goolya.com',
-    'join us'=>'加入我们',
-    'My Company'=>'沽雅美术馆',
-
-    //alert or warn message
-    'You are not allowed to access this page'=>'请先登录，不允许访问此页面！',
 ];
 ?>

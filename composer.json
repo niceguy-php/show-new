@@ -9,6 +9,8 @@
     "require": {
         "phpunit/phpunit": "4.7.x-dev",
         "yiisoft/yii2-mongodb": "2.0.3",
-        "apache/thrift": "0.9.2"
+        "apache/thrift": "0.9.2",
+        "warrence/yii2-kartikgii": "dev-master",
+        "kartik-v/yii2-grid": "v3.0.0"
     }
 }

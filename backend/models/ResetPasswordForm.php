@@ -62,4 +62,11 @@ class ResetPasswordForm extends Model
 
         return $user->save();
     }
+
+    public function attributeLabels()
+    {
+        return [
+            'password' => \Yii::t('app-gallery', 'Password'),
+        ];
+    }
 }

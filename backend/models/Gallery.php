@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "gallery".
@@ -41,7 +42,8 @@ class Gallery extends \yii\db\ActiveRecord
             [['address'], 'string', 'max' => 300],
             [['phone', 'postcode'], 'string', 'max' => 20],
             [['fax'], 'string', 'max' => 50],
-            [['email'], 'string', 'max' => 100]
+            [['email'], 'string', 'max' => 100],
+            [['logo'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',],
         ];
     }
 
@@ -62,6 +64,7 @@ class Gallery extends \yii\db\ActiveRecord
             'email' => Yii::t('app-gallery', 'Email'),
             'postcode' => Yii::t('app-gallery', 'Postcode'),
             'updated_at' => Yii::t('app-gallery', 'Updated At'),
+            'logo'=>Yii::t('app-gallery', 'Gallery Logo'),
         ];
     }
 }

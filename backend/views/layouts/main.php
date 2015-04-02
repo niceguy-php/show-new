@@ -34,17 +34,20 @@ AppAsset::register($this);
             $menuItems = [
                 ['label' => \Yii::t('app-gallery','Home'), 'url' => ['/site/index']],
             ];
+            if(!Yii::$app->user->isGuest){
+                $menuItems[] = ['label' => \Yii::t('app-gallery','Articles'), 'url' => ['/article/index']];
+                $menuItems[] = ['label' => \Yii::t('app-gallery','Exhibition Halls'), 'url' => ['/exhibition-hall/index']];
+                $menuItems[] = ['label' => \Yii::t('app-gallery','Galleries'), 'url' => ['/gallery/index']];
+            }
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => \Yii::t('app-gallery','Login'), 'url' => ['/site/login']];
             } else {
                 $menuItems[] = [
                     'label' =>\Yii::t('app-gallery','Logout'). ' (' . Yii::$app->user->identity->username . ')',
                     'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post'],
-                    ['label' => \Yii::t('app-gallery','Articles'), 'url' => ['/article/index']],
-                    ['label' => \Yii::t('app-gallery','Exhibition Halls'), 'url' => ['/exhibition-hall/index']],
-                    ['label' => \Yii::t('app-gallery','Galleries'), 'url' => ['/gallery/index']],
+                    'linkOptions' => ['data-method' => 'post']
                 ];
+
             }
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],

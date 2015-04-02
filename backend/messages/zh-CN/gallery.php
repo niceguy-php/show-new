@@ -30,6 +30,8 @@ return [
      'Home'=>'首页',
      'Logout'=>'注销',
      'Login'=>'登录',
+    'Gallery Logo'=>'馆徽',
+    'Update Gallery: '=>'编辑美术馆：',
 
     //article
      'Create Article'=>'发布文章',

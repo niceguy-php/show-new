@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Gallery */
@@ -30,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
+            ['attribute'=>'logo','value'=>$model->logo,'format' => ['image',['width'=>'100','height'=>'100']]],
             'master_word',
             'created_at',
             'address',

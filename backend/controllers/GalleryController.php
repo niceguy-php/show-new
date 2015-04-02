@@ -2,18 +2,24 @@
 
 namespace backend\controllers;
 
+
 use Yii;
 use backend\models\Gallery;
 use backend\models\GallerySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use common\models\Area;
 
 /**
  * GalleryController implements the CRUD actions for Gallery model.
  */
 class GalleryController extends Controller
 {
+    public $uploadPath = '../web/uploads/gallery_logo/';
+    public $dbUploadPath = '/uploads/gallery_logo/';
+    public $defaultLogo = 'default.png';
     public function behaviors()
     {
         return [
@@ -62,11 +68,27 @@ class GalleryController extends Controller
     {
         $model = new Gallery();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $logo = UploadedFile::getInstance($model, 'logo');
+            if ( $model->validate()) {
+                $filename = time().rand(1000,9999);
+
+                if($logo){
+                    $ext = $logo->extension;
+                    $logo->saveAs($this->uploadPath . $filename . '.' . $ext);
+                    $model->logo = $this->dbUploadPath . $filename . '.' . $ext;
+                }else{
+                    $model->logo = $this->dbUploadPath . $this->defaultLogo;
+                }
+            }
+            $model->created_at = date('Y-m-d H:i:s',time());
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'oneLevelAddress'=>Area::oneLevel(),
             ]);
         }
     }
@@ -80,9 +102,25 @@ class GalleryController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $logoPath = $model->logo;
+        if ($model->load(Yii::$app->request->post())) {
+            $logo = UploadedFile::getInstance($model, 'logo');
+            if ( $model->validate()) {
+                $filename = time().rand(1000,9999);
+                if($logo){
+                    $ext = $logo->extension;
+                    $logo->saveAs($this->uploadPath . $filename . '.' . $ext);
+                    $model->logo = $this->dbUploadPath . $filename . '.' . $ext;
+                    unlink($this->uploadPath.basename($logoPath));
+                }else{
+                    $model->logo = $logoPath;
+                }
+            }
+            $model->updated_at = date('Y-m-d H:i:s',time());
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

@@ -71,6 +71,22 @@ return [
     'Assist'=>'协助方',
     'Artists'=>'参展艺术家',
 
+    //User
+    'User Status'=>'用户状态',
+    'Role'=>'用户角色',
+    'Realname'=>'真实姓名',
+    'Id Number'=>'身份证号',
+    'Id Verify Status'=>'实名认证状态',
+    'Workplace'=>'工作地址',
+    'Profile'=>'简介',
+    'Sex'=>'性别',
+    'Publish Books'=>'发布的书籍',
+    'Create User'=>'创建用户',
+    'Users'=>'用户管理',
+    'Update User: '=>'编辑用户',
+    'Nickname' =>'昵称',
+    'Avatar'=>'头像',
+
 
     //系统统一的一些配置
     'reset it'=>'重置密码',
@@ -90,6 +106,7 @@ return [
     'GoolYa Description'=>'www.goolya.com',
     'join us'=>'加入我们',
     'My Company'=>'沽雅美术馆',
+    'Gallery ID'=>'所属美术馆',
 
     //alert or warn message
     'You are not allowed to access this page'=>'请先登录，不允许访问此页面！',

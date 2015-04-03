@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model backend\models\ExhibitionHall */
 /* @var $form yii\widgets\ActiveForm */
@@ -13,6 +13,8 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
+
+    <?= $form->field($model, 'gallery_id')->dropDownList(ArrayHelper::map(\backend\models\Gallery::find()-> select( 'id,name' ) ->all(),'id','name'),['class'=>"form-control inline-block"]) ?>
 
     <?= $form->field($model, 'address')->textInput(['maxlength' => 255]) ?>
 
@@ -39,8 +41,6 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'created_at')->textInput() ?>
 
     <?= $form->field($model, 'updated_at')->textInput() ?>
-
-    <?= $form->field($model, 'gallery_id')->textInput(['maxlength' => 20]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app-gallery', 'Create') : Yii::t('app-gallery', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

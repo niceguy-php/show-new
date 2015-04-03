@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'address',
             'open_ceremony_time',
             'show_time',
+            'gallery_id',
             // 'close_show_time',
             // 'planner',
             // 'organizer',

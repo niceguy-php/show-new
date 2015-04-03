@@ -25,6 +25,10 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
+    const ROLE_ADMIN = 1;
+    const ROLE_GALLERY_ADMIN = 2;
+    const ROLE_ARTIST = 3;
+    const ROLE_USER = 4;
     /*private $password_hash ='123456';
     private $status;
     private $created_at;

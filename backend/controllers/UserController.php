@@ -143,7 +143,13 @@ class UserController extends Controller
                 unset($model->role);
             }
 
+            if(isset($model->password) && $model != '!@#********!@#'){
+                //$user = new User();
+                //$user->resetPassword($model->id,$model->password);
+                $model->password = md5($model->password);
+            }
             if($model->save()){
+
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {

@@ -41,7 +41,13 @@ class GallerySearch extends Gallery
      */
     public function search($params)
     {
-        $query = Gallery::find();
+        $loginUser = \Yii::$app->session->get('user');
+        if($loginUser['role'] == \common\models\User::ROLE_ADMIN){
+            $query = Gallery::find();
+        }else{
+            $query = Gallery::find();
+        }
+
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

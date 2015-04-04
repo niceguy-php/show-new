@@ -87,8 +87,8 @@ return [
     'Update User: '=>'编辑用户',
     'Nickname' =>'昵称',
     'Avatar'=>'头像',
-    'Personal Info Setting'=>'个人信息设置',
-    'Edit Personal Info'=>'编辑个人信息',
+    'Personal Info Setting'=>'个人设置',
+    'Edit Personal Info'=>'编辑：',
 
 
     //系统统一的一些配置

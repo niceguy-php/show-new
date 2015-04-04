@@ -13,8 +13,10 @@ $sub_title = ($role == \common\models\User::ROLE_ADMIN) ?
                         :Yii::t('app-gallery', 'Edit Personal Info');
 
 $this->title = $sub_title. ' ' . $model->realname;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app-gallery', 'Users'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+
+$sub_title1 = ($role == \common\models\User::ROLE_ADMIN) ?  Yii::t('app-gallery', 'Users'): Yii::t('app-gallery', 'Personal Info Setting');
+$this->params['breadcrumbs'][] = ['label' =>$sub_title1, 'url' => ['index']];
+//$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app-gallery', 'Update');
 ?>
 <div class="user-update">

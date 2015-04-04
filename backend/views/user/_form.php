@@ -20,7 +20,7 @@ $admin_condition = ($role==\common\models\User::ROLE_ADMIN);
 
     <?= $form->field($model, 'avatar')->fileInput() ?>
 
-    <?= $form->field($model, 'password')->passwordInput(['maxlength' => 100]) ?>
+    <?= $form->field($model, 'password')->passwordInput(['maxlength' => 100,'name'=>'password','value'=>'!@#********!@#']) ?>
 
     <?= $form->field($model, 'sex')->radioList(['1'=>'男','0'=>'女']) ?>
 

@@ -2,6 +2,7 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/2amigos/yii2-date-picker-widget" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/apache/thrift" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower-asset/bootstrap" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower-asset/jquery" />
@@ -71,6 +72,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/version" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/yaml" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/warrence/yii2-kartikgii" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/yiisoft/warrence" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/yiisoft/yii2" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/yiisoft/yii2-bootstrap" />
@@ -103,6 +105,7 @@
           <root url="file://$MODULE_DIR$/vendor/bower-asset/yii2-pjax" />
           <root url="file://$MODULE_DIR$/vendor/bower/jquery" />
           <root url="file://$MODULE_DIR$/vendor/bower-asset/jquery-ui" />
+          <root url="file://$MODULE_DIR$/vendor/2amigos/yii2-date-picker-widget" />
           <root url="file://$MODULE_DIR$/vendor/kartik-v/yii2-detail-view" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2" />
           <root url="file://$MODULE_DIR$/vendor/kartik-v/yii2-widget-alert" />
@@ -152,6 +155,7 @@
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-composer" />
           <root url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/version" />
+          <root url="file://$MODULE_DIR$/vendor/warrence/yii2-kartikgii" />
           <root url="file://$MODULE_DIR$/vendor/bower/yii2-pjax" />
           <root url="file://$MODULE_DIR$/vendor/bower-asset/punycode" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-codeception" />
@@ -185,6 +189,7 @@
           <root url="file://$MODULE_DIR$/vendor/bower-asset/yii2-pjax" />
           <root url="file://$MODULE_DIR$/vendor/bower/jquery" />
           <root url="file://$MODULE_DIR$/vendor/bower-asset/jquery-ui" />
+          <root url="file://$MODULE_DIR$/vendor/2amigos/yii2-date-picker-widget" />
           <root url="file://$MODULE_DIR$/vendor/kartik-v/yii2-detail-view" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2" />
           <root url="file://$MODULE_DIR$/vendor/kartik-v/yii2-widget-alert" />
@@ -234,6 +239,7 @@
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-composer" />
           <root url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/version" />
+          <root url="file://$MODULE_DIR$/vendor/warrence/yii2-kartikgii" />
           <root url="file://$MODULE_DIR$/vendor/bower/yii2-pjax" />
           <root url="file://$MODULE_DIR$/vendor/bower-asset/punycode" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-codeception" />

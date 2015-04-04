@@ -33,7 +33,7 @@ class UserController extends ActiveController{
 
     public function behaviors()
     {
-        $behaviors = parent::behaviors();
+
         $behaviors['contentNegotiator']['formats']['text/html'] = Response::FORMAT_JSON;
         /*$behaviors['authenticator'] = [
             'class' => HttpBasicAuth::className(),

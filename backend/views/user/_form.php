@@ -6,23 +6,31 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model backend\models\User */
 /* @var $form yii\widgets\ActiveForm */
+$role = \Yii::$app->session->get('user')['role'];
+$admin_condition = ($role==\common\models\User::ROLE_ADMIN);
 ?>
 
 <div class="user-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <?= $form->field($model, 'username')->textInput(['maxlength' => 100]) ?>
+    <?= $admin_condition ?$form->field($model, 'username')->textInput(['maxlength' => 100]):'' ?>
+
+    <?= $form->field($model, 'display_name')->textInput(['maxlength' => 50]) ?>
 
     <?= $form->field($model, 'avatar')->fileInput() ?>
 
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => 100]) ?>
 
-    <?= $form->field($model, 'realname')->textInput(['maxlength' => 255]) ?>
+    <?= $form->field($model, 'sex')->radioList(['1'=>'男','0'=>'女']) ?>
+
+    <?= $form->field($model, 'address')->textInput(['maxlength' => 255]) ?>
+
+    <?= $form->field($model, 'phone')->textInput(['maxlength' => 20]) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => 100]) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?=$admin_condition ? $form->field($model, 'status')->radioList(['0'=>'禁止登录','10'=>'允许登录']):'' ?>
 
     <!--  <?= $form->field($model, 'created_at')->textInput(['maxlength' => 20]) ?>
 
@@ -34,27 +42,20 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'auth_key')->textInput(['maxlength' => 32]) ?>-->
 
-    <?= $form->field($model, 'role')->textInput() ?>
-
-    <?= $form->field($model, 'display_name')->textInput(['maxlength' => 50]) ?>
+    <?=$admin_condition ?  $form->field($model, 'role')->dropDownList(['1'=>'超级管理员','2'=>'美术馆管理员','3'=>'艺术家']):'' ?>
 
     <!-- <?= $form->field($model, 'type')->textInput() ?>-->
-
-
-
-    <?= $form->field($model, 'address')->textInput(['maxlength' => 255]) ?>
-
-    <?= $form->field($model, 'phone')->textInput(['maxlength' => 20]) ?>
+    <?= $form->field($model, 'realname')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'id_number')->textInput(['maxlength' => 100]) ?>
 
-    <?= $form->field($model, 'id_verify_status')->textInput() ?>
+    <?=$admin_condition ?  $form->field($model, 'id_verify_status')->radioList(['1'=>'通过','0'=>'不通过']) :''?>
 
     <?= $form->field($model, 'workplace')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'profile')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'sex')->textInput() ?>
+
 
     <?= $form->field($model, 'publish_books')->textInput(['maxlength' => 600]) ?>
 

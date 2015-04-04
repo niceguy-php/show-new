@@ -108,6 +108,11 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $session = \Yii::$app->session;
+            if(!$session->isActive){
+                $session->open();
+            }
+            $session->set('user',$model->getUser());
             return $this->goBack();
         } else {
             return $this->render('login', [
@@ -152,6 +157,11 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
+                    $session = \Yii::$app->session;
+                    if(!$session->isActive){
+                        $session->open();
+                    }
+                    $session->set('user',$user);
                     return $this->goHome();
                 }
             }
@@ -160,6 +170,7 @@ class SiteController extends Controller
         return $this->render('signup', [
             'model' => $model,
         ]);
+        //var_dump($model->errors);
     }
 
     public function actionRequestPasswordReset()

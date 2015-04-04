@@ -6,6 +6,7 @@ use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model backend\models\ExhibitionHall */
 /* @var $form yii\widgets\ActiveForm */
+
 ?>
 
 <div class="exhibition-hall-form">

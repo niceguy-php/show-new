@@ -9,7 +9,9 @@ use yii\helpers\Html;
 $this->title = Yii::t('app-gallery', 'Create Gallery');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app-gallery', 'Galleries'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
+
 <div class="gallery-create">
 
     <h1><?= Html::encode($this->title) ?></h1>

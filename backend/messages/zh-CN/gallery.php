@@ -32,6 +32,7 @@ return [
      'Login'=>'登录',
     'Gallery Logo'=>'馆徽',
     'Update Gallery: '=>'编辑美术馆：',
+    'Gallery Created At'=>'建馆时间',
 
     //article
      'Create Article'=>'发布文章',
@@ -86,6 +87,8 @@ return [
     'Update User: '=>'编辑用户',
     'Nickname' =>'昵称',
     'Avatar'=>'头像',
+    'Personal Info Setting'=>'个人信息设置',
+    'Edit Personal Info'=>'编辑个人信息',
 
 
     //系统统一的一些配置
@@ -101,7 +104,7 @@ return [
     'Remember Me'=>'记住密码',
     'If you forgot your password you can '=>'忘记密码？ ',
     'Request password reset'=>'申请重置密码',
-    'Welcome to GoolYa'=>'欢迎来到沽雅移动美术馆！',
+    'Welcome to GoolYa'=>'欢迎来到沽雅移动美术馆~',
     'GoolYa'=>'沽雅移动美术馆',
     'GoolYa Description'=>'www.goolya.com',
     'join us'=>'加入我们',
@@ -110,5 +113,12 @@ return [
 
     //alert or warn message
     'You are not allowed to access this page'=>'请先登录，不允许访问此页面！',
+    'Please fill out the following fields to signup:'=>'请输入账号、邮箱、密码信息，欢迎加入沽雅美术馆~',
+    'Signup'=>'注册',
+    'Do not have a account '=>'还没有账号？',
+    'This username has already been taken.'=>'用户名已经被占用',
+    'This email address has already been taken.'=>'邮箱已经被占用',
+    'Role'=>'用户类型',
+
 ];
 ?>

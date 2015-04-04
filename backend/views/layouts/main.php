@@ -34,11 +34,25 @@ AppAsset::register($this);
             $menuItems = [
                 ['label' => \Yii::t('app-gallery','Home'), 'url' => ['/site/index']],
             ];
+            $loginUser = \Yii::$app->session->get('user');
+
             if(!Yii::$app->user->isGuest){
-                $menuItems[] = ['label' => \Yii::t('app-gallery','Users'), 'url' => ['/user/index']];
-                $menuItems[] = ['label' => \Yii::t('app-gallery','Articles'), 'url' => ['/article/index']];
-                $menuItems[] = ['label' => \Yii::t('app-gallery','Exhibition Halls'), 'url' => ['/exhibition-hall/index']];
-                $menuItems[] = ['label' => \Yii::t('app-gallery','Galleries'), 'url' => ['/gallery/index']];
+                if($loginUser['role'] == \common\models\User::ROLE_GALLERY_ADMIN) {
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Personal Info Setting'), 'url' => ['/user/index']];
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Articles'), 'url' => ['/article/index']];
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Exhibition Halls'), 'url' => ['/exhibition-hall/index']];
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Galleries'), 'url' => ['/gallery/index']];
+                }else if($loginUser['role'] == \common\models\User::ROLE_ADMIN){
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Users'), 'url' => ['/user/index']];
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Articles'), 'url' => ['/article/index']];
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Exhibition Halls'), 'url' => ['/exhibition-hall/index']];
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Galleries'), 'url' => ['/gallery/index']];
+                }else if($loginUser['role'] == \common\models\User::ROLE_ARTIST) {
+
+                }else if($loginUser['role'] == \common\models\User::ROLE_USER) {
+
+                }
+
             }
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => \Yii::t('app-gallery','Login'), 'url' => ['/site/login']];

@@ -23,6 +23,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div style="color:#999;margin:1em 0">
                     <?=\Yii::t('app-gallery','If you forgot your password you can ')?><?= Html::a(\Yii::t('app-gallery','reset it'), ['site/request-password-reset']) ?>.
                 </div>
+                <div style="color:#999;margin:1em 0">
+                    <?=\Yii::t('app-gallery','Do not have a account ')?><?= Html::a(\Yii::t('app-gallery','Signup'), ['site/signup']) ?>.
+                </div>
                 <div class="form-group">
                     <?= Html::submitButton(\Yii::t('app-gallery','Login'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                 </div>

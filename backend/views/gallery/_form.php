@@ -8,6 +8,22 @@ use yii\helpers\Url;
 /* @var $model backend\models\Gallery */
 /* @var $form yii\widgets\ActiveForm */
 ?>
+<? $this->beginBlock('myjs') ?>
+$("#gallery-address").change(function(){
+var area_id = $(this).val();
+$.ajax({
+    type: "POST",
+    url: "/area/list",
+    data:{id:area_id},
+    dataType: "json",
+    success:function(data){
+        console.log(data);
+    }
+});
+//$.ajax();
+});
+<?php $this->endBlock()?>
+<!--<?php $this->registerJs($this->blocks['myjs'],yii\web\View::POS_LOAD)?>-->
 
 <div class="gallery-form">
 
@@ -21,10 +37,7 @@ use yii\helpers\Url;
 
     <?= $form->field($model, 'created_at')->textInput() ?>
 
-    <?= $form->field($model, 'address')->textInput(['maxlength' => 300]) ?>
-
-    <?= $form->field($model, 'address')->dropDownList($oneLevelAddress, ['prompt'=>'Select...'])?>
-
+    <?= $form->field($model, 'address')->textInput(['maxlength'=>255])?>
 
     <?= $form->field($model, 'history_profile')->textarea(['rows' => 3,'maxlength' => 600]) ?>
 

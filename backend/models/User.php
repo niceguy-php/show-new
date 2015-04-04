@@ -36,8 +36,11 @@ use Yii;
  */
 class User extends \yii\db\ActiveRecord
 {
-    const USER_ON = 1;
+    const USER_ON = 10;
     const USER_OFF = 0;
+    const SEX_MAN = 1;
+    const SEX_WOMAN = 0;
+
     /**
      * @inheritdoc
      */
@@ -52,6 +55,8 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['username','display_name','sex','email'],'required','message'=>'请输入{attribute}'],
+            [['username'],'unique','message'=>\Yii::t('app-gallery','This username has already been taken.')],
             [['status', 'created_at', 'updated_at', 'role', 'type', 'id_verify_status', 'sex'], 'integer'],
             [['profile'], 'string'],
             [['username', 'password', 'email', 'password_hash', 'password_reset_token', 'id_number'], 'string', 'max' => 100],

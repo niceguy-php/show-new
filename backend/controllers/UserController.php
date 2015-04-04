@@ -18,6 +18,8 @@ class UserController extends Controller
     public $uploadPath = '../web/uploads/user_logo/';
     public $dbUploadPath = '/uploads/user_logo/';
     public $defaultLogo = 'default.png';
+    public $userRole;
+
     public function behaviors()
     {
         return [
@@ -38,6 +40,8 @@ class UserController extends Controller
     {
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        $this->userRole = \Yii::$app->session->get('user')['role'];
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -64,35 +68,38 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
-        $model = new User();
+        $this->userRole = \Yii::$app->session->get('user')['role'];
+        if($this->userRole == \common\models\User::ROLE_ADMIN) {
+            $model = new User();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $logo = UploadedFile::getInstance($model, 'avatar');
-            if ( $model->validate()) {
+            if ($model->load(Yii::$app->request->post())) {
+                $logo = UploadedFile::getInstance($model, 'avatar');
+                if ($model->validate()) {
 
-                $filename = time().rand(1000,9999);
+                    $filename = time() . rand(1000, 9999);
 
-                if($logo){
-                    $ext = $logo->extension;
-                    $logo->saveAs($this->uploadPath . $filename . '.' . $ext);
-                    $model->avatar = $this->dbUploadPath . $filename . '.' . $ext;
-                }else{
-                    $model->avatar = $this->dbUploadPath . $this->defaultLogo;
+                    if ($logo) {
+                        $ext = $logo->extension;
+                        $logo->saveAs($this->uploadPath . $filename . '.' . $ext);
+                        $model->avatar = $this->dbUploadPath . $filename . '.' . $ext;
+                    } else {
+                        $model->avatar = $this->dbUploadPath . $this->defaultLogo;
+                    }
+                } else {
+                    var_dump($model->errors);
                 }
-            }else{
-                var_dump($model->errors);
-            }
 
-            $model->created_at = time();
-            if($model->save()){
-                return $this->redirect(['view', 'id' => $model->id]);
+                $model->created_at = time();
+                if ($model->save()) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
+                var_dump($model->errors);
+                //return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
             }
-            var_dump($model->errors);
-            //return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
         }
     }
 
@@ -104,6 +111,7 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->userRole = \Yii::$app->session->get('user')['role'];
         $model = $this->findModel($id);
 
         $logoPath = $model->avatar;
@@ -116,13 +124,25 @@ class UserController extends Controller
                     $logo->saveAs($this->uploadPath . $filename . '.' . $ext);
                     $model->avatar = $this->dbUploadPath . $filename . '.' . $ext;
                     if(basename($logoPath)!=$this->defaultLogo){
-                        unlink($this->uploadPath.basename($logoPath));
+                        $old_logo = $this->uploadPath.basename($logoPath);
+                        if(is_file($old_logo)){
+                            unlink($old_logo);
+                        }
+
                     }
                 }else{
                     $model->avatar = $logoPath;
                 }
             }
             $model->updated_at = time();;
+
+            //不为admin的时候删除无权操作的字段，在进行保存
+            if($this->userRole != \common\models\User::ROLE_ADMIN) {
+                unset($model->id_verify_status);
+                unset($model->status);
+                unset($model->role);
+            }
+
             if($model->save()){
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -141,9 +161,11 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        $this->userRole = \Yii::$app->session->get('user')['role'];
+        if($this->userRole == \common\models\User::ROLE_ADMIN) {
+            $this->findModel($id)->delete();
+            return $this->redirect(['index']);
+        }
     }
 
     /**

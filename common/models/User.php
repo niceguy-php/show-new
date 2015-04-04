@@ -29,6 +29,11 @@ class User extends ActiveRecord implements IdentityInterface
     const ROLE_GALLERY_ADMIN = 2;
     const ROLE_ARTIST = 3;
     const ROLE_USER = 4;
+    const USER_VERIFY_SUCCESS = 1;
+    const USER_VERIFY_FAIL = 0 ;
+    const SEX_MAN = 1;
+    const SEX_WOMAN = 0;
+
     /*private $password_hash ='123456';
     private $status;
     private $created_at;
@@ -60,7 +65,6 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function rules()
     {
-        $m = ['username'=>'帐号', 'email'=>'邮箱', 'password'=>'密码'];
         return [
             [['username', 'email', 'password'], 'required','message'=>"请输入{attribute}"],
             ['username','unique','message'=>'名称已被占用'],

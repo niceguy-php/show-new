@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 
 $this->title = \Yii::t('app-gallery','GoolYa');
+//var_dump(\Yii::$app->session->get('user'));
 ?>
 <div class="site-index">
 

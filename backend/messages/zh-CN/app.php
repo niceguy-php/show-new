@@ -1,6 +1,8 @@
 <?php
 return [
-'test1' => '测试1',
-'test2' => '测试2',
+    'Create' => '创建',
+    'Update' => '更新',
+    'Add'=>'新建',
+    'Reset List'=>'刷新',
 ];
 ?>

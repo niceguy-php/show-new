@@ -17,7 +17,11 @@ use Yii;
  * @property string $show_room_id
  * @property string $hall_id
  *
+ * @property Article $article
+ * @property ExhibitionHall $hall
+ * @property ShowRoom $showRoom
  * @property User $user
+ * @property Work $work
  */
 class Comment extends \yii\db\ActiveRecord
 {
@@ -63,8 +67,40 @@ class Comment extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getArticle()
+    {
+        return $this->hasOne(Article::className(), ['id' => 'article_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getHall()
+    {
+        return $this->hasOne(ExhibitionHall::className(), ['id' => 'hall_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getShowRoom()
+    {
+        return $this->hasOne(ShowRoom::className(), ['id' => 'show_room_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getWork()
+    {
+        return $this->hasOne(Work::className(), ['id' => 'work_id']);
     }
 }

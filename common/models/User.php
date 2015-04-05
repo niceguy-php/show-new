@@ -33,6 +33,8 @@ class User extends ActiveRecord implements IdentityInterface
     const USER_VERIFY_FAIL = 0 ;
     const SEX_MAN = 1;
     const SEX_WOMAN = 0;
+    const DISPLAY_PASSWORD = '************';
+    const DEFAULT_INPUT_PASSWORD = '!@#********!@#';
 
     /*private $password_hash ='123456';
     private $status;

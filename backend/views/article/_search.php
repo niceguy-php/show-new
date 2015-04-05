@@ -3,9 +3,11 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model backend\models\ArticleSearch */
-/* @var $form yii\widgets\ActiveForm */
+/**
+ * @var yii\web\View $this
+ * @var backend\models\ArticleSearch $model
+ * @var yii\widgets\ActiveForm $form
+ */
 ?>
 
 <div class="article-search">
@@ -23,9 +25,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content') ?>
 
-    <?= $form->field($model, 'user_id') ?>
+    <?= $form->field($model, 'gallery_id') ?>
+
+    <?php // echo $form->field($model, 'gallery_name') ?>
 
     <?php // echo $form->field($model, 'user_realname') ?>
+
+    <?php // echo $form->field($model, 'user_id') ?>
 
     <?php // echo $form->field($model, 'updated_at') ?>
 

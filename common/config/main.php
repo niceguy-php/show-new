@@ -31,9 +31,9 @@ return [
 
             // format settings for displaying each date attribute
             'displaySettings' => [
-                'date' => 'd-m-Y',
-                'time' => 'H:i:s A',
-                'datetime' => 'd-m-Y H:i:s A',
+                'date' => 'Y-m-d',
+                'time' => 'H:i:s',
+                'datetime' => 'Y-m-d H:i:s',
             ],
 
             // format settings for saving each date attribute

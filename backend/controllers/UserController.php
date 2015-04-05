@@ -17,9 +17,9 @@ class UserController extends Controller
 {
     public $uploadPath = '../web/uploads/user_logo/';
     public $dbUploadPath = '/uploads/user_logo/';
-    public $defaultLogo = 'default.png';
+    public $defaultMaleLogo = 'default_male.png';
+    public $defaultFemaleLogo = 'default_female.png';
     public $userRole;
-
     public function behaviors()
     {
         return [
@@ -38,14 +38,12 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new UserSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        $this->userRole = \Yii::$app->session->get('user')['role'];
+        $searchModel = new UserSearch;
+        $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
         ]);
     }
 
@@ -56,9 +54,13 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+        return $this->render('view', ['model' => $model]);
+}
     }
 
     /**
@@ -68,6 +70,8 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
+        $model = new User;
+
         $this->userRole = \Yii::$app->session->get('user')['role'];
         if($this->userRole == \common\models\User::ROLE_ADMIN) {
             $model = new User();
@@ -83,7 +87,10 @@ class UserController extends Controller
                         $logo->saveAs($this->uploadPath . $filename . '.' . $ext);
                         $model->avatar = $this->dbUploadPath . $filename . '.' . $ext;
                     } else {
-                        $model->avatar = $this->dbUploadPath . $this->defaultLogo;
+
+                        $model->avatar = ($model->sex==\common\models\User::SEX_MAN)
+                            ? $this->dbUploadPath . $this->defaultMaleLogo:
+                            $this->dbUploadPath . $this->defaultFemaleLogo;
                     }
                 } else {
                     var_dump($model->errors);
@@ -93,7 +100,7 @@ class UserController extends Controller
                 if ($model->save()) {
                     return $this->redirect(['view', 'id' => $model->id]);
                 }
-                var_dump($model->errors);
+                //var_dump($model->errors);
                 //return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('create', [
@@ -101,6 +108,7 @@ class UserController extends Controller
                 ]);
             }
         }
+
     }
 
     /**
@@ -123,7 +131,7 @@ class UserController extends Controller
                     $ext = $logo->extension;
                     $logo->saveAs($this->uploadPath . $filename . '.' . $ext);
                     $model->avatar = $this->dbUploadPath . $filename . '.' . $ext;
-                    if(basename($logoPath)!=$this->defaultLogo){
+                    if(basename($logoPath)!=$this->defaultFemaleLogo && basename($logoPath)!=$this->defaultMaleLogo){
                         $old_logo = $this->uploadPath.basename($logoPath);
                         if(is_file($old_logo)){
                             unlink($old_logo);
@@ -167,11 +175,9 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->userRole = \Yii::$app->session->get('user')['role'];
-        if($this->userRole == \common\models\User::ROLE_ADMIN) {
-            $this->findModel($id)->delete();
-            return $this->redirect(['index']);
-        }
+        $this->findModel($id)->delete();
+
+        return $this->redirect(['index']);
     }
 
     /**

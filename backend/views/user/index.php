@@ -1,103 +1,93 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
+use yii\widgets\Pjax;
 
-/* @var $this yii\web\View */
-/* @var $searchModel backend\models\UserSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-$loginUser = \Yii::$app->session->get('user');
-if($loginUser['role']==\common\models\User::ROLE_ADMIN){
-    $this->title = Yii::t('app-gallery', 'Users');
-}else{
-    $this->title = Yii::t('app-gallery', 'Personal Info Setting');
-}
+
+
+$roles = ['1'=>Yii::t('app-gallery', 'Admin'),
+    '2'=>Yii::t('app-gallery', 'Gallery Admin'),
+    '3'=>Yii::t('app-gallery', 'Admin'),
+    '4'=>Yii::t('app-gallery', 'User')];
+/**
+ * @var yii\web\View $this
+ * @var yii\data\ActiveDataProvider $dataProvider
+ * @var backend\models\UserSearch $searchModel
+ */
+
+$this->title = Yii::t('app-gallery', 'Users');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="page-header">
+            <h1><?= Html::encode($this->title) ?></h1>
+    </div>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?php
-    $widgetData = [
+    <p>
+        <?php /* echo Html::a(Yii::t('app-gallery', 'Create {modelClass}', [
+    'modelClass' => 'User',
+]), ['create'], ['class' => 'btn btn-success'])*/  ?>
+    </p>
+
+    <?php Pjax::begin(); echo GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            //'id',
-            'realname',
-            'display_name',
+           //'id',
             'username',
-
+            'display_name',
+            //'avatar',
             //'password',
+//            'sex', 
+            'address',
+            'phone',
             'email:email',
-            'status',
-            // 'created_at',
-            // 'updated_at',
-            // 'password_hash',
-            // 'password_reset_token',
-            // 'auth_key',
-            // 'role',
+            //'role',
+            //['attribute'=>'role','value'=>$roles[$model->role]],
+            'realname',
+//            'id_number', 
+//            'id_verify_status', 
+//            'workplace', 
+//            'profile:ntext', 
+//            'publish_books', 
+//            'created_at', 
+//            'updated_at', 
+//            'password_hash', 
+//            'password_reset_token', 
+//            'auth_key', 
+//            'type', 
 
-            // 'type',
-            // 'address',
-            // 'phone',
-            // 'id_number',
-            // 'id_verify_status',
-            // 'workplace',
-            // 'profile:ntext',
-            // 'sex',
-            // 'publish_books',
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'buttons' => [
+                'update' => function ($url, $model) {
+                                    return Html::a('<span class="glyphicon glyphicon-pencil"></span>', Yii::$app->urlManager->createUrl(['user/update','id' => $model->id,'edit'=>'t']), [
+                                                    'title' => Yii::t('yii', 'Edit'),
+                                                  ]);}
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ];
-    if($loginUser['role']==\common\models\User::ROLE_ADMIN){
-        ?>
-    <p>
-        <?= Html::a(Yii::t('app-gallery', 'Create User'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-    <?php
-
-    }else{
-
-        $widgetData = [
-            'dataProvider' => $dataProvider,
-            'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
-
-                //'id',
-                'realname',
-                'display_name',
-                'username',
-
-                //'password',
-                'email:email',
-                // 'created_at',
-                // 'updated_at',
-                // 'password_hash',
-                // 'password_reset_token',
-                // 'auth_key',
-                // 'role',
-
-                // 'type',
-                'address',
-                'phone',
-                'id_number',
-                // 'id_verify_status',
-                //'workplace',
-                // 'profile:ntext',
-                // 'sex',
-                //'publish_books',
-
-                ['class' => 'yii\grid\ActionColumn', 'template' => '{view} {update}'],
+                ],
             ],
-        ];
-    }
-    ?>
+        ],
+        'responsive'=>true,
+        'hover'=>true,
+        'condensed'=>true,
+        'floatHeader'=>true,
+        'export'=>false,
 
-    <?= GridView::widget($widgetData); ?>
+
+
+
+        'panel' => [
+            'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-th-list"></i> '.Html::encode($this->title).' </h3>',
+            'type'=>'info',
+            'before'=>Html::a('<i class="glyphicon glyphicon-plus"></i> '.\Yii::t('app','Add'), ['create'], ['class' => 'btn btn-success']),
+            'after'=>Html::a('<i class="glyphicon glyphicon-repeat"></i>'.\Yii::t('app','Reset List'), ['index'], ['class' => 'btn btn-info']),
+            'showFooter'=>false
+        ],
+    ]); Pjax::end(); ?>
 
 </div>

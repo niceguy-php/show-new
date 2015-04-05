@@ -9,26 +9,27 @@ use Yii;
  *
  * @property string $id
  * @property string $username
+ * @property string $display_name
+ * @property string $avatar
  * @property string $password
+ * @property string $sex
+ * @property string $address
+ * @property string $phone
  * @property string $email
- * @property integer $status
+ * @property string $status
+ * @property string $role
+ * @property string $realname
+ * @property string $id_number
+ * @property string $id_verify_status
+ * @property string $workplace
+ * @property string $profile
+ * @property string $publish_books
  * @property string $created_at
  * @property string $updated_at
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $auth_key
- * @property integer $role
- * @property string $display_name
  * @property integer $type
- * @property string $realname
- * @property string $address
- * @property string $phone
- * @property string $id_number
- * @property integer $id_verify_status
- * @property string $workplace
- * @property string $profile
- * @property integer $sex
- * @property string $publish_books
  *
  * @property Article[] $articles
  * @property Auction[] $auctions
@@ -55,17 +56,25 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username','display_name','sex','email'],'required','message'=>'请输入{attribute}'],
+            [['username','display_name','sex','email'],'required'],
             [['username'],'unique','message'=>\Yii::t('app-gallery','This username has already been taken.')],
-            [['status', 'created_at', 'updated_at', 'role', 'type', 'id_verify_status', 'sex'], 'integer'],
-            [['profile'], 'string'],
-            [['username', 'password', 'email', 'password_hash', 'password_reset_token', 'id_number'], 'string', 'max' => 100],
-            [['auth_key'], 'string', 'max' => 32],
+
+            [['avatar'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',],
+
+            [['sex', 'status', 'role', 'id_verify_status', 'profile'], 'string'],
+            [['sex','id_verify_status'],'in',
+                'range'=>[\common\models\User::SEX_MAN,\common\models\User::SEX_WOMAN]],
+            [['role'],'in',
+                'range'=>[\common\models\User::ROLE_ADMIN,\common\models\User::ROLE_GALLERY_ADMIN,\common\models\User::ROLE_ARTIST]
+            ],
+
+            [['created_at', 'updated_at', 'type'], 'integer'],
+            [['username', 'password', 'email', 'id_number', 'password_hash', 'password_reset_token'], 'string', 'max' => 100],
             [['display_name'], 'string', 'max' => 50],
-            [['realname', 'address', 'workplace'], 'string', 'max' => 255],
+            [['avatar', 'address', 'realname', 'workplace'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 20],
             [['publish_books'], 'string', 'max' => 600],
-            [['avatar'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',],
+            [['auth_key'], 'string', 'max' => 32]
         ];
     }
 
@@ -77,27 +86,27 @@ class User extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app-gallery', 'ID'),
             'username' => Yii::t('app-gallery', 'Username'),
+            'display_name' => Yii::t('app-gallery', 'Display Name'),
+            'avatar' => Yii::t('app-gallery', 'Avatar'),
             'password' => Yii::t('app-gallery', 'Password'),
+            'sex' => Yii::t('app-gallery', 'Sex'),
+            'address' => Yii::t('app-gallery', 'Address'),
+            'phone' => Yii::t('app-gallery', 'Phone'),
             'email' => Yii::t('app-gallery', 'Email'),
-            'status' => Yii::t('app-gallery', 'User Status'),
+            'status' => Yii::t('app-gallery', 'Login Status'),
+            'role' => Yii::t('app-gallery', 'Role'),
+            'realname' => Yii::t('app-gallery', 'Realname'),
+            'id_number' => Yii::t('app-gallery', 'Id Number'),
+            'id_verify_status' => Yii::t('app-gallery', 'Id Verify Status'),
+            'workplace' => Yii::t('app-gallery', 'Workplace'),
+            'profile' => Yii::t('app-gallery', 'Profile'),
+            'publish_books' => Yii::t('app-gallery', 'Publish Books'),
             'created_at' => Yii::t('app-gallery', 'Created At'),
             'updated_at' => Yii::t('app-gallery', 'Updated At'),
             'password_hash' => Yii::t('app-gallery', 'Password Hash'),
             'password_reset_token' => Yii::t('app-gallery', 'Password Reset Token'),
             'auth_key' => Yii::t('app-gallery', 'Auth Key'),
-            'role' => Yii::t('app-gallery', 'Role'),
-            'display_name' => Yii::t('app-gallery', 'Nickname'),
             'type' => Yii::t('app-gallery', 'Type'),
-            'realname' => Yii::t('app-gallery', 'Realname'),
-            'address' => Yii::t('app-gallery', 'Address'),
-            'phone' => Yii::t('app-gallery', 'Phone'),
-            'id_number' => Yii::t('app-gallery', 'Id Number'),
-            'id_verify_status' => Yii::t('app-gallery', 'Id Verify Status'),
-            'workplace' => Yii::t('app-gallery', 'Workplace'),
-            'profile' => Yii::t('app-gallery', 'Profile'),
-            'sex' => Yii::t('app-gallery', 'Sex'),
-            'avatar' => Yii::t('app-gallery', 'Avatar'),
-            'publish_books' => Yii::t('app-gallery', 'Publish Books'),
         ];
     }
 

@@ -3,9 +3,11 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model backend\models\UserSearch */
-/* @var $form yii\widgets\ActiveForm */
+/**
+ * @var yii\web\View $this
+ * @var backend\models\UserSearch $model
+ * @var yii\widgets\ActiveForm $form
+ */
 ?>
 
 <div class="user-search">
@@ -15,15 +17,39 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php //echo $form->field($model, 'id') ?>
 
     <?= $form->field($model, 'username') ?>
 
-    <?= $form->field($model, 'password') ?>
+    <?= $form->field($model, 'display_name') ?>
 
-    <?= $form->field($model, 'email') ?>
+    <?php  echo $form->field($model, 'address') ?>
 
-    <?= $form->field($model, 'status') ?>
+    <?php  echo $form->field($model, 'phone') ?>
+
+    <?php  echo $form->field($model, 'email') ?>
+
+    <?php  echo $form->field($model, 'realname') ?>
+
+    <?php // echo $form->field($model, 'avatar') ?>
+
+    <?php// echo $form->field($model, 'password') ?>
+
+    <?php // echo $form->field($model, 'sex') ?>
+
+    <?php // echo $form->field($model, 'status') ?>
+
+    <?php // echo $form->field($model, 'role') ?>
+
+    <?php // echo $form->field($model, 'id_number') ?>
+
+    <?php // echo $form->field($model, 'id_verify_status') ?>
+
+    <?php // echo $form->field($model, 'workplace') ?>
+
+    <?php // echo $form->field($model, 'profile') ?>
+
+    <?php // echo $form->field($model, 'publish_books') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
 
@@ -35,29 +61,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'auth_key') ?>
 
-    <?php // echo $form->field($model, 'role') ?>
-
-    <?php // echo $form->field($model, 'display_name') ?>
-
     <?php // echo $form->field($model, 'type') ?>
-
-    <?php // echo $form->field($model, 'realname') ?>
-
-    <?php // echo $form->field($model, 'address') ?>
-
-    <?php // echo $form->field($model, 'phone') ?>
-
-    <?php // echo $form->field($model, 'id_number') ?>
-
-    <?php // echo $form->field($model, 'id_verify_status') ?>
-
-    <?php // echo $form->field($model, 'workplace') ?>
-
-    <?php // echo $form->field($model, 'profile') ?>
-
-    <?php // echo $form->field($model, 'sex') ?>
-
-    <?php // echo $form->field($model, 'publish_books') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app-gallery', 'Search'), ['class' => 'btn btn-primary']) ?>

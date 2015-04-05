@@ -1,33 +1,47 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use kartik\widgets\ActiveForm;
+use kartik\builder\Form;
+use kartik\datecontrol\DateControl;
 
-/* @var $this yii\web\View */
-/* @var $model backend\models\Article */
-/* @var $form yii\widgets\ActiveForm */
+/**
+ * @var yii\web\View $this
+ * @var backend\models\Article $model
+ * @var yii\widgets\ActiveForm $form
+ */
 ?>
 
 <div class="article-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['type'=>ActiveForm::TYPE_HORIZONTAL]); echo Form::widget([
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => 255]) ?>
+    'model' => $model,
+    'form' => $form,
+    'columns' => 1,
+    'attributes' => [
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+'title'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 标题...', 'maxlength'=>255]], 
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+'created_at'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]], 
 
-    <?= $form->field($model, 'user_id')->textInput(['maxlength' => 20]) ?>
+'content'=>['type'=> Form::INPUT_TEXTAREA, 'options'=>['placeholder'=>'Enter 内容...','rows'=> 6]], 
 
-    <?= $form->field($model, 'user_realname')->textInput(['maxlength' => 255]) ?>
+'gallery_name'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Gallery Name...', 'maxlength'=>255]], 
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+'user_realname'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 用户姓名...', 'maxlength'=>255]], 
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app-gallery', 'Create') : Yii::t('app-gallery', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
+'updated_at'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]], 
 
-    <?php ActiveForm::end(); ?>
+'gallery_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 所属美术馆...', 'maxlength'=>20]], 
+
+'user_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 用户...', 'maxlength'=>20]], 
+
+    ]
+
+
+    ]);
+    echo Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']);
+    ActiveForm::end(); ?>
 
 </div>

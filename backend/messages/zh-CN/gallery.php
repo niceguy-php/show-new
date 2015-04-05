@@ -73,7 +73,7 @@ return [
     'Artists'=>'参展艺术家',
 
     //User
-    'User Status'=>'用户状态',
+    'Login Status'=>'用户状态',
     'Role'=>'用户角色',
     'Realname'=>'真实姓名',
     'Id Number'=>'身份证号',
@@ -89,6 +89,18 @@ return [
     'Avatar'=>'头像',
     'Personal Info Setting'=>'个人设置',
     'Edit Personal Info'=>'编辑：',
+    'Display Name'=>'昵称',
+    'Male'=>'男',
+    'Female'=>'女',
+    'Admin'=>'超级管理员',
+    'Gallery Admin'=>'美术馆管理员',
+    'Artist'=>'艺术家',
+    'User'=>'普通用户',
+    'Allow Login'=>'允许登录',
+    'Forbid Login'=>'禁止登录',
+    'Yes'=>'审核通过',
+    'No'=>'审核失败',
+    ''=>'',
 
 
     //系统统一的一些配置

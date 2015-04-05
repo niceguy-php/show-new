@@ -2,8 +2,10 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model backend\models\Article */
+/**
+ * @var yii\web\View $this
+ * @var backend\models\Article $model
+ */
 
 $this->title = Yii::t('app-gallery', 'Update {modelClass}: ', [
     'modelClass' => 'Article',

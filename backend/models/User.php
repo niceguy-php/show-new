@@ -56,14 +56,34 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username','display_name','sex','email'],'required'],
+            [['username'],'required','when'=>function(){
+                return \common\models\User::isAdmin();
+            }],
+            [['display_name','sex','email'],'required'],
+
+            ['username', 'string', 'min' => 2, 'max' => 255],
+
+            ['email', 'filter', 'filter' => 'trim'],
+            ['email', 'required'],
+            ['email', 'email'],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => \Yii::t('app-gallery','This email address has already been taken.')],
+
+            ['password', 'required'],
+            ['password', 'string', 'min' => 6],
+
             [['username'],'unique','message'=>\Yii::t('app-gallery','This username has already been taken.')],
 
             [['avatar'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',],
 
-            [['sex', 'status', 'role', 'id_verify_status', 'profile'], 'string'],
+            [['profile'], 'string'],
+            ['status', 'default', 'value' => \common\models\User::STATUS_ACTIVE],
+
+
             [['sex','id_verify_status'],'in',
                 'range'=>[\common\models\User::SEX_MAN,\common\models\User::SEX_WOMAN]],
+            ['sex', 'default', 'value' => \common\models\User::SEX_MAN],
+            ['id_verify_status', 'default', 'value' => \common\models\User::USER_VERIFY_FAIL],
+
             [['role'],'in',
                 'range'=>[\common\models\User::ROLE_ADMIN,\common\models\User::ROLE_GALLERY_ADMIN,\common\models\User::ROLE_ARTIST]
             ],
@@ -71,7 +91,7 @@ class User extends \yii\db\ActiveRecord
             [['created_at', 'updated_at', 'type'], 'integer'],
             [['username', 'password', 'email', 'id_number', 'password_hash', 'password_reset_token'], 'string', 'max' => 100],
             [['display_name'], 'string', 'max' => 50],
-            [['avatar', 'address', 'realname', 'workplace'], 'string', 'max' => 255],
+            [['address', 'realname', 'workplace'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 20],
             [['publish_books'], 'string', 'max' => 600],
             [['auth_key'], 'string', 'max' => 32]

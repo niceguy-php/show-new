@@ -2,23 +2,21 @@
 
 use yii\helpers\Html;
 
-
-/* @var $this yii\web\View */
-/* @var $model backend\models\Gallery */
+/**
+ * @var yii\web\View $this
+ * @var backend\models\Gallery $model
+ */
 
 $this->title = Yii::t('app-gallery', 'Create Gallery');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app-gallery', 'Galleries'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
-
 <div class="gallery-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
+    <div class="page-header">
+        <h1><?= Html::encode($this->title) ?></h1>
+    </div>
     <?= $this->render('_form', [
         'model' => $model,
-        'oneLevelAddress'=>$oneLevelAddress
     ]) ?>
 
 </div>

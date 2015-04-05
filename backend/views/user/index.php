@@ -5,7 +5,6 @@ use kartik\grid\GridView;
 use yii\widgets\Pjax;
 
 
-
 $roles = ['1'=>Yii::t('app-gallery', 'Admin'),
     '2'=>Yii::t('app-gallery', 'Gallery Admin'),
     '3'=>Yii::t('app-gallery', 'Admin'),
@@ -16,7 +15,7 @@ $roles = ['1'=>Yii::t('app-gallery', 'Admin'),
  * @var backend\models\UserSearch $searchModel
  */
 
-$this->title = Yii::t('app-gallery', 'Users');
+$this->title = $roles== \common\models\User::isAdmin() ? Yii::t('app-gallery', 'Users') : Yii::t('app-gallery', 'Personal Info Setting');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
@@ -70,6 +69,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                                   ]);}
 
                 ],
+                'template'=>\common\models\User::isAdmin()?'{view} {update} {delete}':'{view} {update}',
+
             ],
         ],
         'responsive'=>true,
@@ -84,8 +85,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'panel' => [
             'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-th-list"></i> '.Html::encode($this->title).' </h3>',
             'type'=>'info',
-            'before'=>Html::a('<i class="glyphicon glyphicon-plus"></i> '.\Yii::t('app','Add'), ['create'], ['class' => 'btn btn-success']),
-            'after'=>Html::a('<i class="glyphicon glyphicon-repeat"></i>'.\Yii::t('app','Reset List'), ['index'], ['class' => 'btn btn-info']),
+            'before'=>\common\models\User::isAdmin() ? Html::a('<i class="glyphicon glyphicon-plus"></i> '.\Yii::t('app','Add'), ['create'], ['class' => 'btn btn-success']):'',
+            'after'=>\common\models\User::isAdmin() ? Html::a('<i class="glyphicon glyphicon-repeat"></i>'.\Yii::t('app','Reset List'), ['index'], ['class' => 'btn btn-info']):'',
             'showFooter'=>false
         ],
     ]); Pjax::end(); ?>

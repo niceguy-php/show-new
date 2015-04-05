@@ -3,9 +3,11 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model backend\models\GallerySearch */
-/* @var $form yii\widgets\ActiveForm */
+/**
+ * @var yii\web\View $this
+ * @var backend\models\GallerySearch $model
+ * @var yii\widgets\ActiveForm $form
+ */
 ?>
 
 <div class="gallery-search">
@@ -24,6 +26,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'created_at') ?>
 
     <?= $form->field($model, 'address') ?>
+
+    <?php // echo $form->field($model, 'logo') ?>
 
     <?php // echo $form->field($model, 'history_profile') ?>
 

@@ -9,7 +9,9 @@ use yii\bootstrap\ActiveForm;
 $this->title = \Yii::t('app-gallery','Signup');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-signup">
+<div class="container">
+
+<div class="site-signup" >
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p><?=\Yii::t('app-gallery','Please fill out the following fields to signup:');?></p>
@@ -23,10 +25,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'password')->passwordInput() ?>
                 <!--<?= $form->field($model, 'role')->dropDownList(['2'=>'美术馆','3'=>'艺术家','4'=>'普通用户']) ?>-->
 
+                <div style="color:#999;margin:1em 0">
+                    <?=\Yii::t('app-gallery','Already have a account ')?><?= Html::a(\Yii::t('app-gallery','Login'), ['site/login']) ?>.
+                </div>
+
                 <div class="form-group">
                     <?= Html::submitButton(\Yii::t('app-gallery','Signup'), ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>
             <?php ActiveForm::end(); ?>
         </div>
     </div>
+</div>
+
 </div>

@@ -99,9 +99,11 @@ class UserController extends Controller
                 $model->created_at = time();
                 if ($model->save()) {
                     return $this->redirect(['view', 'id' => $model->id]);
+                }else{
+                    return $this->render('create', [
+                        'model' => $model,
+                    ]);
                 }
-                //var_dump($model->errors);
-                //return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('create', [
                     'model' => $model,
@@ -142,6 +144,7 @@ class UserController extends Controller
                     $model->avatar = $logoPath;
                 }
             }
+
             $model->updated_at = time();;
 
             //不为admin的时候删除无权操作的字段，在进行保存
@@ -149,6 +152,7 @@ class UserController extends Controller
                 unset($model->id_verify_status);
                 unset($model->status);
                 unset($model->role);
+                unset($model->username);
             }
 
             if(isset($model->password) && $model != '!@#********!@#'){
@@ -159,7 +163,12 @@ class UserController extends Controller
             if($model->save()){
 
                 return $this->redirect(['view', 'id' => $model->id]);
+            }else{
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
             }
+
         } else {
             return $this->render('update', [
                 'model' => $model,

@@ -9,7 +9,7 @@ use yii\bootstrap\ActiveForm;
 $this->title = \Yii::t('app-gallery','Login');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login">
+<div class="site-login" >
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p><?=\Yii::t('app-gallery','Please fill out the following fields to login:')?></p>

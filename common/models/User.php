@@ -43,6 +43,14 @@ class User extends ActiveRecord implements IdentityInterface
     private $auth_key;
     private $password;*/
 
+    public static function isAdmin()
+    {
+        return \Yii::$app->session->get('user')['role']==self::ROLE_ADMIN;
+    }
+
+    public static function loginUser(){
+        return \Yii::$app->session->get('user');
+    }
 
     /**
      * @inheritdoc

@@ -28,7 +28,12 @@ class UserSearch extends User
 
     public function search($params)
     {
-        $query = User::find();
+        $loginUser = \Yii::$app->session->get('user');
+        if($loginUser['role'] == \common\models\User::ROLE_ADMIN){
+            $query = User::find();
+        }else{
+            $query = User::find()->where(['id'=>$loginUser['id']]);
+        }
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

@@ -2,7 +2,7 @@
 
 namespace backend\controllers;
 
-
+use common\models\User;
 use Yii;
 use backend\models\Gallery;
 use backend\models\GallerySearch;
@@ -10,7 +10,6 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
-use common\models\Area;
 
 /**
  * GalleryController implements the CRUD actions for Gallery model.
@@ -20,6 +19,7 @@ class GalleryController extends Controller
     public $uploadPath = '../web/uploads/gallery_logo/';
     public $dbUploadPath = '/uploads/gallery_logo/';
     public $defaultLogo = 'default.png';
+
     public function behaviors()
     {
         return [
@@ -38,12 +38,12 @@ class GalleryController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new GallerySearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $searchModel = new GallerySearch;
+        $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
         ]);
     }
 
@@ -54,9 +54,13 @@ class GalleryController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+        return $this->render('view', ['model' => $model]);
+}
     }
 
     /**
@@ -81,14 +85,20 @@ class GalleryController extends Controller
                     $model->logo = $this->dbUploadPath . $this->defaultLogo;
                 }
             }
+            if(!User::isAdmin()){
+                $model->user_id = User::loginUser()['id'];
+            }
             $model->created_at = date('Y-m-d H:i:s',time());
             if($model->save()){
                 return $this->redirect(['view', 'id' => $model->id]);
+            }else{
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
             }
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'oneLevelAddress'=>Area::oneLevel(),
             ]);
         }
     }
@@ -111,7 +121,12 @@ class GalleryController extends Controller
                     $ext = $logo->extension;
                     $logo->saveAs($this->uploadPath . $filename . '.' . $ext);
                     $model->logo = $this->dbUploadPath . $filename . '.' . $ext;
-                    unlink($this->uploadPath.basename($logoPath));
+
+                    $full_name = $this->uploadPath.basename($logoPath);
+                    if(is_file($full_name)){
+                        unlink($full_name);
+                    }
+
                 }else{
                     $model->logo = $logoPath;
                 }
@@ -119,6 +134,10 @@ class GalleryController extends Controller
             $model->updated_at = date('Y-m-d H:i:s',time());
             if($model->save()){
                 return $this->redirect(['view', 'id' => $model->id]);
+            }else{
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
             }
 
         } else {

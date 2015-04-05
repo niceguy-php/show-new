@@ -79,5 +79,7 @@ return [
     'Username'=>'帐号',
     'Password'=>'密码',
     'Remember Me'=>'记住密码',
+
+    'Login'=>'登录',
 ];
 ?>

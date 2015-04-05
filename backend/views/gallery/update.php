@@ -2,8 +2,10 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model backend\models\Gallery */
+/**
+ * @var yii\web\View $this
+ * @var backend\models\Gallery $model
+ */
 
 $this->title = Yii::t('app-gallery', 'Update Gallery: ') . ' ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app-gallery', 'Galleries'), 'url' => ['index']];

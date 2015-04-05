@@ -1,58 +1,63 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use yii\helpers\Url;
-
-/* @var $this yii\web\View */
-/* @var $model backend\models\Gallery */
-/* @var $form yii\widgets\ActiveForm */
+use kartik\widgets\ActiveForm;
+use kartik\builder\Form;
+use kartik\datecontrol\DateControl;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
+/**
+ * @var yii\web\View $this
+ * @var backend\models\Gallery $model
+ * @var yii\widgets\ActiveForm $form
+ */
 ?>
-<? $this->beginBlock('myjs') ?>
-$("#gallery-address").change(function(){
-var area_id = $(this).val();
-$.ajax({
-    type: "POST",
-    url: "/area/list",
-    data:{id:area_id},
-    dataType: "json",
-    success:function(data){
-        console.log(data);
-    }
-});
-//$.ajax();
-});
-<?php $this->endBlock()?>
-<!--<?php $this->registerJs($this->blocks['myjs'],yii\web\View::POS_LOAD)?>-->
 
 <div class="gallery-form">
 
-    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data'],'type'=>ActiveForm::TYPE_HORIZONTAL]);
+    echo $form->field($model, 'user_id')->widget(Select2::classname(), [
+        'data' => array_merge(["" => ""], ArrayHelper::map(\backend\models\User::find()->all(),'id','username')),
+        'language' => 'zh',
+        'options' => ['placeholder' => 'Select ...'],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ]);
+    echo Form::widget([
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
+    'model' => $model,
+    'form' => $form,
+    'columns' => 1,
+    'attributes' => [
+'name'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入名称...', 'maxlength'=>255]],
 
-    <?= $form->field($model, 'logo')->fileInput() ?>
+'master_word'=>['type'=> Form::INPUT_TEXTAREA, 'options'=>['placeholder'=>'输入馆长寄语...', 'maxlength'=>600]],
 
-    <?= $form->field($model, 'master_word')->textarea(['rows' => 3,'maxlength' => 600]) ?>
+'created_at'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]],
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+'address'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入地址...', 'maxlength'=>300]],
 
-    <?= $form->field($model, 'address')->textInput(['maxlength'=>255])?>
+'history_profile'=>['type'=> Form::INPUT_TEXTAREA, 'options'=>['placeholder'=>'输入馆史...', 'maxlength'=>600]],
 
-    <?= $form->field($model, 'history_profile')->textarea(['rows' => 3,'maxlength' => 600]) ?>
+'phone'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入联系电话...', 'maxlength'=>20]],
 
-    <?= $form->field($model, 'phone')->textInput(['maxlength' => 20]) ?>
+'email'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入电子邮箱...', 'maxlength'=>100]],
 
-    <?= $form->field($model, 'fax')->textInput(['maxlength' => 50]) ?>
+//'updated_at'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]],
 
-    <?= $form->field($model, 'email')->textInput(['maxlength' => 100]) ?>
+'logo'=>['type'=> Form::INPUT_FILE, 'options'=>['placeholder'=>'Enter Logo...', 'maxlength'=>255]],
 
-    <?= $form->field($model, 'postcode')->textInput(['maxlength' => 20]) ?>
+'postcode'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入邮编...', 'maxlength'=>20]],
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app-gallery', 'Create') : Yii::t('app-gallery', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
+'fax'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入传真...', 'maxlength'=>50]],
 
-    <?php ActiveForm::end(); ?>
+    ]
+
+
+    ]);
+    echo Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'),
+        ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']);
+    ActiveForm::end(); ?>
 
 </div>

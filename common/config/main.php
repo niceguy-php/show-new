@@ -1,4 +1,5 @@
 <?php
+use kartik\datecontrol\Module;
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'language' => 'zh-CN',
@@ -29,25 +30,20 @@ return [
         'datecontrol' =>  [
             'class' => 'kartik\datecontrol\Module',
 
-            // format settings for displaying each date attribute
+            // format settings for displaying each date attribute (ICU format example)
             'displaySettings' => [
-                'date' => 'Y-m-d',
-                'time' => 'H:i:s',
-                'datetime' => 'Y-m-d H:i:s',
+                Module::FORMAT_DATE => 'yyyy-MM-dd',
+                Module::FORMAT_TIME => 'HH:mm:ss',
+                Module::FORMAT_DATETIME => 'yyyy-MM-dd HH:mm:ss',
             ],
 
-            // format settings for saving each date attribute
+            // format settings for saving each date attribute (PHP format example)
             'saveSettings' => [
-                'date' => 'Y-m-d',
-                'time' => 'H:i:s',
-                'datetime' => 'Y-m-d H:i:s',
+                Module::FORMAT_DATE => 'php:U', // saves as unix timestamp
+                Module::FORMAT_TIME => 'php:H:i:s',
+                Module::FORMAT_DATETIME => 'php:Y-m-d H:i:s',
             ],
-
-
-
-            // automatically use kartik\widgets for each of the above formats
             'autoWidget' => true,
-
         ]
     ],
 ];

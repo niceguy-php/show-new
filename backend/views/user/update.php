@@ -7,7 +7,7 @@ use yii\helpers\Html;
  * @var backend\models\User $model
  */
 
-$this->title = Yii::t('app-gallery', 'Update User: ') . ' ' . $model->id;
+$this->title = Yii::t('app-gallery', 'Update User: ') . ' ' . $model->username;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app-gallery', 'Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app-gallery', 'Update');

@@ -25,14 +25,15 @@ return [
     'Fax'=>'传真',
     'Email'=>'电子邮箱',
     'Postcode'=>'邮编',
-    'Galleries'=>'美术馆列表',
+    'Galleries'=>'美术馆',
     'Create Gallery'=>'创建美术馆',
      'Home'=>'首页',
      'Logout'=>'注销',
      'Login'=>'登录',
-    'Gallery Logo'=>'馆徽',
+    'Gallery Logo'=>'馆徽图标',
     'Update Gallery: '=>'编辑美术馆：',
     'Gallery Created At'=>'建馆时间',
+    'User Id'=>'所属用户',
 
     //article
      'Create Article'=>'发布文章',
@@ -131,6 +132,7 @@ return [
     'This username has already been taken.'=>'用户名已经被占用',
     'This email address has already been taken.'=>'邮箱已经被占用',
     'Role'=>'用户类型',
+    'Already have a account '=>'已有账号？',
 
 ];
 ?>

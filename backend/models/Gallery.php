@@ -19,6 +19,7 @@ use Yii;
  * @property string $email
  * @property string $postcode
  * @property string $updated_at
+ * @property String
  *
  * @property Article[] $articles
  * @property ExhibitionHall[] $exhibitionHalls

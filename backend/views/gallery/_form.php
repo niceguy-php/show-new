@@ -11,13 +11,14 @@ use yii\helpers\ArrayHelper;
  * @var backend\models\Gallery $model
  * @var yii\widgets\ActiveForm $form
  */
+//var_dump(ArrayHelper::map(\backend\models\User::find()->all(),'id','username'));
 ?>
 
 <div class="gallery-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data'],'type'=>ActiveForm::TYPE_HORIZONTAL]);
     echo $form->field($model, 'user_id')->widget(Select2::classname(), [
-        'data' => array_merge(["" => ""], ArrayHelper::map(\backend\models\User::find()->all(),'id','username')),
+        'data' => ArrayHelper::map(\backend\models\User::find()->all(),'id','username'),
         'language' => 'zh',
         'options' => ['placeholder' => 'Select ...'],
         'pluginOptions' => [

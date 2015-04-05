@@ -29,7 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'type'=>DetailView::TYPE_INFO,
         ],
         'attributes' => [
-            'id',
+            //'user_id',
+            ['attribute'=>'user_id','value'=>\common\models\User::findOne(['id'=>$model->user_id])['username']],
             'name',
             'master_word',
             [

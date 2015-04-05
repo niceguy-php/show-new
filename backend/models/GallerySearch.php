@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use common\models\User;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -16,7 +17,7 @@ class GallerySearch extends Gallery
     {
         return [
             [['id'], 'integer'],
-            [['name', 'master_word', 'created_at', 'address', 'logo', 'history_profile', 'phone', 'fax', 'email', 'postcode', 'updated_at'], 'safe'],
+            [['name', 'master_word', 'created_at', 'address', 'logo', 'history_profile', 'phone', 'fax', 'email', 'postcode', 'updated_at','user_name'], 'safe'],
         ];
     }
 
@@ -28,7 +29,12 @@ class GallerySearch extends Gallery
 
     public function search($params)
     {
-        $query = Gallery::find();
+        if(User::isAdmin()){
+            $query = Gallery::find();
+        }else{
+            $query = Gallery::find()->where(['user_id'=>User::loginUser()['id']]);
+        }
+
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -52,7 +58,8 @@ class GallerySearch extends Gallery
             ->andFilterWhere(['like', 'phone', $this->phone])
             ->andFilterWhere(['like', 'fax', $this->fax])
             ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'postcode', $this->postcode]);
+            ->andFilterWhere(['like', 'postcode', $this->postcode])
+            ->andFilterWhere(['like', 'user_name', $this->user_name]);
 
         return $dataProvider;
     }

@@ -17,14 +17,17 @@ use yii\helpers\ArrayHelper;
 <div class="gallery-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data'],'type'=>ActiveForm::TYPE_HORIZONTAL]);
-    echo $form->field($model, 'user_id')->widget(Select2::classname(), [
-        'data' => ArrayHelper::map(\backend\models\User::find()->all(),'id','username'),
-        'language' => 'zh',
-        'options' => ['placeholder' => 'Select ...'],
-        'pluginOptions' => [
-            'allowClear' => true
-        ],
-    ]);
+    if(\common\models\User::isAdmin()){
+        echo $form->field($model, 'user_id')->widget(Select2::classname(), [
+            'data' => ArrayHelper::map(\backend\models\User::find()->all(),'id','username'),
+            'language' => 'zh',
+            'options' => ['placeholder' => 'Select ...'],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]);
+    }
+
     echo Form::widget([
 
     'model' => $model,

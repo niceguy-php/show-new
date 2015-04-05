@@ -90,6 +90,7 @@ class GalleryController extends Controller
                 $model->user_name = User::loginUser()['username'];
             }
             $model->user_id = intval($model->user_id);
+            $model->user_name = User::findOne(['id'=>$model->user_id])['username'];
             $model->created_at = date('Y-m-d H:i:s',time());
             if($model->save()){
                 return $this->redirect(['view', 'id' => $model->id]);
@@ -115,11 +116,9 @@ class GalleryController extends Controller
     {
         $model = $this->findModel($id);
         $logoPath = $model->logo;
-        $post = Yii::$app->request->post();
-        if(isset($post['user_id']))
-        $post['user_id'] = intval($post['user_id']);
+
         //var_dump(Yii::$app->request->post());return;
-        if ($model->load($post)) {
+        if ($model->load( Yii::$app->request->post())) {
             $logo = UploadedFile::getInstance($model, 'logo');
             if ( $model->validate()) {
                 $filename = time().rand(1000,9999);
@@ -142,6 +141,7 @@ class GalleryController extends Controller
                 $model->user_name = User::loginUser()['username'];
             }
             $model->user_id = intval($model->user_id);
+            $model->user_name = User::findOne(['id'=>$model->user_id])['username'];
             //var_dump($model);return;
             $model->updated_at = date('Y-m-d H:i:s',time());
             if($model->save()){

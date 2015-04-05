@@ -18,8 +18,9 @@ use Yii;
  * @property string $fax
  * @property string $email
  * @property string $postcode
+ * @property string $user_name
+ * @property string $user_id
  * @property string $updated_at
- * @property String
  *
  * @property Article[] $articles
  * @property ExhibitionHall[] $exhibitionHalls
@@ -40,6 +41,7 @@ class Gallery extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+
             [['name', 'master_word', 'created_at', 'address', 'history_profile', 'phone', 'email'], 'required'],
             [['created_at', 'updated_at'], 'safe'],
             [['name', 'logo'], 'string', 'max' => 255],
@@ -48,6 +50,7 @@ class Gallery extends \yii\db\ActiveRecord
             [['phone', 'postcode'], 'string', 'max' => 20],
             [['fax'], 'string', 'max' => 50],
             [['email'], 'string', 'max' => 100],
+            [['user_id'], 'integer'],
 
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'email'],
@@ -73,8 +76,9 @@ class Gallery extends \yii\db\ActiveRecord
             'fax' => Yii::t('app-gallery', 'Fax'),
             'email' => Yii::t('app-gallery', 'Email'),
             'postcode' => Yii::t('app-gallery', 'Postcode'),
+            'user_name' => Yii::t('app-gallery', 'User Name'),
+            'user_id' => Yii::t('app-gallery', 'User Id'),
             'updated_at' => Yii::t('app-gallery', 'Updated At'),
-            'user_id'=>Yii::t('app-gallery', 'User Id'),
         ];
     }
 

@@ -17,7 +17,7 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php //echo $form->field($model, 'id') ?>
 
     <?= $form->field($model, 'name') ?>
 
@@ -26,6 +26,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'created_at') ?>
 
     <?= $form->field($model, 'address') ?>
+
+    <?= $form->field($model, 'user_name') ?>
 
     <?php // echo $form->field($model, 'logo') ?>
 

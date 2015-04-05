@@ -104,6 +104,11 @@ return [
     ''=>'',
 
 
+    //show room
+    'Show Rooms'=>'沽雅展厅',
+    'Room Status'=>'展厅状态',
+    'Create Show Room'=>'创建展厅',
+
     //系统统一的一些配置
     'reset it'=>'重置密码',
     'Description'=>'描述',

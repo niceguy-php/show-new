@@ -1,6 +1,8 @@
 <?php
 namespace backend\controllers;
 
+use backend\models\Gallery;
+use backend\models\ShowRoom;
 use Yii;
 use common\models\LoginForm;
 use backend\models\PasswordResetRequestForm;
@@ -162,6 +164,12 @@ class SiteController extends Controller
                         $session->open();
                     }
                     $session->set('user',$user);
+
+                    $gallery = new Gallery();
+                    $showroom = new ShowRoom();
+                    $gallery->addDefaultGallery();
+                    $showroom->addDefaultShowRoom();
+
                     return $this->goHome();
                 }
             }

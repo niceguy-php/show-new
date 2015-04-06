@@ -12,8 +12,9 @@ $this->title = \Yii::t('app-gallery','GoolYa');
         <h1><?=\Yii::t('app-gallery','Welcome to GoolYa')?></h1>
 
         <p class="lead"><?=\Yii::t('app-gallery','GoolYa Description')?></p>
-
-        <p><?= Html::a(\Yii::t('app-gallery','join us'), ['site/login'],['class' => 'btn btn-lg btn-success']) ?></p>
+        <?php if(!\common\models\User::loginUser()){?>
+        <p><?= Html::a(\Yii::t('app-gallery','join us'), ['site/signup'],['class' => 'btn btn-lg btn-success']) ?>&nbsp;&nbsp;<?= Html::a(\Yii::t('app-gallery','Login Now'), ['site/login'],['class' => 'btn btn-lg btn-success']) ?></p>
+        <?php } ?>
     </div>
 
     <div class="body-content hide">

@@ -100,16 +100,20 @@ class Gallery extends \yii\db\ActiveRecord
 
     public function addDefaultGallery()
     {
+
         $loginUser = \Yii::$app->session->get('user');
-        $this->insertInternal(['name'=>'我的美术馆',
+        \Yii::$app->db->createCommand()->insert('gallery',['name'=>'我的美术馆',
             'master_word'=>'艺术之美，在于分享',
             'created_at'=>date('Y-m-d H:i:s',time()),
             'address'=>'成都',
             'logo'=>'/uploads/gallery_logo/default.png',
             'history_profile'=>'我的美术展馆里面有很多珍贵的艺术品哟~',
             'phone'=>'12345678910',
-            'email'=>'test@goolya.com'
-        ]);
+            'email'=>'test@goolya.com',
+            'user_id'=>$loginUser['id'],
+            'user_name'=>$loginUser['username']
+        ])->execute();
+
 
     }
 }

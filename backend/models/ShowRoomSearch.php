@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use common\models\User;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -28,7 +29,12 @@ class ShowRoomSearch extends ShowRoom
 
     public function search($params)
     {
-        $query = ShowRoom::find();
+        if(User::isAdmin()){
+            $query = ShowRoom::find();
+        }else{
+            $query = ShowRoom::find()->where(['user_id'=>User::loginUser()['id']]);
+        }
+
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

@@ -21,7 +21,8 @@ use Yii;
  */
 class ShowRoom extends \yii\db\ActiveRecord
 {
-    const MAX_ROOM = 5;
+    const OPEN = 1;
+    const CLOSE = 0;
     /**
      * @inheritdoc
      */
@@ -73,16 +74,26 @@ class ShowRoom extends \yii\db\ActiveRecord
     public function addDefaultShowRoom()
     {
         $loginUser = \Yii::$app->session->get('user');
-        for($i=0; $i++; $i < self::MAX_ROOM){
 
-            $this->insertInternal(['name'=>'山水田园展厅',
-                                'description'=>'与大自然近距离接触，畅游其间',
-                                'user_id'=>$loginUser['id'],
-                                'user_name'=>$loginUser['user_name'],
-                                'status'=>1,
-                                'created_at'=>date('Y-m-d H:i:s',time())
-            ]);
+
+        //$dbUser = User::find(['id'=>$loginUser['id']]);
+        //$num =  empty($dbUser->show_room_num)? 5 : $dbUser->show_room_num ;
+        $num = 5;
+        for($i=1; $i<= $num; $i++)
+        {
+            \Yii::$app->db->createCommand()->insert('show_room',['name'=>'沽雅展厅'.$i,
+                'description'=>'沽雅展厅可以创建一些风格各异或者有一定特色的画展，每个沽雅展厅可以上传相应风格的艺术图片~',
+                'user_id'=>$loginUser['id'],
+                'user_name'=>$loginUser['username'],
+                'status'=>0,
+                'created_at'=>date('Y-m-d H:i:s',time())
+            ])->execute();
 
         }
+        //echo '<br/>';
+        //echo '<br/>';
+        //echo '<br/>';
+//        var_dump($dbUser);
+
     }
 }

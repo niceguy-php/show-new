@@ -169,8 +169,10 @@ class SiteController extends Controller
                     $showroom = new ShowRoom();
                     $gallery->addDefaultGallery();
                     $showroom->addDefaultShowRoom();
+                    //var_dump($gallery->errors);
+                    //var_dump($showroom->errors);
 
-                    return $this->goHome();
+                    //return $this->goHome();
                 }
             }
         }

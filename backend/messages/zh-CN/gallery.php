@@ -25,7 +25,8 @@ return [
     'Fax'=>'传真',
     'Email'=>'电子邮箱',
     'Postcode'=>'邮编',
-    'Galleries'=>'美术馆',
+    'Galleries'=>'我的美术馆',
+    'My Galleries'=>'我的美术馆',
     'Create Gallery'=>'创建美术馆',
      'Home'=>'首页',
      'Logout'=>'注销',
@@ -101,13 +102,18 @@ return [
     'Forbid Login'=>'禁止登录',
     'Yes'=>'审核通过',
     'No'=>'审核失败',
-    ''=>'',
+    'Login Now'=>'马上登录',
+    'The Number of Galleries'=>'美术馆数量',
+    'The Number of Show Rooms'=>'沽雅展厅数量',
 
 
     //show room
     'Show Rooms'=>'沽雅展厅',
     'Room Status'=>'展厅状态',
     'Create Show Room'=>'创建展厅',
+    'Update Show Room'=>'更新展厅',
+    'Open'=>'开放',
+    'Close'=>'关闭',
 
     //系统统一的一些配置
     'reset it'=>'重置密码',
@@ -129,6 +135,9 @@ return [
     'My Company'=>'沽雅美术馆',
     'Gallery ID'=>'所属美术馆',
 
+    //Article
+    'Gallery Name'=>'美术馆名称',
+
     //alert or warn message
     'You are not allowed to access this page'=>'请先登录，不允许访问此页面！',
     'Please fill out the following fields to signup:'=>'请输入账号、邮箱、密码信息，欢迎加入沽雅美术馆~',
@@ -138,6 +147,8 @@ return [
     'This email address has already been taken.'=>'邮箱已经被占用',
     'Role'=>'用户类型',
     'Already have a account '=>'已有账号？',
+
+
 
 ];
 ?>

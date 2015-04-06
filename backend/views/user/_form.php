@@ -66,6 +66,10 @@ use kartik\datecontrol\DateControl;
 
                 'publish_books'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入发布的书籍...', 'maxlength'=>600]],
 
+                'gallery_num'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入该用户能创建多少个美术馆...', 'maxlength'=>3]],
+
+                'show_room_num'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入该用户能创建多少个沽雅展厅...', 'maxlength'=>3]],
+
 //'auth_key'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Auth Key...', 'maxlength'=>32]],
 
             ]

@@ -16,7 +16,7 @@ use Yii;
  * @property string $address
  * @property string $phone
  * @property string $email
- * @property string $status
+ * @property integer $status
  * @property string $role
  * @property string $realname
  * @property string $id_number
@@ -24,6 +24,8 @@ use Yii;
  * @property string $workplace
  * @property string $profile
  * @property string $publish_books
+ * @property integer $gallery_num
+ * @property integer $show_room_num
  * @property string $created_at
  * @property string $updated_at
  * @property string $password_hash
@@ -31,10 +33,10 @@ use Yii;
  * @property string $auth_key
  * @property integer $type
  *
- * @property Article[] $articles
  * @property Auction[] $auctions
  * @property Comment[] $comments
  */
+
 class User extends \yii\db\ActiveRecord
 {
     const USER_ON = 10;
@@ -94,7 +96,12 @@ class User extends \yii\db\ActiveRecord
             [['address', 'realname', 'workplace'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 20],
             [['publish_books'], 'string', 'max' => 600],
-            [['auth_key'], 'string', 'max' => 32]
+            [['auth_key'], 'string', 'max' => 32],
+
+            ['gallery_num', 'required'],
+            ['show_room_num', 'required'],
+            [['gallery_num'],'integer'],
+            [['show_room_num'],'integer'],
         ];
     }
 
@@ -127,6 +134,8 @@ class User extends \yii\db\ActiveRecord
             'password_reset_token' => Yii::t('app-gallery', 'Password Reset Token'),
             'auth_key' => Yii::t('app-gallery', 'Auth Key'),
             'type' => Yii::t('app-gallery', 'Type'),
+            'show_room_num'=>Yii::t('app-gallery', 'The Number of Show Rooms'),
+            'gallery_num'=>Yii::t('app-gallery', 'The Number of Galleries'),
         ];
     }
 
@@ -136,6 +145,7 @@ class User extends \yii\db\ActiveRecord
     public function getArticles()
     {
         return $this->hasMany(Article::className(), ['user_id' => 'id']);
+
     }
 
     /**
@@ -161,3 +171,4 @@ class User extends \yii\db\ActiveRecord
         $user->save();
     }
 }
+

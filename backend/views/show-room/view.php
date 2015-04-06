@@ -33,9 +33,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'description:ntext',
             'user_name',
-            'user_id',
-            'status',
-            'hall_id',
+            //'user_id',
+            ['attribute'=>'status',
+                'value'=>$model->status==\backend\models\ShowRoom::OPEN?\Yii::t('app-gallery','Open'):\Yii::t('app-gallery','Close')],
+            //'hall_id',
             [
                 'attribute'=>'created_at',
                 'format'=>['datetime',(isset(Yii::$app->modules['datecontrol']['displaySettings']['datetime'])) ? Yii::$app->modules['datecontrol']['displaySettings']['datetime'] : 'd-m-Y H:i:s A'],

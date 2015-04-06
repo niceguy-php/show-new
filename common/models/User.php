@@ -48,6 +48,7 @@ class User extends ActiveRecord implements IdentityInterface
         return \Yii::$app->session->get('user')['role']==self::ROLE_ADMIN;
     }
 
+
     public static function loginUser(){
         return \Yii::$app->session->get('user');
     }

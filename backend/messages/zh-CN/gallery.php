@@ -25,7 +25,7 @@ return [
     'Fax'=>'传真',
     'Email'=>'电子邮箱',
     'Postcode'=>'邮编',
-    'Galleries'=>'我的美术馆',
+    'Galleries'=>'美术馆',
     'My Galleries'=>'我的美术馆',
     'Create Gallery'=>'创建美术馆',
      'Home'=>'首页',

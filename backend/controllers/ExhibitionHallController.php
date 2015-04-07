@@ -68,10 +68,10 @@ class ExhibitionHallController extends Controller
         $model = new ExhibitionHall;
 
         if ($model->load(Yii::$app->request->post()) ) {
+            $gallery_id = \Yii::$app->request->post()['ExhibitionHall']['gallery_id'];
+            $model->gallery_name = Gallery::findOne(['id'=>$gallery_id])['name'];
+            $model->created_at = date('Y-m-d H:i:s',time());
             if($model->save()){
-                $gallery_id = \Yii::$app->request->get('gallery_id');
-                $model->gallery_name = Gallery::findOne(['id'=>$gallery_id])['name'];
-                $model->created_at = date('Y-m-d H:i:s',time());
                 return $this->redirect(['view', 'id' => $model->id]);
             }else{
                 return $this->render('create', [
@@ -98,7 +98,7 @@ class ExhibitionHallController extends Controller
 
 
         if ($model->load(Yii::$app->request->post())) {
-            $gallery_id = \Yii::$app->request->get('gallery_id');
+            $gallery_id = \Yii::$app->request->post()['ExhibitionHall']['gallery_id'];
             $model->gallery_name = Gallery::findOne(['id'=>$gallery_id])['name'];
             $model->updated_at = date('Y-m-d H:i:s',time());
             if($model->save()){

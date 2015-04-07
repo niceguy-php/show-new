@@ -32,6 +32,9 @@ class ExhibitionHallSearch extends ExhibitionHall
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pagesize' => '10',
+            ]
         ]);
 
         if (!($this->load($params) && $this->validate())) {

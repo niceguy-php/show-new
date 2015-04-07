@@ -36,7 +36,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             'user_name',
 //            'user_id',
-            'status',
+            [
+                'attribute' => 'status',
+                'value'=>
+                    function($model){
+                        return $model->status==1?"开放":"关闭";
+                    },
+            ],
            // ['attribute'=>'status','value'=>$model->status?'开设':'关闭'],
 //            'hall_id', 
 //            ['attribute'=>'created_at','format'=>['datetime',(isset(Yii::$app->modules['datecontrol']['displaySettings']['datetime'])) ? Yii::$app->modules['datecontrol']['displaySettings']['datetime'] : 'd-m-Y H:i:s A']], 

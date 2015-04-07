@@ -16,7 +16,7 @@ class ShowRoomSearch extends ShowRoom
     public function rules()
     {
         return [
-            [['id', 'user_id', 'status', 'hall_id'], 'integer'],
+            [['id', 'user_id', 'hall_id'], 'integer'],
             [['name', 'description', 'user_name', 'created_at', 'updated_at'], 'safe'],
         ];
     }
@@ -47,7 +47,7 @@ class ShowRoomSearch extends ShowRoom
         $query->andFilterWhere([
             'id' => $this->id,
             'user_id' => $this->user_id,
-            'status' => $this->status,
+            //'status' => $this->status,
             'hall_id' => $this->hall_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

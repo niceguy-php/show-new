@@ -1,52 +1,92 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use kartik\widgets\ActiveForm;
+use kartik\builder\Form;
+use kartik\datecontrol\DateControl;
+use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
-/* @var $this yii\web\View */
-/* @var $model backend\models\ExhibitionHall */
-/* @var $form yii\widgets\ActiveForm */
 
+/**
+ * @var yii\web\View $this
+ * @var backend\models\ExhibitionHall $model
+ * @var yii\widgets\ActiveForm $form
+ */
 ?>
 
 <div class="exhibition-hall-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['type'=>ActiveForm::TYPE_HORIZONTAL]);
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
+    if(\common\models\User::isAdmin()){
+        echo $form->field($model, 'gallery_id')->widget(Select2::classname(), [
+            'data' => ArrayHelper::map(\backend\models\Gallery::find()->all(),'id','name'),
+            'language' => 'zh',
+            'options' => ['placeholder' => 'Select ...'],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]);
+    }else{
+        echo $form->field($model, 'gallery_id')->widget(Select2::classname(), [
+            'data' => ArrayHelper::map(\backend\models\Gallery::find()->where(['user_id'=>\common\models\User::loginUser()['user_id']])->all(),'id','name'),
+            'language' => 'zh',
+            'options' => ['placeholder' => 'Select ...'],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]);
+    }
 
-    <?= $form->field($model, 'gallery_id')->dropDownList(ArrayHelper::map(\backend\models\Gallery::find()-> select( 'id,name' ) ->all(),'id','name'),['class'=>"form-control inline-block"]) ?>
+    echo Form::widget([
 
-    <?= $form->field($model, 'address')->textInput(['maxlength' => 255]) ?>
+    'model' => $model,
+    'form' => $form,
+    'columns' => 1,
+    'attributes' => [
+        //'gallery_name'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入美术馆名称...', 'maxlength'=>255]],
 
-    <?= $form->field($model, 'open_ceremony_time')->textInput() ?>
+        'name'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入名称...', 'maxlength'=>255]],
 
-    <?= $form->field($model, 'show_time')->textInput() ?>
+        'open_ceremony_time'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]],
 
-    <?= $form->field($model, 'close_show_time')->textInput() ?>
+'show_time'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]], 
 
-    <?= $form->field($model, 'planner')->textInput(['maxlength' => 200]) ?>
+'close_show_time'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]], 
 
-    <?= $form->field($model, 'organizer')->textInput(['maxlength' => 300]) ?>
+//'created_at'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]],
 
-    <?= $form->field($model, 'assist')->textInput(['maxlength' => 300]) ?>
+//'updated_at'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]],
 
-    <?= $form->field($model, 'description')->textInput(['maxlength' => 300]) ?>
+'description'=>['type'=> Form::INPUT_TEXTAREA, 'options'=>['placeholder'=>'输入描述...','rows'=> 6]],
 
-    <?= $form->field($model, 'artists')->textInput(['maxlength' => 600]) ?>
+'status'=>['type'=> Form::INPUT_RADIO_LIST, 'items'=>['1'=>\Yii::t('app-gallery','Open'),'0'=>\Yii::t('app-gallery','Close')]],
 
-    <?= $form->field($model, 'owner')->textInput(['maxlength' => 20]) ?>
+//'user_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入用户...', 'maxlength'=>20]],
 
-    <?= $form->field($model, 'phone')->textInput(['maxlength' => 20]) ?>
+//'gallery_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入所属美术馆...', 'maxlength'=>20]],
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app-gallery', 'Create') : Yii::t('app-gallery', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
+'address'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入地址...', 'maxlength'=>255]],
 
-    <?php ActiveForm::end(); ?>
+//'user_name'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入用户姓名...', 'maxlength'=>255]],
+
+'planner'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入主策划...', 'maxlength'=>200]],
+
+'organizer'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入主办方...', 'maxlength'=>300]],
+
+'assist'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入协助方...', 'maxlength'=>600]],
+
+'artists'=>['type'=> Form::INPUT_TEXTAREA, 'options'=>['placeholder'=>'输入参展艺术家...', 'maxlength'=>600]],
+
+'phone'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入联系电话...', 'maxlength'=>20]],
+
+    ]
+
+
+    ]);
+    echo Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']);
+    ActiveForm::end(); ?>
 
 </div>

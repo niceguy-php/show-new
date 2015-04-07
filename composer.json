@@ -14,6 +14,9 @@
         "warrence/yii2-kartikgii": "dev-master",
         "kartik-v/yii2-grid": "v3.0.0",
         "kartik-v/yii2-datecontrol": "1.9.0.x-dev",
-        "2amigos/yii2-date-picker-widget": "*"
+        "2amigos/yii2-date-picker-widget": "*",
+
+    
+    "pjkui/kindeditor": "*"
     }
 }

@@ -67,12 +67,14 @@ return [
     'Open Ceremony Time'=>'开幕时间',
     'Show Time'=>'开展时间',
     'Close Show Time'=>'结展时间',
-    'Exhibition Halls'=>'展览列表',
+    'Exhibition Halls'=>'举办展览',
     'Create Exhibition Hall'=>'创建展览',
-    'Planner'=>'主策划',
+    'Update Exhibition Hall'=>'更新展览',
+    'Planner'=>'主策划方',
     'Organizer'=>'主办方',
     'Assist'=>'协助方',
     'Artists'=>'参展艺术家',
+    'Exhibition Status'=>'展览状态',
 
     //User
     'Login Status'=>'用户状态',

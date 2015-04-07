@@ -3,9 +3,11 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model backend\models\ExhibitionHallSearch */
-/* @var $form yii\widgets\ActiveForm */
+/**
+ * @var yii\web\View $this
+ * @var backend\models\ExhibitionHallSearch $model
+ * @var yii\widgets\ActiveForm $form
+ */
 ?>
 
 <div class="exhibition-hall-search">
@@ -17,13 +19,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
+    <?= $form->field($model, 'gallery_name') ?>
+
     <?= $form->field($model, 'name') ?>
 
     <?= $form->field($model, 'address') ?>
 
     <?= $form->field($model, 'open_ceremony_time') ?>
 
-    <?= $form->field($model, 'show_time') ?>
+    <?php // echo $form->field($model, 'show_time') ?>
 
     <?php // echo $form->field($model, 'close_show_time') ?>
 
@@ -37,15 +41,19 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'artists') ?>
 
-    <?php // echo $form->field($model, 'owner') ?>
+    <?php // echo $form->field($model, 'status') ?>
+
+    <?php // echo $form->field($model, 'user_name') ?>
 
     <?php // echo $form->field($model, 'phone') ?>
+
+    <?php // echo $form->field($model, 'user_id') ?>
+
+    <?php // echo $form->field($model, 'gallery_id') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
 
     <?php // echo $form->field($model, 'updated_at') ?>
-
-    <?php // echo $form->field($model, 'gallery_id') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app-gallery', 'Search'), ['class' => 'btn btn-primary']) ?>

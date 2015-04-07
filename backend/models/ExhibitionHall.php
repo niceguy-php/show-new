@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "exhibition_hall".
  *
  * @property string $id
+ * @property string $gallery_name
  * @property string $name
  * @property string $address
  * @property string $open_ceremony_time
@@ -18,12 +19,15 @@ use Yii;
  * @property string $assist
  * @property string $description
  * @property string $artists
- * @property string $owner
+ * @property integer $status
+ * @property string $user_name
  * @property string $phone
+ * @property string $user_id
+ * @property string $gallery_id
  * @property string $created_at
  * @property string $updated_at
- * @property string $gallery_id
  *
+ * @property Comment[] $comments
  * @property Gallery $gallery
  */
 class ExhibitionHall extends \yii\db\ActiveRecord
@@ -42,13 +46,14 @@ class ExhibitionHall extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['name', 'address', 'open_ceremony_time', 'show_time', 'close_show_time', 'planner', 'organizer', 'assist', 'description', 'artists', 'status', 'phone', 'gallery_id'], 'required'],
             [['open_ceremony_time', 'show_time', 'close_show_time', 'created_at', 'updated_at'], 'safe'],
-            [['owner', 'gallery_id'], 'integer'],
-            [['gallery_id'], 'required'],
-            [['name', 'address'], 'string', 'max' => 255],
+            [['description'], 'string'],
+            [['status', 'user_id', 'gallery_id'], 'integer'],
+            [['gallery_name', 'name', 'address', 'user_name'], 'string', 'max' => 255],
             [['planner'], 'string', 'max' => 200],
-            [['organizer', 'assist', 'description'], 'string', 'max' => 300],
-            [['artists'], 'string', 'max' => 600],
+            [['organizer'], 'string', 'max' => 300],
+            [['assist', 'artists'], 'string', 'max' => 600],
             [['phone'], 'string', 'max' => 20]
         ];
     }
@@ -60,6 +65,7 @@ class ExhibitionHall extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app-gallery', 'ID'),
+            'gallery_name' => Yii::t('app-gallery', 'Gallery Name'),
             'name' => Yii::t('app-gallery', 'Name'),
             'address' => Yii::t('app-gallery', 'Address'),
             'open_ceremony_time' => Yii::t('app-gallery', 'Open Ceremony Time'),
@@ -70,12 +76,22 @@ class ExhibitionHall extends \yii\db\ActiveRecord
             'assist' => Yii::t('app-gallery', 'Assist'),
             'description' => Yii::t('app-gallery', 'Description'),
             'artists' => Yii::t('app-gallery', 'Artists'),
-            'owner' => Yii::t('app-gallery', 'Owner'),
+            'status' => Yii::t('app-gallery', 'Exhibition Status'),
+            'user_name' => Yii::t('app-gallery', 'User Name'),
             'phone' => Yii::t('app-gallery', 'Phone'),
+            'user_id' => Yii::t('app-gallery', 'User ID'),
+            'gallery_id' => Yii::t('app-gallery', 'Gallery ID'),
             'created_at' => Yii::t('app-gallery', 'Created At'),
             'updated_at' => Yii::t('app-gallery', 'Updated At'),
-            'gallery_id' => Yii::t('app-gallery', 'Gallery ID'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getComments()
+    {
+        return $this->hasMany(Comment::className(), ['hall_id' => 'id']);
     }
 
     /**

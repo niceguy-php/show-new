@@ -2,12 +2,12 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model backend\models\ExhibitionHall */
+/**
+ * @var yii\web\View $this
+ * @var backend\models\ExhibitionHall $model
+ */
 
-$this->title = Yii::t('app-gallery', 'Update {modelClass}: ', [
-    'modelClass' => 'Exhibition Hall',
-]) . ' ' . $model->name;
+$this->title = Yii::t('app-gallery', 'Update Exhibition Hall') . ' ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app-gallery', 'Exhibition Halls'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app-gallery', 'Update');

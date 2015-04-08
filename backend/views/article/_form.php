@@ -20,7 +20,7 @@ use yii\helpers\ArrayHelper;
 
     if(\common\models\User::isAdmin()){
         echo $form->field($model, 'gallery_id')->widget(Select2::classname(), [
-            'data' => ArrayHelper::map(\backend\models\Gallery::find()->all(),'id','name'),
+            'data' => ArrayHelper::map(\backend\models\Gallery::IDName(),'id','name'),
             'language' => 'zh',
             'options' => ['placeholder' => 'Select ...'],
             'pluginOptions' => [
@@ -29,7 +29,7 @@ use yii\helpers\ArrayHelper;
         ]);
     }else{
         echo $form->field($model, 'gallery_id')->widget(Select2::classname(), [
-            'data' => ArrayHelper::map(\backend\models\Gallery::find()->where(['user_id'=>\common\models\User::loginUser()['user_id']])->all(),'id','name'),
+            'data' => ArrayHelper::map(\backend\models\Gallery::IDName(\common\models\User::loginUser()['user_id']),'id','name'),
             'language' => 'zh',
             'options' => ['placeholder' => 'Select ...'],
             'pluginOptions' => [

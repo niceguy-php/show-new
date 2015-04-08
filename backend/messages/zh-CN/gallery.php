@@ -43,7 +43,7 @@ return [
     'User ID'=>'用户',
     'User Realname'=>'用户姓名',
     'Create'=>'创建',
-    'Articles'=>'文章列表',
+    'Articles'=>'文章',
     'Update Article: '=>'编辑文章：',
 
     //auction
@@ -87,7 +87,7 @@ return [
     'Sex'=>'性别',
     'Publish Books'=>'发布的书籍',
     'Create User'=>'创建用户',
-    'Users'=>'用户管理',
+    'Users'=>'用户',
     'Update User: '=>'编辑用户',
     'Nickname' =>'昵称',
     'Avatar'=>'头像',
@@ -158,6 +158,27 @@ return [
     'Recommend To Exhibition Hall'=>'推荐到展厅',
     'Recommend To Gallery'=>'推荐到美术馆',
     'Apply Datetime'=>'申请时间',
+
+    //Work
+    'Year'=>'创作年代',
+    'Width'=>'宽度',
+    'Height'=>'高度',
+    'Author Name'=>'作者姓名',
+    'Work Status'=>'作品状态',
+    'On Sale'=>'是否在拍卖',
+    ''=>'',
+    'Mark Count'=>'点赞数量',
+    'Image'=>'作品图片',
+    'Material'=>'作品材质',
+    'Author Profile'=>'作者简介',
+    'Show Room Name'=>'所属沽雅展厅',
+    'Auction Price'=>'拍卖底价',
+    'Auction Time'=>'起拍时间',
+    'Show Room ID'=>'所属沽雅展厅',
+    'Create Work'=>'创建作品',
+    'Update Work'=>'更新作品',
+    'My Works'=>'我的作品',
+    'Works'=>'作品',
 
 
     //alert or warn message

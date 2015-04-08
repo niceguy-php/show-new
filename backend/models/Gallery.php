@@ -116,4 +116,16 @@ class Gallery extends \yii\db\ActiveRecord
 
 
     }
+
+    public static function IDName($user_id = null)
+    {
+        if( isset($user_id) ) {
+            return \Yii::$app->db->createCommand('SELECT id,CONCAT(name,"(",user_name,")") as name FROM gallery WHERE user_id = :user_id')
+                ->bindValue(':user_id',$user_id)
+                ->query();
+        }else{
+            return \Yii::$app->db->createCommand('SELECT id,CONCAT(name,"(",user_name,")") as name FROM gallery')->query();
+        }
+
+    }
 }

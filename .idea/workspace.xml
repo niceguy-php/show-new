@@ -30,41 +30,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/views/article/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.967742" vertical-offset="365" max-vertical-offset="1650">
-              <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/views/layouts/main.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.935484" vertical-offset="726" max-vertical-offset="2178">
-              <caret line="51" column="115" selection-start-line="51" selection-start-column="115" selection-end-line="51" selection-end-column="115" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="RecommendApply.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/models/RecommendApply.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.806452" vertical-offset="308" max-vertical-offset="1738">
-              <caret line="25" column="20" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="20" />
+            <state vertical-scroll-proportion="-8.806452" vertical-offset="1135" max-vertical-offset="1738">
+              <caret line="64" column="65" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="65" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/views/article/_form.php">
+      <file leaf-file-name="_form.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/views/recommend-apply/_form.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.806452" vertical-offset="299" max-vertical-offset="1694">
-              <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.16086236" vertical-offset="1069" max-vertical-offset="2332">
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding>
                 <element signature="e#7#28#0#PHP" expanded="true" />
               </folding>
@@ -72,41 +52,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_search.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/views/article/_search.php">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/models/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1100">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-6.387097" vertical-offset="858" max-vertical-offset="5280">
+              <caret line="52" column="81" selection-start-line="52" selection-start-column="81" selection-end-line="52" selection-end-column="81" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="_form.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/views/recommend-apply/_form.php">
+        <entry file="file://$PROJECT_DIR$/backend/views/exhibition-hall/_form.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="10.354838" vertical-offset="717" max-vertical-offset="1364">
-              <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/views/recommend-apply/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45273632" vertical-offset="1047" max-vertical-offset="1760">
-              <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
-              <folding />
+            <state vertical-scroll-proportion="-4.2580647" vertical-offset="330" max-vertical-offset="2156">
+              <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="28" selection-end-column="11" />
+              <folding>
+                <element signature="e#7#28#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/views/exhibition-hall/index.php">
+        <entry file="file://$PROJECT_DIR$/backend/views/recommend-apply/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.645162" vertical-offset="1245" max-vertical-offset="1870">
-              <caret line="77" column="102" selection-start-line="77" selection-start-column="74" selection-end-line="77" selection-end-column="102" />
+            <state vertical-scroll-proportion="-6.677419" vertical-offset="519" max-vertical-offset="1760">
+              <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/views/recommend-apply/create.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.387097" vertical-offset="0" max-vertical-offset="616">
+              <caret line="9" column="63" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="update.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/views/recommend-apply/update.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.5161295" vertical-offset="0" max-vertical-offset="638">
+              <caret line="12" column="65" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -115,7 +107,7 @@
       <file leaf-file-name="view.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/views/article/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.548387" vertical-offset="783" max-vertical-offset="1584">
+            <state vertical-scroll-proportion="1.8387097" vertical-offset="981" max-vertical-offset="1584">
               <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
               <folding />
             </state>
@@ -125,8 +117,8 @@
       <file leaf-file-name="gallery.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/messages/zh-CN/gallery.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.645162" vertical-offset="3058" max-vertical-offset="3850">
-              <caret line="154" column="29" selection-start-line="154" selection-start-column="29" selection-end-line="154" selection-end-column="29" />
+            <state vertical-scroll-proportion="-25.548388" vertical-offset="2486" max-vertical-offset="3982">
+              <caret line="149" column="31" selection-start-line="149" selection-start-column="31" selection-end-line="149" selection-end-column="31" />
               <folding>
                 <element signature="e#6#90#0#PHP" expanded="true" />
               </folding>
@@ -150,7 +142,6 @@
         <option value="$PROJECT_DIR$/backend/views/user/_form.php" />
         <option value="$PROJECT_DIR$/backend/views/user/view.php" />
         <option value="$PROJECT_DIR$/backend/views/site/index.php" />
-        <option value="$PROJECT_DIR$/common/models/User.php" />
         <option value="$PROJECT_DIR$/backend/controllers/SiteController.php" />
         <option value="$PROJECT_DIR$/backend/models/User.php" />
         <option value="$PROJECT_DIR$/backend/views/gallery/index.php" />
@@ -179,9 +170,13 @@
         <option value="$PROJECT_DIR$/backend/views/article/view.php" />
         <option value="$PROJECT_DIR$/backend/views/article/index.php" />
         <option value="$PROJECT_DIR$/backend/views/layouts/main.php" />
+        <option value="$PROJECT_DIR$/backend/views/recommend-apply/index.php" />
+        <option value="$PROJECT_DIR$/backend/views/recommend-apply/create.php" />
+        <option value="$PROJECT_DIR$/backend/views/recommend-apply/update.php" />
+        <option value="$PROJECT_DIR$/common/models/User.php" />
         <option value="$PROJECT_DIR$/backend/models/RecommendApply.php" />
         <option value="$PROJECT_DIR$/backend/messages/zh-CN/gallery.php" />
-        <option value="$PROJECT_DIR$/backend/views/recommend-apply/index.php" />
+        <option value="$PROJECT_DIR$/backend/views/recommend-apply/_form.php" />
       </list>
     </option>
   </component>
@@ -282,8 +277,8 @@
   </component>
   <component name="PhpXdebugProxy" ide_key="phpstorm" host="localhost" port="9010" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
-    <option name="y" value="74" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1293" />
     <option name="height" value="784" />
   </component>
@@ -883,7 +878,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="74" width="1293" height="784" extended-state="0" />
+    <frame x="-8" y="-8" width="1293" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -937,53 +932,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/controllers/SiteController_old.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1870">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/controllers/SiteController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.032258" vertical-offset="3349" max-vertical-offset="5016">
-          <caret line="172" column="22" selection-start-line="172" selection-start-column="22" selection-end-line="172" selection-end-column="22" />
-          <folding>
-            <element signature="e#38#65#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4554">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/db/QueryBuilder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.677419" vertical-offset="2605" max-vertical-offset="28490">
-          <caret line="130" column="20" selection-start-line="130" selection-start-column="20" selection-end-line="130" selection-end-column="20" />
-          <folding>
-            <marker date="1426566382966" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1426566382966" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1426566382966" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1426566382966" expanded="true" signature="-1:-1" placeholder="DROP TABLE $..." />
-            <marker date="1426566382966" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-            <marker date="1426566382966" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-            <marker date="1426566382966" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-            <marker date="1426566382966" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-            <marker date="1426566382966" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-            <marker date="1426566382966" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-            <marker date="1426566382966" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-            <marker date="1426566382966" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/models/SignupForm.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1290323" vertical-offset="321" max-vertical-offset="1980">
@@ -1221,16 +1169,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/views/exhibition-hall/_form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.32258" vertical-offset="330" max-vertical-offset="2156">
-          <caret line="38" column="5" selection-start-line="20" selection-start-column="4" selection-end-line="38" selection-end-column="5" />
-          <folding>
-            <element signature="e#7#28#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/models/Auction.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2024">
@@ -1323,14 +1261,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/views/article/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.548387" vertical-offset="783" max-vertical-offset="1584">
-          <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/views/article/_form.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.806452" vertical-offset="299" max-vertical-offset="1694">
@@ -1338,22 +1268,6 @@
           <folding>
             <element signature="e#7#28#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/models/RecommendApply.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.806452" vertical-offset="308" max-vertical-offset="1738">
-          <caret line="25" column="20" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/views/recommend-apply/_form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="10.354838" vertical-offset="717" max-vertical-offset="1364">
-          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1365,21 +1279,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/messages/zh-CN/gallery.php">
+    <entry file="file://$PROJECT_DIR$/backend/views/recommend-apply/update.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.645162" vertical-offset="3058" max-vertical-offset="3850">
-          <caret line="154" column="29" selection-start-line="154" selection-start-column="29" selection-end-line="154" selection-end-column="29" />
+        <state vertical-scroll-proportion="-8.5161295" vertical-offset="0" max-vertical-offset="638">
+          <caret line="12" column="65" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/views/article/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8387097" vertical-offset="981" max-vertical-offset="1584">
+          <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.387097" vertical-offset="858" max-vertical-offset="5280">
+          <caret line="52" column="81" selection-start-line="52" selection-start-column="81" selection-end-line="52" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/views/user/_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.10945274" vertical-offset="462" max-vertical-offset="3124">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
           <folding>
-            <element signature="e#6#90#0#PHP" expanded="true" />
+            <element signature="e#7#28#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/views/recommend-apply/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45273632" vertical-offset="1047" max-vertical-offset="1760">
-          <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+        <state vertical-scroll-proportion="-6.677419" vertical-offset="519" max-vertical-offset="1760">
+          <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/views/recommend-apply/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.387097" vertical-offset="0" max-vertical-offset="616">
+          <caret line="9" column="63" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/models/RecommendApply.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.806452" vertical-offset="1135" max-vertical-offset="1738">
+          <caret line="64" column="65" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/messages/zh-CN/gallery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.548388" vertical-offset="2486" max-vertical-offset="3982">
+          <caret line="149" column="31" selection-start-line="149" selection-start-column="31" selection-end-line="149" selection-end-column="31" />
+          <folding>
+            <element signature="e#6#90#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/views/exhibition-hall/_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.2580647" vertical-offset="330" max-vertical-offset="2156">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="28" selection-end-column="11" />
+          <folding>
+            <element signature="e#7#28#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/views/recommend-apply/_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16086236" vertical-offset="1069" max-vertical-offset="2332">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="e#7#28#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

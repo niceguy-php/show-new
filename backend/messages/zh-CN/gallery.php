@@ -153,6 +153,12 @@ return [
     'Hall ID' => '展厅',
     'Apply User ID' => '申请人',
     'Reply User ID' => '回复人',
+    'Create Recommend Apply'=>'创建申请',
+    'Update Recommend Apply'=>'更新申请',
+    'Recommend To Exhibition Hall'=>'推荐到展厅',
+    'Recommend To Gallery'=>'推荐到美术馆',
+    'Apply Datetime'=>'申请时间',
+
 
     //alert or warn message
     'You are not allowed to access this page'=>'请先登录，不允许访问此页面！',

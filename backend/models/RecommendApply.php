@@ -58,16 +58,16 @@ class RecommendApply extends \yii\db\ActiveRecord
             'work_name' => Yii::t('app-gallery', 'Work Name'),
             'apply_reason' => Yii::t('app-gallery', 'Apply Reason'),
             'gallery_name' => Yii::t('app-gallery', 'Gallery Name'),
-            'hall_name' => Yii::t('app-gallery', 'Hall Name'),
+            'hall_name' => Yii::t('app-gallery', 'Recommend To Exhibition Hall'),
             'reply_user_name' => Yii::t('app-gallery', 'Reply User Name'),
             'replay_content' => Yii::t('app-gallery', 'Replay Content'),
             'apply_status' => Yii::t('app-gallery', 'Apply Status'),
-            'created_at' => Yii::t('app-gallery', 'Created At'),
+            'created_at' => Yii::t('app-gallery', 'Apply Datetime'),
             'work_id' => Yii::t('app-gallery', 'Work ID'),
-            'hall_id' => Yii::t('app-gallery', 'Hall ID'),
+            'hall_id' => Yii::t('app-gallery', 'Recommend To Exhibition Hall'),
             'apply_user_id' => Yii::t('app-gallery', 'Apply User ID'),
             'reply_user_id' => Yii::t('app-gallery', 'Reply User ID'),
-            'gallery_id' => Yii::t('app-gallery', 'Gallery ID'),
+            'gallery_id' => Yii::t('app-gallery', 'Recommend To Gallery'),
         ];
     }
 }

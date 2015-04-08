@@ -7,9 +7,7 @@ use yii\helpers\Html;
  * @var backend\models\RecommendApply $model
  */
 
-$this->title = Yii::t('app-gallery', 'Create {modelClass}', [
-    'modelClass' => 'Recommend Apply',
-]);
+$this->title = Yii::t('app-gallery', 'Create Recommend Apply');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app-gallery', 'Recommend Applies'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

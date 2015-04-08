@@ -6,14 +6,14 @@ use kartik\datecontrol\DateControl;
 
 /**
  * @var yii\web\View $this
- * @var backend\models\Article $model
+ * @var backend\models\RecommendApply $model
  */
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app-gallery', 'Articles'), 'url' => ['index']];
+$this->title = $model->id;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app-gallery', 'Recommend Applies'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="article-view">
+<div class="recommend-apply-view">
     <div class="page-header">
         <h1><?= Html::encode($this->title) ?></h1>
     </div>
@@ -29,8 +29,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'type'=>DetailView::TYPE_INFO,
         ],
         'attributes' => [
-            //'id',
-            'title',
+            'id',
+            'apply_user_name',
+            'work_name',
+            'apply_reason',
+            'gallery_name',
+            'hall_name',
+            'reply_user_name',
+            'replay_content',
+            'apply_status',
             [
                 'attribute'=>'created_at',
                 'format'=>['datetime',(isset(Yii::$app->modules['datecontrol']['displaySettings']['datetime'])) ? Yii::$app->modules['datecontrol']['displaySettings']['datetime'] : 'd-m-Y H:i:s A'],
@@ -40,20 +47,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     'type'=>DateControl::FORMAT_DATETIME
                 ]
             ],
-            'content:ntext',
-            //'gallery_id',
-            'gallery_name',
-            //'user_realname',
-            //'user_id',
-            [
-                'attribute'=>'updated_at',
-                'format'=>['datetime',(isset(Yii::$app->modules['datecontrol']['displaySettings']['datetime'])) ? Yii::$app->modules['datecontrol']['displaySettings']['datetime'] : 'd-m-Y H:i:s A'],
-                'type'=>DetailView::INPUT_WIDGET,
-                'widgetOptions'=> [
-                    'class'=>DateControl::classname(),
-                    'type'=>DateControl::FORMAT_DATETIME
-                ]
-            ],
+            'work_id',
+            'hall_id',
+            'apply_user_id',
+            'reply_user_id',
+            'gallery_id',
         ],
         'deleteOptions'=>[
         'url'=>['delete', 'id' => $model->id],
@@ -62,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'method'=>'post',
         ],
         ],
-        'enableEditMode'=>false,
+        'enableEditMode'=>true,
     ]) ?>
 
 </div>

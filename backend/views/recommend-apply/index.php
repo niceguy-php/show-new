@@ -7,13 +7,13 @@ use yii\widgets\Pjax;
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var backend\models\ArticleSearch $searchModel
+ * @var backend\models\RecommendApplySearch $searchModel
  */
 
-$this->title = Yii::t('app-gallery', 'Articles');
+$this->title = Yii::t('app-gallery', 'Recommend Applies');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="article-index">
+<div class="recommend-apply-index">
     <div class="page-header">
             <h1><?= Html::encode($this->title) ?></h1>
     </div>
@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?php /* echo Html::a(Yii::t('app-gallery', 'Create {modelClass}', [
-    'modelClass' => 'Article',
+    'modelClass' => 'Recommend Apply',
 ]), ['create'], ['class' => 'btn btn-success'])*/  ?>
     </p>
 
@@ -31,21 +31,27 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            //'id',
-            'title',
-            ['attribute'=>'created_at','format'=>['datetime',(isset(Yii::$app->modules['datecontrol']['displaySettings']['datetime'])) ? Yii::$app->modules['datecontrol']['displaySettings']['datetime'] : 'd-m-Y H:i:s A']],
-            'content:ntext',
-       //     'gallery_id',
+            'id',
+            'apply_user_name',
+            'work_name',
+            'apply_reason',
             'gallery_name',
-//            'user_realname', 
-//            'user_id', 
-//            ['attribute'=>'updated_at','format'=>['datetime',(isset(Yii::$app->modules['datecontrol']['displaySettings']['datetime'])) ? Yii::$app->modules['datecontrol']['displaySettings']['datetime'] : 'd-m-Y H:i:s A']], 
+//            'hall_name', 
+//            'reply_user_name', 
+//            'replay_content', 
+//            'apply_status', 
+//            ['attribute'=>'created_at','format'=>['datetime',(isset(Yii::$app->modules['datecontrol']['displaySettings']['datetime'])) ? Yii::$app->modules['datecontrol']['displaySettings']['datetime'] : 'd-m-Y H:i:s A']], 
+//            'work_id', 
+//            'hall_id', 
+//            'apply_user_id', 
+//            'reply_user_id', 
+//            'gallery_id', 
 
             [
                 'class' => 'yii\grid\ActionColumn',
                 'buttons' => [
                 'update' => function ($url, $model) {
-                                    return Html::a('<span class="glyphicon glyphicon-pencil"></span>', Yii::$app->urlManager->createUrl(['article/update','id' => $model->id,'edit'=>'t']), [
+                                    return Html::a('<span class="glyphicon glyphicon-pencil"></span>', Yii::$app->urlManager->createUrl(['recommend-apply/view','id' => $model->id,'edit'=>'t']), [
                                                     'title' => Yii::t('yii', 'Edit'),
                                                   ]);}
 
@@ -64,8 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'panel' => [
             'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-th-list"></i> '.Html::encode($this->title).' </h3>',
             'type'=>'info',
-            'before'=>Html::a('<i class="glyphicon glyphicon-plus"></i> '.\Yii::t('app','Add'), ['create'], ['class' => 'btn btn-success']),
-            'after'=>Html::a('<i class="glyphicon glyphicon-repeat"></i> '.\Yii::t('app','Reset List'), ['index'], ['class' => 'btn btn-info']),
+            'before'=>Html::a('<i class="glyphicon glyphicon-plus"></i> Add', ['create'], ['class' => 'btn btn-success']),                                                                                                                                                          'after'=>Html::a('<i class="glyphicon glyphicon-repeat"></i> Reset List', ['index'], ['class' => 'btn btn-info']),
             'showFooter'=>false
         ],
     ]); Pjax::end(); ?>

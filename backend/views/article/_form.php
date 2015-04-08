@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use kartik\widgets\ActiveForm;
 use kartik\builder\Form;
 use kartik\datecontrol\DateControl;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
 
 /**
  * @var yii\web\View $this
@@ -14,28 +16,50 @@ use kartik\datecontrol\DateControl;
 
 <div class="article-form">
 
-    <?php $form = ActiveForm::begin(['type'=>ActiveForm::TYPE_HORIZONTAL]); echo Form::widget([
+    <?php $form = ActiveForm::begin(['type'=>ActiveForm::TYPE_HORIZONTAL]);
+
+    if(\common\models\User::isAdmin()){
+        echo $form->field($model, 'gallery_id')->widget(Select2::classname(), [
+            'data' => ArrayHelper::map(\backend\models\Gallery::find()->all(),'id','name'),
+            'language' => 'zh',
+            'options' => ['placeholder' => 'Select ...'],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]);
+    }else{
+        echo $form->field($model, 'gallery_id')->widget(Select2::classname(), [
+            'data' => ArrayHelper::map(\backend\models\Gallery::find()->where(['user_id'=>\common\models\User::loginUser()['user_id']])->all(),'id','name'),
+            'language' => 'zh',
+            'options' => ['placeholder' => 'Select ...'],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]);
+    }
+
+    echo Form::widget([
 
     'model' => $model,
     'form' => $form,
     'columns' => 1,
     'attributes' => [
 
-'title'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 标题...', 'maxlength'=>255]], 
+'title'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入标题...', 'maxlength'=>255]],
 
-'created_at'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]], 
+//'created_at'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]],
 
-'content'=>['type'=> Form::INPUT_TEXTAREA, 'options'=>['placeholder'=>'Enter 内容...','rows'=> 6]], 
+'content'=>['type'=> Form::INPUT_TEXTAREA, 'options'=>['placeholder'=>'输入内容...','rows'=> 12]],
 
-'gallery_name'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Gallery Name...', 'maxlength'=>255]], 
+//'gallery_name'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Gallery Name...', 'maxlength'=>255]],
 
-'user_realname'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 用户姓名...', 'maxlength'=>255]], 
+//'user_realname'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 用户姓名...', 'maxlength'=>255]],
 
-'updated_at'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]], 
+//'updated_at'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]],
 
-'gallery_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 所属美术馆...', 'maxlength'=>20]], 
+//'gallery_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 所属美术馆...', 'maxlength'=>20]],
 
-'user_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 用户...', 'maxlength'=>20]], 
+//'user_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 用户...', 'maxlength'=>20]],
 
     ]
 

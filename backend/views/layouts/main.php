@@ -40,18 +40,20 @@ AppAsset::register($this);
                 if($loginUser['role'] == \common\models\User::ROLE_GALLERY_ADMIN) {
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Personal Info Setting'), 'url' => ['/user/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Articles'), 'url' => ['/article/index']];
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Recommend Applies'), 'url' => ['/recommend-apply/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Exhibition Halls'), 'url' => ['/exhibition-hall/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Show Rooms'), 'url' => ['/show-room/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','My Galleries'), 'url' => ['/gallery/index']];
                 }else if($loginUser['role'] == \common\models\User::ROLE_ADMIN){
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Users'), 'url' => ['/user/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Articles'), 'url' => ['/article/index']];
-
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Recommend Applies'), 'url' => ['/recommend-apply/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Exhibition Halls'), 'url' => ['/exhibition-hall/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Show Rooms'), 'url' => ['/show-room/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Galleries'), 'url' => ['/gallery/index']];
                 }else if($loginUser['role'] == \common\models\User::ROLE_ARTIST) {
-
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Personal Info Setting'), 'url' => ['/user/index']];
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Recommend Applies'), 'url' => ['/recommend-apply/index']];
                 }else if($loginUser['role'] == \common\models\User::ROLE_USER) {
 
                 }

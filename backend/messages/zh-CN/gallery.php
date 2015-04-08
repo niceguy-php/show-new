@@ -140,6 +140,20 @@ return [
     //Article
     'Gallery Name'=>'美术馆名称',
 
+    //Recommend Applies
+    'Recommend Applies'=>'推荐申请',
+    'Apply User Name' => '申请人',
+    'Work Name' => '申请展览作品',
+    'Apply Reason' => '申请原因',
+    'Hall Name' => '展厅',
+    'Reply User Name' => '回复人',
+    'Replay Content' => '申请回复',
+    'Apply Status' => '申请状态',
+    'Work ID' => '作品',
+    'Hall ID' => '展厅',
+    'Apply User ID' => '申请人',
+    'Reply User ID' => '回复人',
+
     //alert or warn message
     'You are not allowed to access this page'=>'请先登录，不允许访问此页面！',
     'Please fill out the following fields to signup:'=>'请输入账号、邮箱、密码信息，欢迎加入沽雅美术馆~',

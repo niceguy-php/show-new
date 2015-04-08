@@ -2,19 +2,17 @@
 
 namespace backend\controllers;
 
-use common\models\User;
 use Yii;
-use backend\models\Article;
-use backend\models\ArticleSearch;
+use backend\models\RecommendApply;
+use backend\models\RecommendApplySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use backend\models\Gallery;
 
 /**
- * ArticleController implements the CRUD actions for Article model.
+ * RecommendApplyController implements the CRUD actions for RecommendApply model.
  */
-class ArticleController extends Controller
+class RecommendApplyController extends Controller
 {
     public function behaviors()
     {
@@ -29,12 +27,12 @@ class ArticleController extends Controller
     }
 
     /**
-     * Lists all Article models.
+     * Lists all RecommendApply models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ArticleSearch;
+        $searchModel = new RecommendApplySearch;
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
         return $this->render('index', [
@@ -44,7 +42,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Displays a single Article model.
+     * Displays a single RecommendApply model.
      * @param string $id
      * @return mixed
      */
@@ -60,25 +58,15 @@ class ArticleController extends Controller
     }
 
     /**
-     * Creates a new Article model.
+     * Creates a new RecommendApply model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Article;
-
-        if(Yii::$app->request->post()){
-            $loginUser = User::loginUser();
-            $gallery_id = \Yii::$app->request->post()['Article']['gallery_id'];
-            $model->gallery_name = Gallery::findOne(['id'=>$gallery_id])['name'];
-            $model->user_id = $loginUser['id'];
-            $model->user_realname = isset($loginUser['realname'])?$loginUser['realname']:$loginUser['user_name'];
-            $model->created_at = date('Y-m-d H:i:s',time());
-        }
+        $model = new RecommendApply;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -88,7 +76,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Updates an existing Article model.
+     * Updates an existing RecommendApply model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -96,15 +84,6 @@ class ArticleController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if(Yii::$app->request->post()){
-            $loginUser = User::loginUser();
-            $gallery_id = \Yii::$app->request->post()['Article']['gallery_id'];
-            $model->gallery_name = Gallery::findOne(['id'=>$gallery_id])['name'];
-            $model->user_id = $loginUser['id'];
-            $model->user_realname = isset($loginUser['realname'])?$loginUser['realname']:$loginUser['user_name'];
-            $model->updated_at = date('Y-m-d H:i:s',time());
-        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -116,7 +95,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Deletes an existing Article model.
+     * Deletes an existing RecommendApply model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -129,15 +108,15 @@ class ArticleController extends Controller
     }
 
     /**
-     * Finds the Article model based on its primary key value.
+     * Finds the RecommendApply model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Article the loaded model
+     * @return RecommendApply the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Article::findOne($id)) !== null) {
+        if (($model = RecommendApply::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

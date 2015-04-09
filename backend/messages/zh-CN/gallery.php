@@ -179,6 +179,11 @@ return [
     'Update Work'=>'更新作品',
     'My Works'=>'我的作品',
     'Works'=>'作品',
+    'Visible'=>'可见',
+    'Invisible'=>'不可见',
+    'Onsell'=>'在拍卖',
+    'SaleStop'=>'停止拍卖',
+    'Qrcode Image'=>'二维码',
 
 
     //alert or warn message

@@ -39,6 +39,10 @@ use Yii;
  */
 class Work extends \yii\db\ActiveRecord
 {
+    const VISIBLE = 1;
+    const INVISIBLE = 0;
+    const ONSELL = 1;
+    const SALESTOP = 0;
     /**
      * @inheritdoc
      */
@@ -55,7 +59,7 @@ class Work extends \yii\db\ActiveRecord
         return [
             [['name', 'description', 'year', 'width', 'height', 'author_name', 'work_status'], 'required'],
             [['image'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',],
-            [['image'], 'file', 'skipOnEmpty' => false],
+            //[['image'], 'file', 'skipOnEmpty' => false],
             [['year', 'width', 'height', 'work_status', 'on_sale', 'mark_count', 'gallery_id', 'user_id', 'hall_id', 'show_room_id'], 'integer'],
             [['auction_time', 'created_at', 'updated_at'], 'safe'],
             [['name', 'image', 'material', 'gallery_name', 'hall_name', 'user_name', 'show_room_name', 'qrcode_image'], 'string', 'max' => 255],

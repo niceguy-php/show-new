@@ -76,6 +76,8 @@ class WorkController extends Controller
                 $ext = $image->extension;
                 $image->saveAs($this->uploadPath . $filename . '.' . $ext);
                 $model->image = $this->dbUploadPath . $filename . '.' . $ext;
+                $model->created_at = date('Y-m-d H:i:s',time());
+
                 if($model->save()){
                     return $this->redirect(['view', 'id' => $model->id]);
                 }else{
@@ -117,6 +119,7 @@ class WorkController extends Controller
                 }else{
                     $model->image = $old_image;
                 }
+                $model->updated_at = date('Y-m-d H:i:s',time());
                 if($model->save()){
                     $old_image_filename = $this->uploadPath.basename($old_image);
                     if(is_file($old_image_filename)){

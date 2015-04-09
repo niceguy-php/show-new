@@ -86,6 +86,15 @@ use yii\helpers\ArrayHelper;
 
 
     ]);
+    echo '<label class="control-label">Provinces</label>';
+    echo Select2::widget([
+        'name' => 'state_10',
+        'data' => ArrayHelper::map(\backend\models\Work::find()->all(),'id','name'),
+        'options' => [
+            'placeholder' => 'Select provinces ...',
+            'multiple' => true
+        ],
+    ]);
     echo Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']);
     ActiveForm::end(); ?>
 

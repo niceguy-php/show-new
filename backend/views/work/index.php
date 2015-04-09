@@ -32,7 +32,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
 //            'id',
-            'image',
+            ['attribute'=>'image','format'=>'raw','value'=>function($model){
+                return Html::img($model->image,['width'=>'70','height'=>'50','alt'=>$model->name]);
+            }],
             'name',
             'description',
 
@@ -44,14 +46,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 return $model->height.'cm';
             }],
 //            'material', 
-            'gallery_name',
+  //          'gallery_name',
 //            'hall_name', 
             'author_name',
 //            'author_profile', 
 //            'user_name', 
 //            ['attribute'=>'auction_time','format'=>['datetime',(isset(Yii::$app->modules['datecontrol']['displaySettings']['datetime'])) ? Yii::$app->modules['datecontrol']['displaySettings']['datetime'] : 'd-m-Y H:i:s A']], 
 //            'auction_price', 
-//            'work_status',
+            ['attribute'=>'work_status','value'=>function($model){
+                return $model->work_status==\backend\models\Work::INVISIBLE?'不可见':'可见';
+            }],
 //            'on_sale', 
 //            'show_room_name', 
 //            'qrcode_image', 

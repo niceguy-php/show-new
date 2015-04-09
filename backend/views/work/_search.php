@@ -17,19 +17,19 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php //echo $form->field($model, 'id') ?>
 
     <?= $form->field($model, 'name') ?>
 
     <?= $form->field($model, 'description') ?>
 
-    <?= $form->field($model, 'image') ?>
+    <?php //echo $form->field($model, 'image') ?>
 
     <?= $form->field($model, 'year') ?>
 
-    <?php // echo $form->field($model, 'width') ?>
+    <?php  echo $form->field($model, 'width') ?>
 
-    <?php // echo $form->field($model, 'height') ?>
+    <?php  echo $form->field($model, 'height') ?>
 
     <?php // echo $form->field($model, 'material') ?>
 
@@ -37,7 +37,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'hall_name') ?>
 
-    <?php // echo $form->field($model, 'author_name') ?>
+    <?php  echo $form->field($model, 'author_name') ?>
 
     <?php // echo $form->field($model, 'author_profile') ?>
 

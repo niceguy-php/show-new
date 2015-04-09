@@ -15,8 +15,8 @@ class WorkSearch extends Work
     public function rules()
     {
         return [
-            [['id', 'year', 'width', 'height', 'work_status', 'on_sale', 'mark_count', 'gallery_id', 'user_id', 'hall_id', 'show_room_id'], 'integer'],
-            [['name', 'description', 'image', 'material', 'gallery_name', 'hall_name', 'author_name', 'author_profile', 'user_name', 'auction_time', 'auction_price', 'show_room_name', 'qrcode_image', 'created_at', 'updated_at'], 'safe'],
+            [['id', 'year', 'width', 'height', 'on_sale', 'mark_count', 'gallery_id', 'user_id', 'hall_id', 'show_room_id'], 'integer'],
+            [['name', 'description', 'material', 'work_status','gallery_name', 'hall_name', 'author_name', 'author_profile', 'user_name', 'auction_time', 'auction_price', 'show_room_name', 'qrcode_image', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -32,6 +32,9 @@ class WorkSearch extends Work
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pagesize' => '10',
+            ]
         ]);
 
         if (!($this->load($params) && $this->validate())) {
@@ -39,12 +42,12 @@ class WorkSearch extends Work
         }
 
         $query->andFilterWhere([
-            'id' => $this->id,
+           // 'id' => $this->id,
             'year' => $this->year,
             'width' => $this->width,
             'height' => $this->height,
             'auction_time' => $this->auction_time,
-            'work_status' => $this->work_status,
+            'work_status' => $this->work_status=='可见'?'1':'0',
             'on_sale' => $this->on_sale,
             'mark_count' => $this->mark_count,
             'gallery_id' => $this->gallery_id,

@@ -7,9 +7,7 @@ use yii\helpers\Html;
  * @var backend\models\Work $model
  */
 
-$this->title = Yii::t('app-gallery', 'Update {modelClass}: ', [
-    'modelClass' => 'Work',
-]) . ' ' . $model->name;
+$this->title = Yii::t('app-gallery', 'Update Work') . ' ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app-gallery', 'Works'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app-gallery', 'Update');

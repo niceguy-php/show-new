@@ -71,13 +71,14 @@ class WorkController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $image = UploadedFile::getInstance($model, 'image');
-            if ( $image && $model->validate() ) {
+            if ($image && $model->validate() ) {
+
                 $filename = time() . rand(1000, 9999);
                 $ext = $image->extension;
                 $image->saveAs($this->uploadPath . $filename . '.' . $ext);
                 $model->image = $this->dbUploadPath . $filename . '.' . $ext;
-                $model->created_at = date('Y-m-d H:i:s',time());
 
+                $model->created_at = date('Y-m-d H:i:s', time());
                 if($model->save()){
                     return $this->redirect(['view', 'id' => $model->id]);
                 }else{
@@ -85,9 +86,14 @@ class WorkController extends Controller
                         'model' => $model,
                     ]);
                 }
+            }else{
+                if(!$image){
+                    $model->addError('image','请上传作品图片');
+                }
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
             }
-            var_dump($model->errors);
-            var_dump($image);
         } else {
             return $this->render('create', [
                 'model' => $model,

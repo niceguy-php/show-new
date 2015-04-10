@@ -14,7 +14,7 @@ $this->title = Yii::t('app-gallery', 'Exhibition Halls');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="exhibition-hall-index">
-    <div class="page-header">
+    <div class="page-header hide">
             <h1><?= Html::encode($this->title) ?></h1>
     </div>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

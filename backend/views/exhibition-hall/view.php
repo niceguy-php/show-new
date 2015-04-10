@@ -14,11 +14,26 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app-gallery', 'Exhibition H
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="exhibition-hall-view">
-    <div class="page-header">
+    <div class="page-header hide">
         <h1><?= Html::encode($this->title) ?></h1>
     </div>
 
 
+    <?php
+
+    echo '<div class="row " style="margin-left: 0px;margin-bottom: 20px;"><h3>参展作品</h3>';
+    $works = \Yii::$app->db->createCommand("SELECT id,name FROM `work` WHERE id in (SELECT work_id FROM work_in_exhibition where hall_id = :hall_id)")
+        ->bindValue(':hall_id',$model->id)->query();
+    //    $works_name = array_values($works);
+    $works_arr = [];
+    foreach($works as $w){
+        $a_html = Html::a($w['name'],\yii\helpers\Url::toRoute(['work/view', 'id' => $w['id']]));
+        $works_arr[] = $a_html;
+    }
+    $str = implode('，',$works_arr);
+    echo $str ? $str:'你还未配置参展作品~';
+    echo '</div>';
+    ?>
     <?= DetailView::widget([
             'model' => $model,
             'condensed'=>false,
@@ -66,6 +81,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             'artists',
             'status',
+            ['attribute'=>'status',
+                'value'=>$model->status==\backend\models\ExhibitionHall::OPEN ?\Yii::t('app-gallery','Open'):\Yii::t('app-gallery','Close')],
             'user_name',
             'phone',
             'user_id',
@@ -88,6 +105,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     'type'=>DateControl::FORMAT_DATETIME
                 ]
             ],
+            ['attribute'=>'pic1','value'=>$model->pic1,'format' => ['image',['width'=>'200','height'=>'200']]],
+            ['attribute'=>'pic2','value'=>$model->pic2,'format' => ['image',['width'=>'200','height'=>'200']]],
+            ['attribute'=>'pic3','value'=>$model->pic3,'format' => ['image',['width'=>'200','height'=>'200']]],
+            ['attribute'=>'pic4','value'=>$model->pic4,'format' => ['image',['width'=>'200','height'=>'200']]],
+            ['attribute'=>'pic5','value'=>$model->pic5,'format' => ['image',['width'=>'200','height'=>'200']]],
         ],
         'deleteOptions'=>[
         'url'=>['delete', 'id' => $model->id],
@@ -97,6 +119,9 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         ],
         'enableEditMode'=>false,
-    ]) ?>
+    ])
+
+
+    ?>
 
 </div>

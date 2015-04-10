@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app-gallery', 'Exhibition H
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="exhibition-hall-create">
-    <div class="page-header">
+    <div class="page-header hide">
         <h1><?= Html::encode($this->title) ?></h1>
     </div>
     <?= $this->render('_form', [

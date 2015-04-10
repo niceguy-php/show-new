@@ -26,12 +26,19 @@ use Yii;
  * @property string $gallery_id
  * @property string $created_at
  * @property string $updated_at
+ * @property string $pic1
+ * @property string $pic2
+ * @property string $pic3
+ * @property string $pic4
+ * @property string $pic5
  *
  * @property Comment[] $comments
  * @property Gallery $gallery
  */
 class ExhibitionHall extends \yii\db\ActiveRecord
 {
+    const OPEN =1;
+    const CLOSE =0;
     /**
      * @inheritdoc
      */
@@ -46,16 +53,18 @@ class ExhibitionHall extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+
             [['name', 'address', 'open_ceremony_time', 'show_time', 'close_show_time', 'planner', 'organizer', 'assist', 'description', 'artists', 'status', 'phone', 'gallery_id'], 'required'],
             [['name'],'unique','message'=>\Yii::t('app-gallery','This name has already been taken.')],
             [['open_ceremony_time', 'show_time', 'close_show_time', 'created_at', 'updated_at'], 'safe'],
             [['description'], 'string'],
             [['status', 'user_id', 'gallery_id'], 'integer'],
-            [['gallery_name', 'name', 'address', 'user_name'], 'string', 'max' => 255],
+            [['gallery_name', 'name', 'address', 'user_name', 'pic1', 'pic2', 'pic3', 'pic4', 'pic5'], 'string', 'max' => 255],
             [['planner'], 'string', 'max' => 200],
             [['organizer'], 'string', 'max' => 300],
             [['assist', 'artists'], 'string', 'max' => 600],
-            [['phone'], 'string', 'max' => 20]
+            [['phone'], 'string', 'max' => 20],
+            [['pic1','pic2','pic3','pic4','pic5'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',]
         ];
     }
 
@@ -84,6 +93,11 @@ class ExhibitionHall extends \yii\db\ActiveRecord
             'gallery_id' => Yii::t('app-gallery', 'Gallery ID'),
             'created_at' => Yii::t('app-gallery', 'Created At'),
             'updated_at' => Yii::t('app-gallery', 'Updated At'),
+            'pic1' => Yii::t('app-gallery', 'Pic1'),
+            'pic2' => Yii::t('app-gallery', 'Pic2'),
+            'pic3' => Yii::t('app-gallery', 'Pic3'),
+            'pic4' => Yii::t('app-gallery', 'Pic4'),
+            'pic5' => Yii::t('app-gallery', 'Pic5'),
         ];
     }
 

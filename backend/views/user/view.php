@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app-gallery', 'Users'), 'ur
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-view">
-    <div class="page-header">
+    <div class="page-header hide">
         <h1><?= Html::encode($this->title) ?></h1>
     </div>
 

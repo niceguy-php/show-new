@@ -30,4 +30,13 @@ class UploadForm extends Model
             [['file'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',],
         ];
     }
+
+
+    public static function uploadSizeCheck($size){
+        if($size > 1024*1024){
+            return false;
+        }else{
+            return true;
+        }
+    }
 }

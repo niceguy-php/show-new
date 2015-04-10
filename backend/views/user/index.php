@@ -19,7 +19,7 @@ $this->title = $roles== \common\models\User::isAdmin() ? Yii::t('app-gallery', '
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
-    <div class="page-header">
+    <div class="page-header hide">
             <h1><?= Html::encode($this->title) ?></h1>
     </div>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

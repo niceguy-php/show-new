@@ -15,8 +15,15 @@ body {
 }
 
 /*add by yyx----------------------------------------------------------------------*/
+.page-header{
+    display: none;
+}
+.work-update > h1 {
+   display: none;
+}
 .navbar-inverse {
-    background-color: #F5FAFC;
+    /*background-color: #F5FAFC;*/
+    background-color: #F8F3D7;
     border-color: #F0F8FC;
 }
 

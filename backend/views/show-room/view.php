@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app-gallery', 'Show Rooms')
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="show-room-view">
-    <div class="page-header">
+    <div class="page-header hide">
         <h1><?= Html::encode($this->title) ?></h1>
     </div>
 
@@ -65,5 +65,20 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         'enableEditMode'=>false,
     ]) ?>
+
+    <?php
+
+    echo '<div class="row" style="margin-left: 0px;"><h3>参展作品</h3>';
+    $works = \Yii::$app->db->createCommand("SELECT id,name FROM `work` WHERE id in (SELECT work_id FROM work_in_exhibition where show_room_id = :show_room_id)")
+        ->bindValue(':show_room_id',$model->id)->query();
+    $works_arr = [];
+    foreach($works as $w){
+        $a_html = Html::a($w['name'],\yii\helpers\Url::toRoute(['work/view', 'id' => $w['id']]));
+        $works_arr[] = $a_html;
+    }
+    $str = implode('，',$works_arr);
+    echo $str ? $str:'你还未配置参展作品~';
+    echo '</div>';
+    ?>
 
 </div>

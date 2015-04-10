@@ -75,6 +75,11 @@ return [
     'Assist'=>'协助方',
     'Artists'=>'参展艺术家',
     'Exhibition Status'=>'展览状态',
+    'Pic1'=>'现场图片1',
+    'Pic2'=>'现场图片2',
+    'Pic3'=>'现场图片3',
+    'Pic4'=>'现场图片4',
+    'Pic5'=>'现场图片5',
 
     //User
     'Login Status'=>'用户状态',
@@ -197,6 +202,7 @@ return [
     'Already have a account '=>'已有账号？',
     'This name has already been taken.'=>'名称已经被占用',
     'This title has already been taken.'=>'标题已经被占用',
+    'File size must less than one MB'=>'上传图片必须小于1M',
 
 
 

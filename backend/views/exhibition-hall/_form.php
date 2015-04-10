@@ -86,7 +86,7 @@ use yii\helpers\ArrayHelper;
     }else{
         $work_list = ArrayHelper::map(\backend\models\Work::find()->all(),'id','name');
     }
-    echo '<div class="row"><div class="col-sm-12" style="margin-bottom: 20px;">';
+    echo '<div class="row"><div class="col-sm-12" style="margin-bottom: 20px;padding: 0 0">';
     echo '<label class="col-md-2 control-label">参展作品</label>';
     echo '<div class="col-md-10">';
     echo Select2::widget([

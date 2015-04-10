@@ -190,6 +190,16 @@ return [
     'SaleStop'=>'停止拍卖',
     'Qrcode Image'=>'二维码',
 
+    //Notify Message
+    'Notify Messages'=>'通知',
+    'Update Notify Message'=>'更新通知',
+    'Create Notify Message'=>'发起通知',
+    'From User ID'=>'通知发送人',
+    'To User ID'=>'通知接收人',
+    'Message'=>'通知内容',
+    'Read Status'=>'消息是否阅读',
+    'Send'=>'发送',
+
 
     //alert or warn message
     'You are not allowed to access this page'=>'请先登录，不允许访问此页面！',

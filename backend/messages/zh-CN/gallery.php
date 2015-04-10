@@ -195,6 +195,8 @@ return [
     'This email address has already been taken.'=>'邮箱已经被占用',
     'Role'=>'用户类型',
     'Already have a account '=>'已有账号？',
+    'This name has already been taken.'=>'名称已经被占用',
+    'This title has already been taken.'=>'标题已经被占用',
 
 
 

@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use kartik\widgets\ActiveForm;
 use kartik\builder\Form;
 use kartik\datecontrol\DateControl;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
 
 /**
  * @var yii\web\View $this
@@ -40,7 +42,27 @@ use kartik\datecontrol\DateControl;
     ]
 
 
+
     ]);
+
+    if(\common\models\User::isGalleryAdmin()){
+        $work_list = ArrayHelper::map(\backend\models\Work::find()->where(['user_id'=>\common\models\User::loginUser()['id']])->all(),'id','name');
+    }else{
+        $work_list = ArrayHelper::map(\backend\models\Work::find()->all(),'id','name');
+    }
+
+    echo '<div class="row"><div class="col-sm-12" style="margin-bottom: 20px;">';
+    echo '<label class="col-md-2 control-label">参展作品</label>';
+    echo '<div class="col-md-10">';
+    echo Select2::widget([
+        'name' => 'work_id',
+        'data' => $work_list,
+        'options' => [
+            'placeholder' => '选择参展作品 ...',
+            'multiple' => true
+        ],
+    ]);
+    echo '</div></div></div>';
     echo Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']);
     ActiveForm::end(); ?>
 

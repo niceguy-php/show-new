@@ -41,7 +41,8 @@ class ShowRoom extends \yii\db\ActiveRecord
             [['description'], 'string'],
             [['user_id', 'status', 'hall_id'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            [['name', 'user_name'], 'string', 'max' => 255]
+            [['name', 'user_name'], 'string', 'max' => 255],
+            [['name'],'unique','message'=>\Yii::t('app-gallery','This name has already been taken.')],
         ];
     }
 

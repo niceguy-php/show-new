@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\WorkInExhibition;
 use Yii;
 use backend\models\ShowRoom;
 use backend\models\ShowRoomSearch;
@@ -65,8 +66,23 @@ class ShowRoomController extends Controller
     public function actionCreate()
     {
         $model = new ShowRoom;
+        $model->created_at = date('Y-m-d H:i:s',time());
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if( isset(\Yii::$app->request->post()['work_id']) ){
+                $transaction = \Yii::$app->db->beginTransaction();
+                try {
+                    foreach(\Yii::$app->request->post()['work_id'] as $work_id){
+                        \Yii::$app->db->createCommand()->insert('work_in_exhibition',
+                            ['work_id'=>$work_id,'show_room_id'=>$model->id]
+                        )->execute();
+                    }
+                    // ... 执行其他 SQL 语句 ...
+                    $transaction->commit();
+                } catch(Exception $e) {
+                    $transaction->rollBack();
+                }
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -84,8 +100,26 @@ class ShowRoomController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->updated_at = date('Y-m-d H:i:s',time());
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if(isset(\Yii::$app->request->post()['work_id'])){
+
+                $transaction = \Yii::$app->db->beginTransaction();
+                try {
+                    \Yii::$app->db->createCommand()->delete('work_in_exhibition',['show_room_id'=>$model->id])->execute();
+                    foreach(\Yii::$app->request->post()['work_id'] as $work_id){
+                        \Yii::$app->db->createCommand()->insert('work_in_exhibition',
+                            ['work_id'=>$work_id,'show_room_id'=>$model->id]
+                        )->execute();
+                    }
+                    // ... 执行其他 SQL 语句 ...
+                    $transaction->commit();
+
+                } catch(Exception $e) {
+                    $transaction->rollBack();
+                }
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -102,7 +136,9 @@ class ShowRoomController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        if($this->findModel($id)->delete()){
+            WorkInExhibition::deleteAll(['show_room_id'=>$id]);
+        }
 
         return $this->redirect(['index']);
     }

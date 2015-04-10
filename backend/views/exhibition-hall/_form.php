@@ -72,29 +72,56 @@ use yii\helpers\ArrayHelper;
 
 //'user_name'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入用户姓名...', 'maxlength'=>255]],
 
-'planner'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入主策划...', 'maxlength'=>200]],
 
-'organizer'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入主办方...', 'maxlength'=>300]],
 
-'assist'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入协助方...', 'maxlength'=>600]],
 
-'artists'=>['type'=> Form::INPUT_TEXTAREA, 'options'=>['placeholder'=>'输入参展艺术家...', 'maxlength'=>600]],
-
-'phone'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入联系电话...', 'maxlength'=>20]],
 
     ]
 
 
     ]);
-    echo '<label class="control-label">Provinces</label>';
+
+    if(\common\models\User::isGalleryAdmin()){
+        $work_list = ArrayHelper::map(\backend\models\Work::find()->where(['user_id'=>\common\models\User::loginUser()['id']])->all(),'id','name');
+    }else{
+        $work_list = ArrayHelper::map(\backend\models\Work::find()->all(),'id','name');
+    }
+    echo '<div class="row"><div class="col-sm-12" style="margin-bottom: 20px;">';
+    echo '<label class="col-md-2 control-label">参展作品</label>';
+    echo '<div class="col-md-10">';
     echo Select2::widget([
-        'name' => 'state_10',
-        'data' => ArrayHelper::map(\backend\models\Work::find()->all(),'id','name'),
+        'name' => 'work_id',
+        'data' => $work_list,
+        'value'=>$work_list,
         'options' => [
-            'placeholder' => 'Select provinces ...',
+            'placeholder' => '选择参展作品 ...',
             'multiple' => true
         ],
     ]);
+    echo '</div></div></div>';
+
+    echo Form::widget([
+
+        'model' => $model,
+        'form' => $form,
+        'columns' => 1,
+        'attributes' => [
+
+            'planner'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入主策划...', 'maxlength'=>200]],
+
+            'organizer'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入主办方...', 'maxlength'=>300]],
+            'assist'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入协助方...', 'maxlength'=>600]],
+
+            'artists'=>['type'=> Form::INPUT_TEXTAREA, 'options'=>['placeholder'=>'输入参展艺术家...', 'maxlength'=>600]],
+
+            'phone'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入联系电话...', 'maxlength'=>20]],
+
+        ]
+
+
+    ]);
+
+
     echo Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']);
     ActiveForm::end(); ?>
 

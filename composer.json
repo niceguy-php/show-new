@@ -17,6 +17,9 @@
         "2amigos/yii2-date-picker-widget": "*",
 
     
-    "pjkui/kindeditor": "*"
+    "pjkui/kindeditor": "*",
+
+    
+    "kartik-v/yii2-nav-x": "*"
     }
 }

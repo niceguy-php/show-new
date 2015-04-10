@@ -58,6 +58,7 @@ class Work extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'description', 'year', 'width', 'height', 'author_name', 'work_status'], 'required'],
+            [['name'],'unique','message'=>\Yii::t('app-gallery','This name has already been taken.')],
            // [['image'], 'file', 'skipOnEmpty' => false],
             [['image'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',],
 

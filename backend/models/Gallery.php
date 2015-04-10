@@ -43,6 +43,7 @@ class Gallery extends \yii\db\ActiveRecord
         return [
 
             [['name', 'master_word', 'created_at', 'address', 'history_profile', 'phone', 'email'], 'required'],
+            [['name'],'unique','message'=>\Yii::t('app-gallery','This name has already been taken.')],
             [['created_at', 'updated_at'], 'safe'],
             [['name', 'logo'], 'string', 'max' => 255],
             [['master_word', 'history_profile'], 'string', 'max' => 600],

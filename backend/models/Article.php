@@ -38,6 +38,7 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'content', 'gallery_id'], 'required'],
+            [['title'],'unique','message'=>\Yii::t('app-gallery','This title has already been taken.')],
             [['created_at', 'updated_at'], 'safe'],
             [['content'], 'string'],
             [['gallery_id', 'user_id'], 'integer'],

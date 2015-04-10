@@ -67,11 +67,28 @@ class ExhibitionHallController extends Controller
     {
         $model = new ExhibitionHall;
 
-        if ($model->load(Yii::$app->request->post()) ) {
+        if ( $model->load(Yii::$app->request->post())  ) {
+
             $gallery_id = \Yii::$app->request->post()['ExhibitionHall']['gallery_id'];
             $model->gallery_name = Gallery::findOne(['id'=>$gallery_id])['name'];
             $model->created_at = date('Y-m-d H:i:s',time());
+
             if($model->save()){
+                if( isset(\Yii::$app->request->post()['work_id']) ){
+                    $transaction = \Yii::$app->db->beginTransaction();
+                    try {
+                        foreach(\Yii::$app->request->post()['work_id'] as $work_id){
+                            \Yii::$app->db->createCommand()->insert('work_in_exhibition',
+                                ['work_id'=>$work_id,'hall_id'=>$model->id]
+                            )->execute();
+                        }
+                        // ... 执行其他 SQL 语句 ...
+                        $transaction->commit();
+                    } catch(Exception $e) {
+                        $transaction->rollBack();
+                    }
+                }
+
                 return $this->redirect(['view', 'id' => $model->id]);
             }else{
                 return $this->render('create', [
@@ -102,6 +119,24 @@ class ExhibitionHallController extends Controller
             $model->gallery_name = Gallery::findOne(['id'=>$gallery_id])['name'];
             $model->updated_at = date('Y-m-d H:i:s',time());
             if($model->save()){
+
+                if(isset(\Yii::$app->request->post()['work_id'])){
+
+                    $transaction = \Yii::$app->db->beginTransaction();
+                    try {
+                        \Yii::$app->db->createCommand()->delete('work_in_exhibition',['hall_id'=>$model->id])->execute();
+                        foreach(\Yii::$app->request->post()['work_id'] as $work_id){
+                            \Yii::$app->db->createCommand()->insert('work_in_exhibition',
+                                ['work_id'=>$work_id,'hall_id'=>$model->id]
+                            )->execute();
+                        }
+                        // ... 执行其他 SQL 语句 ...
+                        $transaction->commit();
+
+                    } catch(Exception $e) {
+                        $transaction->rollBack();
+                    }
+                }
                 return $this->redirect(['view', 'id' => $model->id]);
             }else{
                 return $this->render('update', [
@@ -125,7 +160,9 @@ class ExhibitionHallController extends Controller
     public function actionDelete($id)
     {
 
-        $this->findModel($id)->delete();
+        if($this->findModel($id)->delete()){
+            WorkInExhibition::deleteAll(['hall_id'=>$id]);
+        }
 
         return $this->redirect(['index']);
     }

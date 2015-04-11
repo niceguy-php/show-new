@@ -34,9 +34,9 @@ class Subscription extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'hall_id'], 'integer'],
+            [['user_id', 'subscrible_id'], 'integer'],
             [['created_at'], 'safe'],
-            [['user_name', 'hall_name'], 'string', 'max' => 255]
+            [['user_name', 'subscrible_name'], 'string', 'max' => 255]
         ];
     }
 

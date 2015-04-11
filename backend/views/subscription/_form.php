@@ -6,6 +6,7 @@ use kartik\builder\Form;
 use kartik\datecontrol\DateControl;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
+use backend\models\Subscription;
 
 /**
  * @var yii\web\View $this
@@ -20,13 +21,18 @@ use yii\helpers\ArrayHelper;
 
     $halls = ArrayHelper::map(\backend\models\ExhibitionHall::findBySql("SELECT h.id,CONCAT(h.name,'(',g.name,')') AS name FROM exhibition_hall h,gallery g WHERE g.id = h.gallery_id")->asArray()->all(),'id','name');
 
+    $loginUser = \common\models\User::loginUser();
+    $selectedHalls = Subscription::find()->where(['subscrible_type'=>Subscription::HALL,'user_id'=>$loginUser['id']])->asArray()->all();
+    $selectedHallsId = ArrayHelper::map($selectedHalls,'subscrible_id','subscrible_name');
+
+
     echo '<div class="row"><div class="col-sm-12" style="margin-bottom: 20px;padding: 0 0">';
     echo '<label class="col-md-2 control-label">'. Yii::t('app-gallery', 'Subscribe Works From Exhibition Halls').'</label>';
     echo '<div class="col-md-10">';
     echo Select2::widget([
         'name' => 'hall_id',
         'data' => $halls,
-       // 'value'=>$selectedWorksId,
+        'value'=>$selectedHallsId,
         'options' => [
             'placeholder' => '选择展厅作品 ...',
             'multiple' => true
@@ -34,6 +40,10 @@ use yii\helpers\ArrayHelper;
     ]);
     echo '</div></div></div>';
 
+
+    $loginUser = \common\models\User::loginUser();
+    $selectedArtists = Subscription::find()->where(['subscrible_type'=>Subscription::ARTIST,'user_id'=>$loginUser['id']])->asArray()->all();
+    $selectedArtistsId = ArrayHelper::map($selectedArtists,'subscrible_id','subscrible_name');
 
     //查出有真实姓名并且通过实名制认证的用户列表
     $artist = ArrayHelper::map(\backend\models\ExhibitionHall::findBySql("SELECT id,CONCAT(username,'(',realname,')') AS name FROM user WHERE role=3 AND realname IS NOT NULL AND realname <>'' AND status = 1")->asArray()->all(),'id','name');
@@ -44,7 +54,7 @@ use yii\helpers\ArrayHelper;
     echo Select2::widget([
         'name' => 'artist_id',
         'data' => $artist,
-        // 'value'=>$selectedWorksId,
+        'value'=>$selectedArtistsId,
         'options' => [
             'placeholder' => '选择艺术家 ...',
             'multiple' => true

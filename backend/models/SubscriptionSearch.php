@@ -15,8 +15,8 @@ class SubscriptionSearch extends Subscription
     public function rules()
     {
         return [
-            [['id', 'user_id', 'subscrible_type','subscrible_id'], 'integer'],
-            [['user_name', 'subscrible_name', 'created_at'], 'safe'],
+            [['id', 'user_id','subscrible_id'], 'integer'],
+            [['user_name', 'subscrible_name', 'created_at', 'subscrible_type'], 'safe'],
         ];
     }
 
@@ -32,21 +32,27 @@ class SubscriptionSearch extends Subscription
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pagesize' => '10',
+            ]
         ]);
 
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
+        }else{
+            var_dump($this->errors);
         }
 
         $query->andFilterWhere([
             'id' => $this->id,
             'user_id' => $this->user_id,
-            'hall_id' => $this->hall_id,
+            'subscrible_id' => $this->subscrible_id,
             'created_at' => $this->created_at,
+            'subscrible_type'=>$this->subscrible_type=='展厅'?Subscription::HALL:Subscription::ARTIST,
         ]);
 
-        $query->andFilterWhere(['like', 'user_name', $this->user_name])
-            ->andFilterWhere(['like', 'hall_name', $this->hall_name]);
+        $query->orFilterWhere(['like', 'user_name', $this->user_name])
+            ->orFilterWhere(['like', 'subscrible_name', $this->subscrible_name]);
 
         return $dataProvider;
     }

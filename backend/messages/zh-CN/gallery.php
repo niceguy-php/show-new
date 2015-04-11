@@ -218,6 +218,7 @@ return [
     'Subscription Type'=>'订阅类型',
 
 
+
     //alert or warn message
     'You are not allowed to access this page'=>'请先登录，不允许访问此页面！',
     'Please fill out the following fields to signup:'=>'请输入账号、邮箱、密码信息，欢迎加入沽雅美术馆~',

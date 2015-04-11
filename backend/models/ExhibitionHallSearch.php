@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use common\models\User;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -28,7 +29,12 @@ class ExhibitionHallSearch extends ExhibitionHall
 
     public function search($params)
     {
-        $query = ExhibitionHall::find();
+        if(User::isAdmin()){
+            $query = ExhibitionHall::find();
+        }else if(User::isGalleryAdmin()){
+            $query = ExhibitionHall::find()->where(['user_id'=>User::loginUser()['id']]);
+        }
+
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

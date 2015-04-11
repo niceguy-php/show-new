@@ -7,7 +7,7 @@ use kartik\datecontrol\DateControl;
 
 $roles = ['1'=>Yii::t('app-gallery', 'Admin'),
         '2'=>Yii::t('app-gallery', 'Gallery Admin'),
-        '3'=>Yii::t('app-gallery', 'Admin'),
+        '3'=>Yii::t('app-gallery', 'Artist'),
         '4'=>Yii::t('app-gallery', 'User')];
 
 /**
@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'username',
             'display_name',
             ['attribute'=>'avatar','value'=>$model->avatar,'format' => ['image',['width'=>'100','height'=>'100']]],
-            ['attribute'=>'password','value'=>\common\models\User::DISPLAY_PASSWORD],
+            //['attribute'=>'password','value'=>\common\models\User::DISPLAY_PASSWORD],
             ['attribute'=>'sex',
                 'value'=>$model->sex==\common\models\User::SEX_MAN?\Yii::t('app-gallery','Male'):Yii::t('app-gallery','Female')],
             'address',

@@ -53,6 +53,11 @@ class User extends ActiveRecord implements IdentityInterface
         return \Yii::$app->session->get('user')['role']==self::ROLE_GALLERY_ADMIN;
     }
 
+    public static function isArtist()
+    {
+        return \Yii::$app->session->get('user')['role']==self::ROLE_ARTIST;
+    }
+
     public static function loginUser(){
         return \Yii::$app->session->get('user');
     }

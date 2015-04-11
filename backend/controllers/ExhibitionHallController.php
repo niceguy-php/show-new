@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use backend\models\Gallery;
 use backend\models\UploadForm;
+use common\models\User;
 use Yii;
 use backend\models\ExhibitionHall;
 use backend\models\ExhibitionHallSearch;
@@ -70,10 +71,20 @@ class ExhibitionHallController extends Controller
     public function actionCreate()
     {
         $model = new ExhibitionHall;
+        $loginUser = User::loginUser();
 
         if ( $model->load(Yii::$app->request->post())  ) {
 
-            $gallery_id = \Yii::$app->request->post()['ExhibitionHall']['gallery_id'];
+            if(User::isAdmin()){
+                $gallery_id = \Yii::$app->request->post()['ExhibitionHall']['gallery_id'];
+            }else{
+                $gallery_id = Gallery::find()->where(['user_id'=>$loginUser['id']])->one()['id'];
+                $model->gallery_id = $gallery_id;
+                $model->user_id = $loginUser['id'];
+                $model->user_name = $loginUser['username'].'('.$loginUser['realname'].')';
+            }
+
+
             $model->gallery_name = Gallery::findOne(['id'=>$gallery_id])['name'];
             $model->created_at = date('Y-m-d H:i:s',time());
 

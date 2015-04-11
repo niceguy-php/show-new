@@ -152,7 +152,7 @@ return [
     'Apply Reason' => '申请原因',
     'Hall Name' => '展厅',
     'Reply User Name' => '回复人',
-    'Replay Content' => '申请回复',
+    'Replay Content' => '回复内容',
     'Apply Status' => '申请状态',
     'Work ID' => '作品',
     'Hall ID' => '展厅',
@@ -163,6 +163,10 @@ return [
     'Recommend To Exhibition Hall'=>'推荐到展厅',
     'Recommend To Gallery'=>'推荐到美术馆',
     'Apply Datetime'=>'申请时间',
+    'Apply Pass' => '同意',
+    'Apply Deny' => '拒绝',
+    'Apply Not Audit' => '未审核',
+    'Waiting' =>'待审核',
 
     //Work
     'Year'=>'创作年代',

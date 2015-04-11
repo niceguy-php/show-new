@@ -43,6 +43,7 @@ class Work extends \yii\db\ActiveRecord
     const INVISIBLE = 0;
     const ONSELL = 1;
     const SALESTOP = 0;
+
     /**
      * @inheritdoc
      */

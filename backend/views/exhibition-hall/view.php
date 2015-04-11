@@ -80,13 +80,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'assist',
             'description:ntext',
             'artists',
-            'status',
             ['attribute'=>'status',
                 'value'=>$model->status==\backend\models\ExhibitionHall::OPEN ?\Yii::t('app-gallery','Open'):\Yii::t('app-gallery','Close')],
             'user_name',
             'phone',
-            'user_id',
-            'gallery_id',
             [
                 'attribute'=>'created_at',
                 'format'=>['datetime',(isset(Yii::$app->modules['datecontrol']['displaySettings']['datetime'])) ? Yii::$app->modules['datecontrol']['displaySettings']['datetime'] : 'd-m-Y H:i:s A'],
@@ -105,11 +102,16 @@ $this->params['breadcrumbs'][] = $this->title;
                     'type'=>DateControl::FORMAT_DATETIME
                 ]
             ],
-            ['attribute'=>'pic1','value'=>$model->pic1,'format' => ['image',['width'=>'200','height'=>'200']]],
-            ['attribute'=>'pic2','value'=>$model->pic2,'format' => ['image',['width'=>'200','height'=>'200']]],
-            ['attribute'=>'pic3','value'=>$model->pic3,'format' => ['image',['width'=>'200','height'=>'200']]],
+
+            ['attribute'=>'pic1','format' => 'raw','value'=>!empty($model->pic1)?Html::img($model->pic1,['width'=>'200','height'=>'200']):'未上传'],
+            ['attribute'=>'pic2','format' => 'raw','value'=>!empty($model->pic2)?Html::img($model->pic2,['width'=>'200','height'=>'200']):'未上传'],
+            ['attribute'=>'pic3','format' => 'raw','value'=>!empty($model->pic3)?Html::img($model->pic3,['width'=>'200','height'=>'200']):'未上传'],
+            ['attribute'=>'pic4','format' => 'raw','value'=>!empty($model->pic4)?Html::img($model->pic4,['width'=>'200','height'=>'200']):'未上传'],
+            ['attribute'=>'pic5','format' => 'raw','value'=>!empty($model->pic5)?Html::img($model->pic5,['width'=>'200','height'=>'200']):'未上传'],
+            /*['attribute'=>'pic1','value'=>$model->pic1,'format' => ['image',['width'=>'200','height'=>'200']]],
+            ['attribute'=>'pic2','value'=>$model->pic2?$model->pic2:'','format' => ['image',['width'=>'200','height'=>'200']]],
             ['attribute'=>'pic4','value'=>$model->pic4,'format' => ['image',['width'=>'200','height'=>'200']]],
-            ['attribute'=>'pic5','value'=>$model->pic5,'format' => ['image',['width'=>'200','height'=>'200']]],
+            ['attribute'=>'pic5','value'=>$model->pic5,'format' => ['image',['width'=>'200','height'=>'200']]],*/
         ],
         'deleteOptions'=>[
         'url'=>['delete', 'id' => $model->id],

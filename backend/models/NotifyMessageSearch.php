@@ -38,7 +38,7 @@ class NotifyMessageSearch extends NotifyMessage
                 $query = NotifyMessage::find()->where(['to_user_id'=>'gallery'])
                     ->orWhere(['to_user_id'=>'all'])
                     ->orWhere(['to_user_id'=>$loginUser['id']]);
-            }else if($loginUser['role'==User::ROLE_ARTIST]){
+            }else if($loginUser['role']==User::ROLE_ARTIST){
                 $query = NotifyMessage::find()->where(['to_user_id'=>'artist'])
                     ->orWhere(['to_user_id'=>'all'])
                     ->orWhere(['to_user_id'=>$loginUser['id']]);

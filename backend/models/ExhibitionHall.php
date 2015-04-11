@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use common\models\User;
 use Yii;
 
 /**
@@ -54,7 +55,10 @@ class ExhibitionHall extends \yii\db\ActiveRecord
     {
         return [
 
-            [['name', 'address', 'open_ceremony_time', 'show_time', 'close_show_time', 'planner', 'organizer', 'assist', 'description', 'artists', 'status', 'phone', 'gallery_id'], 'required'],
+            [['name', 'address', 'open_ceremony_time', 'show_time', 'close_show_time', 'planner', 'organizer', 'assist', 'description', 'artists', 'status', 'phone'], 'required'],
+            [['gallery_id'],'required','when'=>function($model){
+                return User::isAdmin();
+            }],
             [['name'],'unique','message'=>\Yii::t('app-gallery','This name has already been taken.')],
             [['open_ceremony_time', 'show_time', 'close_show_time', 'created_at', 'updated_at'], 'safe'],
             [['description'], 'string'],

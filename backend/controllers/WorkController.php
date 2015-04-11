@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\User;
 use Yii;
 use backend\models\Work;
 use backend\models\WorkSearch;
@@ -68,6 +69,7 @@ class WorkController extends Controller
     public function actionCreate()
     {
         $model = new Work;
+        $loginUser = User::loginUser();
 
         if ($model->load(Yii::$app->request->post())) {
             $image = UploadedFile::getInstance($model, 'image');
@@ -79,6 +81,9 @@ class WorkController extends Controller
                 $model->image = $this->dbUploadPath . $filename . '.' . $ext;
 
                 $model->created_at = date('Y-m-d H:i:s', time());
+
+                $model->user_id = $loginUser['id'];
+                $model->user_name = $loginUser['username'].'('.$loginUser['realname'].')';
                 if($model->save()){
                     return $this->redirect(['view', 'id' => $model->id]);
                 }else{

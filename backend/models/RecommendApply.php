@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use common\models\User;
 use Yii;
 
 /**
@@ -25,6 +26,9 @@ use Yii;
  */
 class RecommendApply extends \yii\db\ActiveRecord
 {
+    const APPLY_PASS = 1;
+    const APPLY_DENY = 0;
+    const APPLY_NOTAUDIT = 2;
     /**
      * @inheritdoc
      */
@@ -39,7 +43,7 @@ class RecommendApply extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['apply_reason', 'replay_content', 'apply_status', 'work_id', 'hall_id', 'apply_user_id', 'reply_user_id', 'gallery_id'], 'required'],
+            [['apply_reason', 'apply_status', 'work_id', 'apply_user_id', 'gallery_id'], 'required'],
             [['apply_status', 'work_id', 'hall_id', 'apply_user_id', 'reply_user_id', 'gallery_id'], 'integer'],
             [['created_at'], 'safe'],
             [['apply_user_name', 'work_name', 'gallery_name', 'hall_name', 'reply_user_name', 'replay_content'], 'string', 'max' => 255],
@@ -69,5 +73,10 @@ class RecommendApply extends \yii\db\ActiveRecord
             'reply_user_id' => Yii::t('app-gallery', 'Reply User ID'),
             'gallery_id' => Yii::t('app-gallery', 'Recommend To Gallery'),
         ];
+    }
+
+    public static function getUserRecommendWorks(){
+        $gallery = Gallery::getGalleryByUser();
+        return self::find()->where(['gallery_id'=>$gallery['id']])->all();
     }
 }

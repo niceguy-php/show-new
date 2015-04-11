@@ -27,15 +27,6 @@ use yii\helpers\ArrayHelper;
                 'allowClear' => true
             ],
         ]);
-    }else{
-        echo $form->field($model, 'gallery_id')->widget(Select2::classname(), [
-            'data' => ArrayHelper::map(\backend\models\Gallery::find()->where(['user_id'=>\common\models\User::loginUser()['user_id']])->all(),'id','name'),
-            'language' => 'zh',
-            'options' => ['placeholder' => 'Select ...'],
-            'pluginOptions' => [
-                'allowClear' => true
-            ],
-        ]);
     }
 
     echo Form::widget([
@@ -81,8 +72,10 @@ use yii\helpers\ArrayHelper;
 
     ]);
 
-    if(\common\models\User::isGalleryAdmin()){
+    if(\common\models\User::isGalleryAdmin()||\common\models\User::isArtist()){
         $work_list = ArrayHelper::map(\backend\models\Work::find()->where(['user_id'=>\common\models\User::loginUser()['id']])->all(),'id','name');
+        $user_recommend_works = \backend\models\RecommendApply::getUserRecommendWorks();
+        $work_list = $work_list + ArrayHelper::map($user_recommend_works,'work_id','work_name');
     }else{
         $work_list = ArrayHelper::map(\backend\models\Work::find()->all(),'id','name');
     }

@@ -2,6 +2,9 @@
 
 namespace backend\controllers;
 
+use backend\models\Gallery;
+use backend\models\Work;
+use common\models\User;
 use Yii;
 use backend\models\RecommendApply;
 use backend\models\RecommendApplySearch;
@@ -49,12 +52,11 @@ class RecommendApplyController extends Controller
     public function actionView($id)
     {
         $model = $this->findModel($id);
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
-        return $this->render('view', ['model' => $model]);
-}
+            return $this->render('view', ['model' => $model]);
+        }
     }
 
     /**
@@ -64,10 +66,26 @@ class RecommendApplyController extends Controller
      */
     public function actionCreate()
     {
-        $model = new RecommendApply;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $model = new RecommendApply;
+        $loginUser = User::loginUser();
+
+        $post = Yii::$app->request->post();
+        $post['RecommendApply']['reply_user_id'] = 0;
+        $post['RecommendApply']['replay_content'] = '';
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model->apply_user_id = $loginUser['id'];
+            $model->apply_user_name = $loginUser['username'].'('.$loginUser['realname'].')';
+            $model->work_name = Work::find()->where(['id'=>$model->work_id])->one()['name'];
+            $model->gallery_name = Gallery::find()->where(['id'=>$model->gallery_id])->one()['name'];
+            $model->apply_status =RecommendApply::APPLY_NOTAUDIT;
+            $model->created_at = date('Y-m-d H:i:s',time());
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }else{
+                var_dump($model->errors);
+                //return $this->render('create', ['model' => $model]);
+            }
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -85,12 +103,43 @@ class RecommendApplyController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+
+        if(User::isAdmin()||User::isGalleryAdmin()){
+
+            if($_POST){
+                $staus = $_POST['RecommendApply']['apply_status'];
+                $reply_content = trim($_POST['RecommendApply']['replay_content']);
+                $loginUser = User::loginUser();
+                $id = intval($_GET['id']);
+                if(in_array($staus,['0','1','2']) && isset($reply_content) &&is_numeric($id)){
+                    \Yii::$app->db->createCommand()->update('recommend_apply',
+                        ['apply_status'=>$staus,'replay_content'=>$reply_content,
+                            'reply_user_id'=>$loginUser['id'],
+                            'reply_user_name'=>$loginUser['username'].'('.$loginUser['realname'].')'],
+                        'id = '.$id)->execute();
+                    return $this->redirect(['index']);
+
+                }else{
+                    return $this->render('update', [
+                        'model' => $model,
+                    ]);
+                }
+            }else{
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
+
+        }else{
+
+
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
         }
     }
 
@@ -102,8 +151,13 @@ class RecommendApplyController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
 
+        $model = $this->findModel($id);
+        if($model->apply_status != RecommendApply::APPLY_PASS){
+            $model->delete();
+        }else{
+
+        }
         return $this->redirect(['index']);
     }
 

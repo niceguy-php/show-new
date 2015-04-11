@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use common\models\User;
 use Yii;
 
 /**
@@ -103,7 +104,7 @@ class Gallery extends \yii\db\ActiveRecord
     {
 
         $loginUser = \Yii::$app->session->get('user');
-        \Yii::$app->db->createCommand()->insert('gallery',['name'=>'我的美术馆',
+        \Yii::$app->db->createCommand()->insert('gallery',['name'=>$loginUser['username'].'的美术馆',
             'master_word'=>'艺术之美，在于分享',
             'created_at'=>date('Y-m-d H:i:s',time()),
             'address'=>'成都',
@@ -128,5 +129,10 @@ class Gallery extends \yii\db\ActiveRecord
             return \Yii::$app->db->createCommand('SELECT id,CONCAT(name,"(",user_name,")") as name FROM gallery')->query();
         }
 
+    }
+
+    public static function getGalleryByUser()
+    {
+        return self::find()->where(['user_id'=>User::loginUser()['id']])->one();
     }
 }

@@ -28,7 +28,13 @@ class WorkSearch extends Work
 
     public function search($params)
     {
-        $query = Work::find();
+        $loginUser = \Yii::$app->session->get('user');
+        if($loginUser['role'] == \common\models\User::ROLE_ADMIN){
+            $query = Work::find();
+        }else{
+            $query = Work::find()->where(['user_id'=>$loginUser['id']]);
+        }
+
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

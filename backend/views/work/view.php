@@ -51,12 +51,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     'type'=>DateControl::FORMAT_DATETIME
                 ]
             ],
-            'auction_price',
             ['attribute'=>'auction_price','value'=>$model->auction_price.' ￥'],
             ['attribute'=>'work_status',
-                'value'=>$model->work_status==\backend\models\Work::INVISIBLE?\Yii::t('app-gallery','Visible'):\Yii::t('app-gallery','Invisible')],
+                'value'=>$model->work_status==\backend\models\Work::VISIBLE?\Yii::t('app-gallery','Visible'):\Yii::t('app-gallery','Invisible')],
             ['attribute'=>'on_sale',
-                'value'=>$model->work_status==\backend\models\Work::ONSELL?\Yii::t('app-gallery','Onsell'):\Yii::t('app-gallery','Salestop')],
+                'value'=>$model->on_sale==\backend\models\Work::ONSELL?\Yii::t('app-gallery','Onsell'):\Yii::t('app-gallery','SaleStop')],
             //'show_room_name',
             'qrcode_image',
             'mark_count',

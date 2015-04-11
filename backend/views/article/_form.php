@@ -29,7 +29,7 @@ use yii\helpers\ArrayHelper;
         ]);
     }else{
         echo $form->field($model, 'gallery_id')->widget(Select2::classname(), [
-            'data' => ArrayHelper::map(\backend\models\Gallery::IDName(\common\models\User::loginUser()['user_id']),'id','name'),
+            'data' => ArrayHelper::map(\backend\models\Gallery::IDName(\common\models\User::loginUser()['id']),'id','name'),
             'language' => 'zh',
             'options' => ['placeholder' => 'Select ...'],
             'pluginOptions' => [

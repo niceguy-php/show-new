@@ -51,6 +51,8 @@ AppAsset::register($this);
 
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Users'), 'url' => ['/user/index']];
 
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Comments'), 'url' => ['/comment/index']];
+
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Notify Messages'), 'url' => ['/notify-message/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Articles'), 'url' => ['/article/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Works'), 'url' => ['/work/index']];

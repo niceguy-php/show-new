@@ -59,7 +59,7 @@ class RecommendApply extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app-gallery', 'ID'),
             'apply_user_name' => Yii::t('app-gallery', 'Apply User Name'),
-            'work_name' => Yii::t('app-gallery', 'Work Name'),
+            'work_name' => Yii::t('app-gallery', 'Recommend Work Name'),
             'apply_reason' => Yii::t('app-gallery', 'Apply Reason'),
             'gallery_name' => Yii::t('app-gallery', 'Gallery Name'),
             'hall_name' => Yii::t('app-gallery', 'Recommend To Exhibition Hall'),

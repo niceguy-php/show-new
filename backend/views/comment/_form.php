@@ -21,21 +21,19 @@ use kartik\datecontrol\DateControl;
     'columns' => 1,
     'attributes' => [
 
-'created_at'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]], 
+'work_name'=>['type'=> Form::INPUT_STATIC, 'options'=>['placeholder'=>'Enter 申请展览作品...', 'maxlength'=>255]],
 
-'user_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 用户...', 'maxlength'=>20]], 
+'content'=>['type'=> Form::INPUT_TEXTAREA, 'options'=>['placeholder'=>'输入评论内容...', 'maxlength'=>500]],
 
-'work_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Work ID...', 'maxlength'=>20]], 
+'user_name'=>['type'=> Form::INPUT_STATIC],
 
-'article_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Article ID...', 'maxlength'=>20]], 
+//'created_at'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]],
 
-'show_room_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Show Room ID...', 'maxlength'=>20]], 
+//'user_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 用户...', 'maxlength'=>20]],
 
-'hall_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Hall ID...', 'maxlength'=>20]], 
+//'work_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 作品...', 'maxlength'=>20]],
 
-'content'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 内容...', 'maxlength'=>500]], 
-
-'user_name'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 用户姓名...', 'maxlength'=>255]], 
+//'article_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Article ID...', 'maxlength'=>20]],
 
     ]
 

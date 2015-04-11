@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use common\models\User;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -28,7 +29,13 @@ class ArticleSearch extends Article
 
     public function search($params)
     {
-        $query = Article::find();
+        $loginUser = User::loginUser();
+        if(User::isAdmin()){
+            $query = Article::find();
+        }else{
+            $query = Article::find()->where(['user_id'=>$loginUser['id']]);
+        }
+
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

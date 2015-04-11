@@ -15,8 +15,8 @@ class CommentSearch extends Comment
     public function rules()
     {
         return [
-            [['id', 'user_id', 'work_id', 'article_id', 'show_room_id', 'hall_id'], 'integer'],
-            [['content', 'user_name', 'created_at'], 'safe'],
+            [['id', 'user_id', 'work_id', 'article_id'], 'integer'],
+            [['work_name', 'content', 'user_name', 'created_at'], 'safe'],
         ];
     }
 
@@ -32,6 +32,9 @@ class CommentSearch extends Comment
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pagesize' => '10',
+            ]
         ]);
 
         if (!($this->load($params) && $this->validate())) {
@@ -44,11 +47,10 @@ class CommentSearch extends Comment
             'user_id' => $this->user_id,
             'work_id' => $this->work_id,
             'article_id' => $this->article_id,
-            'show_room_id' => $this->show_room_id,
-            'hall_id' => $this->hall_id,
         ]);
 
-        $query->andFilterWhere(['like', 'content', $this->content])
+        $query->andFilterWhere(['like', 'work_name', $this->work_name])
+            ->andFilterWhere(['like', 'content', $this->content])
             ->andFilterWhere(['like', 'user_name', $this->user_name]);
 
         return $dataProvider;

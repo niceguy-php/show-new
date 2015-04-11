@@ -79,13 +79,17 @@ use yii\helpers\ArrayHelper;
     }else{
         $work_list = ArrayHelper::map(\backend\models\Work::find()->all(),'id','name');
     }
+
+    $selectedWorks = \backend\models\WorkInExhibition::find()->where(['hall_id'=>$model->id])->asArray()->all();
+    $selectedWorksId = ArrayHelper::getColumn($selectedWorks,'work_id');
+
     echo '<div class="row"><div class="col-sm-12" style="margin-bottom: 20px;padding: 0 0">';
     echo '<label class="col-md-2 control-label">参展作品</label>';
     echo '<div class="col-md-10">';
     echo Select2::widget([
         'name' => 'work_id',
         'data' => $work_list,
-        'value'=>$work_list,
+        'value'=>$selectedWorksId,
         'options' => [
             'placeholder' => '选择参展作品 ...',
             'multiple' => true

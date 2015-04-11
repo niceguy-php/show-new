@@ -71,9 +71,19 @@ class ArticleController extends Controller
         if(Yii::$app->request->post()){
             $loginUser = User::loginUser();
             $gallery_id = \Yii::$app->request->post()['Article']['gallery_id'];
-            $model->gallery_name = Gallery::findOne(['id'=>$gallery_id])['name'];
-            $model->user_id = $loginUser['id'];
-            $model->user_realname = isset($loginUser['realname'])?$loginUser['realname']:$loginUser['user_name'];
+            $gallery = Gallery::findOne(['id'=>$gallery_id]);
+            $model->gallery_name = $gallery['name'];
+
+            if(User::isAdmin()){
+                $user = User::findOne(['id'=>$gallery['user_id']]);
+                $model->user_id = $user['id'];
+                $model->user_realname = isset($user['realname'])?$user['realname']:$user['user_name'];
+
+            }else{
+                $model->user_id = $loginUser['id'];
+                $model->user_realname = isset($loginUser['realname'])?$loginUser['realname']:$loginUser['user_name'];
+            }
+
             $model->created_at = date('Y-m-d H:i:s',time());
         }
 

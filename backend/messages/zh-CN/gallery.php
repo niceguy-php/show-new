@@ -60,7 +60,11 @@ return [
 
     //comment
     'Create Comment'=>'创建评论',
-    'Comments'=>'评论列表',
+    'Comments'=>'评论',
+    'Comment Content'=>'评论内容',
+    'Comment User Name'=>'评论用户名',
+    'Comment Time'=>'评论时间',
+    'Update Comment'=>'更新评论',
 
 
     //展览
@@ -148,7 +152,7 @@ return [
     //Recommend Applies
     'Recommend Applies'=>'推荐申请',
     'Apply User Name' => '申请人',
-    'Work Name' => '申请展览作品',
+    'Recommend Work Name' => '申请展览作品',
     'Apply Reason' => '申请原因',
     'Hall Name' => '展厅',
     'Reply User Name' => '回复人',

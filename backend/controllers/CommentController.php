@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\User;
 use Yii;
 use backend\models\Comment;
 use backend\models\CommentSearch;
@@ -85,12 +86,17 @@ class CommentController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+        if(User::isAdmin()) {
+
+            if ($_POST) {
+                $comment_content = trim($_POST['Comment']['content']);
+                \Yii::$app->db->createCommand()->update('comment', ['content' => $comment_content], 'id=' . $model->id)->execute();
+                return $this->redirect(['index', 'id' => $model->id]);
+            } else {
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
         }
     }
 

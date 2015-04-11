@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         'attributes' => [
             'id',
+            'work_name',
             'content',
             'user_name',
             [
@@ -44,8 +45,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'user_id',
             'work_id',
             'article_id',
-            'show_room_id',
-            'hall_id',
         ],
         'deleteOptions'=>[
         'url'=>['delete', 'id' => $model->id],
@@ -54,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'method'=>'post',
         ],
         ],
-        'enableEditMode'=>true,
+        'enableEditMode'=>false,
     ]) ?>
 
 </div>

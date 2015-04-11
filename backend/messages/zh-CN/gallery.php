@@ -208,6 +208,15 @@ return [
     'Read Status'=>'消息是否阅读',
     'Send'=>'发送',
 
+    //subscription
+    'Subscriptions'=>'订阅',
+    'Update Subscription'=>'更新订阅',
+    'Create Subscription'=>'创建订阅',
+    'Subscribe Works From Artists'=>'订阅的艺术家',
+    'Subscribe Works From Exhibition Halls'=>'订阅的展厅',
+    'Subscription Name'=>'订阅',
+    'Subscription Type'=>'订阅类型',
+
 
     //alert or warn message
     'You are not allowed to access this page'=>'请先登录，不允许访问此页面！',

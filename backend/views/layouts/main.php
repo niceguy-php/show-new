@@ -40,6 +40,7 @@ AppAsset::register($this);
                 if($loginUser['role'] == \common\models\User::ROLE_GALLERY_ADMIN) {
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Personal Info Setting'), 'url' => ['/user/index']];
 
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Subscriptions'), 'url' => ['/subscription/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Notify Messages'), 'url' => ['/notify-message/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Articles'), 'url' => ['/article/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Works'), 'url' => ['/work/index']];
@@ -53,6 +54,7 @@ AppAsset::register($this);
 
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Comments'), 'url' => ['/comment/index']];
 
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Subscriptions'), 'url' => ['/subscription/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Notify Messages'), 'url' => ['/notify-message/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Articles'), 'url' => ['/article/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Works'), 'url' => ['/work/index']];
@@ -64,11 +66,19 @@ AppAsset::register($this);
 
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Personal Info Setting'), 'url' => ['/user/index']];
 
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Subscriptions'), 'url' => ['/subscription/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Notify Messages'), 'url' => ['/notify-message/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','My Works'), 'url' => ['/work/index']];
                     $menuItems[] = ['label' => \Yii::t('app-gallery','Recommend Applies'), 'url' => ['/recommend-apply/index']];
 
                 }else if($loginUser['role'] == \common\models\User::ROLE_USER) {
+
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Personal Info Setting'), 'url' => ['/user/index']];
+
+
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Notify Messages'), 'url' => ['/notify-message/index']];
+                    $menuItems[] = ['label' => \Yii::t('app-gallery','Subscriptions'), 'url' => ['/subscription/index']];
+                    //$menuItems[] = ['label' => \Yii::t('app-gallery','Recommend Applies'), 'url' => ['/recommend-apply/index']];
 
                 }
 

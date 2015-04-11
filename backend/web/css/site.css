@@ -58,6 +58,66 @@ body {
 }
 
 /*add by yyx----------------------------------------------------------------------*/
+
+/*add by yyx----------------------------------------------------------------------*/
+.page-header{
+    display: none;
+}
+.work-update > h1 {
+    display: none;
+}
+.navbar-inverse {
+    /*background-color: #F5FAFC;*/
+    color: #ffffff;
+    background-color: #003466;
+    border-color: #003466;
+}
+
+.navbar-inverse .navbar-nav > .active > a {
+    color: #fff;
+    background-color: rgb(25, 72, 118);
+}
+
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+
+
+#w3 > li > a:hover{
+    color:#ffffff;
+    background-color: rgb(25, 72, 118);
+}
+
+#w3 > li > .active > a:hover{
+    color: #ffffff;
+    background-color: rgb(25, 72, 118);
+}
+
+#w1 > li > a:hover{
+    color:#ffffff;
+    background-color:rgb(25, 72, 118) ;
+}
+
+#w1 > li > .active > a:hover{
+    color: #ffffff;
+    background-color: rgb(25, 72, 118);
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color: rgb(25, 72, 118);
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #FDFFFE;
+}
+.navbar-inverse .navbar-brand {
+    color: #FDFFFE;
+}
+
+/*add by yyx----------------------------------------------------------------------*/
 .footer {
     height: 60px;
     background-color: #f5f5f5;

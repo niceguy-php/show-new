@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use common\models\User;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -28,7 +29,12 @@ class SubscriptionSearch extends Subscription
 
     public function search($params)
     {
-        $query = Subscription::find();
+        if(User::isAdmin()){
+            $query = Subscription::find();
+        }else{
+            $query = Subscription::find()->where(['user_id'=>User::loginUser()['id']]);
+        }
+
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

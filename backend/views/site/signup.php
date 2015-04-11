@@ -4,15 +4,15 @@ use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \frontend\models\SignupForm */
+/* @var $model \frontend\models\SignupForm   col-md-offset-3*/
 
 $this->title = \Yii::t('app-gallery','Signup');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="container">
-
-<div class="site-signup" >
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div style="float: left;width:500px"><img class="" src="/uploads/system/logo_image1.png" width="100%"> </div>
+<div class="site-signup " >
+    <h1 class=""><?= Html::encode($this->title) ?></h1>
 
     <p><?=\Yii::t('app-gallery','Please fill out the following fields to signup:');?></p>
 

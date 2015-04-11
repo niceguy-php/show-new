@@ -85,6 +85,7 @@ AppAsset::register($this);
             }
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => \Yii::t('app-gallery','Login'), 'url' => ['/site/login']];
+                $menuItems[] = ['label' => \Yii::t('app-gallery','Signup'), 'url' => ['/site/signup']];
             } else {
                 $menuItems[] = [
                     'label' =>\Yii::t('app-gallery','Logout'). ' (' . Yii::$app->user->identity->username . ')',

@@ -8,10 +8,12 @@ body {
     height: auto;
     margin: 0 auto -60px;
     padding: 0 0 60px;
+    /*background: url("/images/2.jpg") no-repeat;*/
 }
 
 .wrap > .container {
     padding: 70px 15px 20px;
+
 }
 
 /*add by yyx----------------------------------------------------------------------*/

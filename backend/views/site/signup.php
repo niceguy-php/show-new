@@ -7,7 +7,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $model \frontend\models\SignupForm   col-md-offset-3*/
 
 $this->title = \Yii::t('app-gallery','Signup');
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="container">
     <div style="float: left;width:500px"><img class="" src="/uploads/system/logo_image1.png" width="100%"> </div>

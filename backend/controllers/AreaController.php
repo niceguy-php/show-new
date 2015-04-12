@@ -11,6 +11,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\models\Area;
+use yii\filters\AccessControl;
 
 
 class AreaController extends Controller
@@ -20,6 +21,22 @@ class AreaController extends Controller
         //$behaviors = parent::behaviors();
        // $behaviors['contentNegotiator']['formats']['text/html'] = Response::FORMAT_JSON;
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => [],
+                'rules' => [
+                    [
+                        'actions' => [],
+                        'allow' => false,
+                        'roles' => ['?'],
+                    ],
+                    [
+                        'actions' => ['index','create','update','view','delete'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

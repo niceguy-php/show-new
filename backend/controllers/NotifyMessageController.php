@@ -25,7 +25,7 @@ class NotifyMessageController extends Controller
                 'rules' => [
                     [
                         'actions' => [],
-                        'allow' => true,
+                        'allow' => false,
                         'roles' => ['?'],
                     ],
                     [

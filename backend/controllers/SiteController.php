@@ -172,7 +172,7 @@ class SiteController extends Controller
                     //var_dump($gallery->errors);
                     //var_dump($showroom->errors);
 
-                    //return $this->goHome();
+                    return $this->goHome();
                 }
             }
         }

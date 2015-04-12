@@ -8,7 +8,7 @@ body {
     height: auto;
     margin: 0 auto -60px;
     padding: 0 0 60px;
-    background: url("/images/bg3.jpg");
+    background: url("/images/bg.png") no-repeat;
 }
 
 .wrap > .container {
@@ -25,8 +25,9 @@ body {
 }
 .navbar-inverse {
     /*background-color: #F5FAFC;*/
-    background-color: #F8F3D7;
-    border-color: #F0F8FC;
+    /*background-color: #F8F3D7;*/
+    background-color: #00a2ca;
+    border-color: #00a2ca;
 }
 
 .navbar-inverse .navbar-nav > .active > a {
@@ -71,8 +72,8 @@ body {
 .navbar-inverse {
     /*background-color: #F5FAFC;*/
     color: #ffffff;
-    background-color: #003466;
-    border-color: #003466;
+    background-color: #00a2ca;
+    border-color: #00a2ca;
 }
 
 .navbar-inverse .navbar-nav > .active > a {
@@ -89,27 +90,28 @@ body {
 
 #w3 > li > a:hover{
     color:#ffffff;
-    background-color: rgb(25, 72, 118);
+    /*background-color: rgb(25, 72, 118);*/
+    background-color: #2DBBDF;
 }
 
 #w3 > li > .active > a:hover{
     color: #ffffff;
-    background-color: rgb(25, 72, 118);
+    background-color: #2DBBDF;
 }
 
 #w1 > li > a:hover{
     color:#ffffff;
-    background-color:rgb(25, 72, 118) ;
+    background-color:#2DBBDF ;
 }
 
 #w1 > li > .active > a:hover{
     color: #ffffff;
-    background-color: rgb(25, 72, 118);
+    background-color: #2DBBDF;
 }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
     color: #ffffff;
-    background-color: rgb(25, 72, 118);
+    background-color: #2DBBDF;
 }
 
 .navbar-inverse .navbar-nav > li > a {

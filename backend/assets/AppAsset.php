@@ -21,6 +21,10 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+       // 'js/jquery-1.10.2.js',
+        // 'js/jquery.qrcode-0.11.0.min.js',
+        // 'js/create_qrcode.js'
+
     ];
     public $depends = [
         'yii\web\YiiAsset',

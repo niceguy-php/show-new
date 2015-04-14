@@ -4,6 +4,9 @@ use yii\helpers\Html;
 use kartik\detail\DetailView;
 use kartik\datecontrol\DateControl;
 
+
+
+
 /**
  * @var yii\web\View $this
  * @var backend\models\Work $model
@@ -66,7 +69,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ['attribute'=>'on_sale',
                 'value'=>$model->on_sale==\backend\models\Work::ONSELL?\Yii::t('app-gallery','Onsell'):\Yii::t('app-gallery','SaleStop')],
             //'show_room_name',
-            'qrcode_image',
+            //'qrcode_image',
+            ['attribute'=>'qrcode_image','format' => 'raw','value'=>'<div id="qrcode_image"></div>'],
             'mark_count',
             //'gallery_id',
             //'user_id',
@@ -100,5 +104,29 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         'enableEditMode'=>false,
     ]) ?>
+
+<?php
+
+\yii\web\YiiAsset::register($this);
+$this->registerJsFile('@web/js/jquery.qrcode-0.11.0.min.js',['position'=>\yii\web\View::POS_END,'depends'=>[yii\web\JqueryAsset::className()]]) ;
+//$this->registerJsFile('@web/js/create_qrcode.js',\yii\web\View::POS_END) ;
+$this->beginBlock('QR_JS');
+echo <<<JS
+(function(){
+    $ = jQuery;
+    $(document).ready(function(){
+        $('#qrcode_image').qrcode({
+            "render": "div",
+            "width": 100,
+            "height": 100,
+            "color": "#3a3",
+            "text": "http://goolya.com{$model->image}"
+        });
+    });
+})();
+JS;
+$this->endBlock();
+$this->registerJs($this->blocks['QR_JS'],\yii\web\View::POS_END);
+?>
 
 </div>

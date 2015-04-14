@@ -26,6 +26,17 @@ use yii\helpers\ArrayHelper;
                 'allowClear' => true
             ],
         ]);
+
+
+        echo Form::widget([
+            'model' => $model,
+            'form' => $form,
+            'columns' => 1,
+            'attributes' => [
+                'gallery_status'=>['type'=> Form::INPUT_RADIO_LIST, 'items'=>['1'=>\Yii::t('app-gallery','Gallery Verify Pass'), '0'=>\Yii::t('app-gallery','Gallery Verify Fail')]],
+            ]
+        ]);
+
     }
 
     echo Form::widget([

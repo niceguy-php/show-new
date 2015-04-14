@@ -12,6 +12,7 @@ use yii\widgets\Pjax;
 
 $this->title = Yii::t('app-gallery', 'Subscriptions');
 $this->params['breadcrumbs'][] = $this->title;
+\common\models\User::showFlashErrorIfHave();
 ?>
 <div class="subscription-index">
     <div class="page-header">

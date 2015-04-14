@@ -49,6 +49,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'fax',
             'email:email',
             'postcode',
+            ['attribute'=>'gallery_status',
+                'value'=>$model->gallery_status==\backend\models\Gallery::GALLERY_VERIFY_PASS?
+                    \Yii::t('app-gallery','Gallery Verify Pass'):\Yii::t('app-gallery','Gallery Verify Fail')],
             /*[
                 'attribute'=>'updated_at',
                 'format'=>['datetime',(isset(Yii::$app->modules['datecontrol']['displaySettings']['datetime'])) ? Yii::$app->modules['datecontrol']['displaySettings']['datetime'] : 'd-m-Y H:i:s A'],

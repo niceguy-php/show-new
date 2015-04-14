@@ -19,11 +19,11 @@ $this->title = \Yii::t('app-gallery','Signup');
     <div class="row">
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
-                 <?= $form->field($model, 'role')->dropDownList(['2'=>'美术馆','3'=>'艺术家']) ?>
+                 <?= $form->field($model, 'role')->dropDownList(['2'=>'机构用户（美术馆、艺术馆、博物馆、画廊商、拍卖行）','3'=>'个人用户（艺术家、艺术爱好者、收藏家、其它）']) ?>
                 <?= $form->field($model, 'username') ?>
                 <?= $form->field($model, 'email') ?>
                 <?= $form->field($model, 'password')->passwordInput() ?>
-                <!--<?= $form->field($model, 'role')->dropDownList(['2'=>'美术馆','3'=>'艺术家','4'=>'普通用户']) ?>-->
+                <!--<?= $form->field($model, 'role')->dropDownList(['2'=>'机构用户','3'=>'个人用户','4'=>'普通用户']) ?>-->
 
                 <div style="color:#999;margin:1em 0">
                     <?=\Yii::t('app-gallery','Already have a account ')?><?= Html::a(\Yii::t('app-gallery','Login'), ['site/login']) ?>.

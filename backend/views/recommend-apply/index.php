@@ -10,6 +10,9 @@ use yii\widgets\Pjax;
  * @var backend\models\RecommendApplySearch $searchModel
  */
 
+
+\common\models\User::showFlashErrorIfHave();
+
 $this->title = Yii::t('app-gallery', 'Recommend Applies');
 $this->params['breadcrumbs'][] = $this->title;
 ?>

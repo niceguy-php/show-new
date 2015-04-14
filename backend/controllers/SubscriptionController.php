@@ -147,7 +147,12 @@ class SubscriptionController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Subscription::findOne($id)) !== null) {
+        if(User::isAdmin()){
+            $condition = $id;
+        }else{
+            $condition = ['id'=>$id,'user_id'=>User::loginUser()['id']];
+        }
+        if (($model = Subscription::findOne($condition)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

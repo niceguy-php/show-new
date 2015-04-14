@@ -12,6 +12,7 @@ use yii\widgets\Pjax;
 
 $this->title = Yii::t('app-gallery', 'Show Rooms');
 $this->params['breadcrumbs'][] = $this->title;
+\common\models\User::showFlashErrorIfHave();
 ?>
 <div class="show-room-index">
     <div class="page-header hide">

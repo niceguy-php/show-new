@@ -17,7 +17,7 @@ class GallerySearch extends Gallery
     {
         return [
             [['id'], 'integer'],
-            [['name', 'master_word', 'created_at', 'address', 'logo', 'history_profile', 'phone', 'fax', 'email', 'postcode', 'updated_at','user_name'], 'safe'],
+            [['gallery_status','name', 'master_word', 'created_at', 'address', 'logo', 'history_profile', 'phone', 'fax', 'email', 'postcode', 'updated_at','user_name'], 'safe'],
         ];
     }
 
@@ -47,12 +47,15 @@ class GallerySearch extends Gallery
             return $dataProvider;
         }
 
+
         $query->andFilterWhere([
             'id' => $this->id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'gallery_status'=>$this->gallery_status == \Yii::t('app-gallery','Gallery Verify Pass')?Gallery::GALLERY_VERIFY_PASS:Gallery::GALLERY_VERIFY_FAIL,
         ]);
 
+        //var_dump($this->gallery_status);return;
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'master_word', $this->master_word])
             ->andFilterWhere(['like', 'address', $this->address])

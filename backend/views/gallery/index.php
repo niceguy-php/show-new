@@ -12,6 +12,7 @@ use yii\widgets\Pjax;
 
 $this->title = Yii::t('app-gallery', 'Galleries');
 $this->params['breadcrumbs'][] = $this->title;
+\common\models\User::showFlashErrorIfHave();
 ?>
 <div class="gallery-index">
     <div class="page-header">
@@ -37,6 +38,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ['attribute'=>'created_at','format'=>['datetime',(isset(Yii::$app->modules['datecontrol']['displaySettings']['datetime'])) ? Yii::$app->modules['datecontrol']['displaySettings']['datetime'] : 'd-m-Y H:i:s A']],
             'address',
             'user_name',
+            ['attribute'=>'gallery_status','value'=>function($model){
+                if(\backend\models\Gallery::GALLERY_VERIFY_PASS == $model->gallery_status){
+                    return \Yii::t('app-gallery','Gallery Verify Pass');
+                }else{
+                    return \Yii::t('app-gallery','Gallery Verify Fail');
+                }
+            }],
 //            'logo', 
 //            'history_profile', 
 //            'phone', 

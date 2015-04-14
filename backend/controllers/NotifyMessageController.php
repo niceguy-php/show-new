@@ -85,7 +85,7 @@ class NotifyMessageController extends Controller
         $model = new NotifyMessage;
 
         $post = Yii::$app->request->post();
-        if ($post && isset($post['NotifyMessage']['message']) && isset($post['user_id'])){
+        if (User::isAdmin() && $post && isset($post['NotifyMessage']['message']) && isset($post['user_id'])){
             $user_ids = $post['user_id'];
             $transaction = \Yii::$app->db->beginTransaction();
             try{
@@ -162,10 +162,15 @@ class NotifyMessageController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = NotifyMessage::findOne($id)) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+        if(User::isAdmin()){
+
+            if (($model = NotifyMessage::findOne($id)) !== null) {
+                return $model;
+            } else {
+                throw new NotFoundHttpException('The requested page does not exist.');
+            }
+
         }
+
     }
 }

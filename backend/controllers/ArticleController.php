@@ -85,7 +85,7 @@ class ArticleController extends Controller
     {
         $model = new Article;
 
-        if(Yii::$app->request->post()){
+        if((User::isAdmin()||User::isGalleryAdmin())&&Yii::$app->request->post()){
             $loginUser = User::loginUser();
             $gallery_id = \Yii::$app->request->post()['Article']['gallery_id'];
             $gallery = Gallery::findOne(['id'=>$gallery_id]);
@@ -164,7 +164,12 @@ class ArticleController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Article::findOne($id)) !== null) {
+        if(User::isAdmin()){
+            $condition = $id;
+        }else{
+            $condition = ['id'=>$id,'user_id'=>User::loginUser()['id']];
+        }
+        if (($model = Article::findOne($condition)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

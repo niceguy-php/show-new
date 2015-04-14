@@ -51,6 +51,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     'type'=>DateControl::FORMAT_DATETIME
                 ]
             ],
+            [
+                'attribute'=>'auction_end_time',
+                'format'=>['datetime',(isset(Yii::$app->modules['datecontrol']['displaySettings']['datetime'])) ? Yii::$app->modules['datecontrol']['displaySettings']['datetime'] : 'd-m-Y H:i:s A'],
+                'type'=>DetailView::INPUT_WIDGET,
+                'widgetOptions'=> [
+                    'class'=>DateControl::classname(),
+                    'type'=>DateControl::FORMAT_DATETIME
+                ]
+            ],
             ['attribute'=>'auction_price','value'=>$model->auction_price.' ￥'],
             ['attribute'=>'work_status',
                 'value'=>$model->work_status==\backend\models\Work::VISIBLE?\Yii::t('app-gallery','Visible'):\Yii::t('app-gallery','Invisible')],

@@ -52,6 +52,7 @@ class RecommendApplyController extends Controller
      */
     public function actionIndex()
     {
+
         $searchModel = new RecommendApplySearch;
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
@@ -83,6 +84,13 @@ class RecommendApplyController extends Controller
      */
     public function actionCreate()
     {
+        $this->ifNotVerified();
+        if(!User::isAdmin() && !User::loginUserVerified())
+        {
+            //$this->refresh();
+            \Yii::$app->session->setFlash('error', \Yii::t('app-gallery','Not through real-name authentication!'));
+            $this->redirect(['index']);
+        }
 
         $model = new RecommendApply;
         $loginUser = User::loginUser();
@@ -118,6 +126,9 @@ class RecommendApplyController extends Controller
      */
     public function actionUpdate($id)
     {
+
+        $this->ifNotVerified();
+
         $model = $this->findModel($id);
 
 
@@ -187,10 +198,23 @@ class RecommendApplyController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = RecommendApply::findOne($id)) !== null) {
+        if(User::isAdmin()){
+            $condition = $id;
+        }else{
+            $condition = ['id'=>$id,'apply_user_id'=>User::loginUser()['id']];
+        }
+        if (($model = RecommendApply::findOne($condition)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    protected function ifNotVerified(){
+        if(!User::loginUserVerified()||!User::galleryVerified()){
+            $this->redirect(['index']);
+        }
+    }
+
+
 }

@@ -57,7 +57,9 @@ use yii\helpers\ArrayHelper;
 
 //'show_room_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Show Room ID...', 'maxlength'=>20]],
 'on_sale'=>['type'=> Form::INPUT_RADIO_LIST, 'items'=>['1'=>'是','0'=>'否']],
-'auction_time'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]], 
+'auction_time'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]],
+
+        'auction_end_time'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]],
 
 //'created_at'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]],
 
@@ -73,7 +75,7 @@ use yii\helpers\ArrayHelper;
 
 //'qrcode_image'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Qrcode Image...', 'maxlength'=>255]],
 
-'auction_price'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入作品的拍卖底价...', 'maxlength'=>50]],
+'auction_price'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入作品的拍卖底价，单位（元）...', 'maxlength'=>50]],
 
     ]
 

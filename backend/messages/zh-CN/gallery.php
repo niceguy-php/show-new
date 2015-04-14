@@ -25,16 +25,19 @@ return [
     'Fax'=>'传真',
     'Email'=>'电子邮箱',
     'Postcode'=>'邮编',
-    'Galleries'=>'美术馆',
-    'My Galleries'=>'我的美术馆',
-    'Create Gallery'=>'创建美术馆',
+    'Galleries'=>'艺术馆',
+    'My Galleries'=>'我的艺术馆',
+    'Create Gallery'=>'创建艺术馆',
      'Home'=>'首页',
      'Logout'=>'注销',
      'Login'=>'登录',
     'Gallery Logo'=>'馆徽图标',
-    'Update Gallery: '=>'编辑美术馆：',
+    'Update Gallery: '=>'编辑艺术馆：',
     'Gallery Created At'=>'建馆时间',
     'User Id'=>'所属用户',
+    'Gallery Verify Pass'=>'通过',
+    'Gallery Verify Fail'=>'不通过',
+    'Gallery Status'=>'审核状态',
 
     //article
      'Create Article'=>'发布文章',
@@ -106,7 +109,7 @@ return [
     'Male'=>'男',
     'Female'=>'女',
     'Admin'=>'超级管理员',
-    'Gallery Admin'=>'美术馆管理员',
+    'Gallery Admin'=>'艺术馆管理员',
     'Artist'=>'艺术家',
     'User'=>'普通用户',
     'Allow Login'=>'允许登录',
@@ -114,7 +117,7 @@ return [
     'Yes'=>'审核通过',
     'No'=>'审核失败',
     'Login Now'=>'马上登录',
-    'The Number of Galleries'=>'美术馆数量',
+    'The Number of Galleries'=>'艺术馆馆数量',
     'The Number of Show Rooms'=>'沽雅展厅数量',
 
 
@@ -139,15 +142,15 @@ return [
     'Remember Me'=>'记住密码',
     'If you forgot your password you can '=>'忘记密码？ ',
     'Request password reset'=>'申请重置密码',
-    'Welcome to GoolYa'=>'欢迎来到沽雅移动美术馆~',
-    'GoolYa'=>'沽雅移动美术馆',
+    'Welcome to GoolYa'=>'欢迎来到沽雅移动艺术馆~',
+    'GoolYa'=>'沽雅移动艺术馆',
     'GoolYa Description'=>'www.goolya.com',
     'join us'=>'加入我们',
-    'My Company'=>'沽雅美术馆',
-    'Gallery ID'=>'所属美术馆',
+    'My Company'=>'移动艺术馆',
+    'Gallery ID'=>'所属艺术馆',
 
     //Article
-    'Gallery Name'=>'美术馆名称',
+    'Gallery Name'=>'艺术馆名称',
 
     //Recommend Applies
     'Recommend Applies'=>'推荐申请',
@@ -165,7 +168,7 @@ return [
     'Create Recommend Apply'=>'创建申请',
     'Update Recommend Apply'=>'更新申请',
     'Recommend To Exhibition Hall'=>'推荐到展厅',
-    'Recommend To Gallery'=>'推荐到美术馆',
+    'Recommend To Gallery'=>'推荐到艺术馆',
     'Apply Datetime'=>'申请时间',
     'Apply Pass' => '同意',
     'Apply Deny' => '拒绝',
@@ -174,8 +177,8 @@ return [
 
     //Work
     'Year'=>'创作年代',
-    'Width'=>'宽度',
-    'Height'=>'高度',
+    'Width'=>'宽度（cm）',
+    'Height'=>'高度（cm）',
     'Author Name'=>'作者姓名',
     'Work Status'=>'作品状态',
     'On Sale'=>'是否在拍卖',
@@ -185,8 +188,9 @@ return [
     'Material'=>'作品材质',
     'Author Profile'=>'作者简介',
     'Show Room Name'=>'所属沽雅展厅',
-    'Auction Price'=>'拍卖底价',
+    'Auction Price'=>'拍卖底价（元）',
     'Auction Time'=>'起拍时间',
+    'Auction End Time'=>'止拍时间',
     'Show Room ID'=>'所属沽雅展厅',
     'Create Work'=>'创建作品',
     'Update Work'=>'更新作品',
@@ -221,7 +225,7 @@ return [
 
     //alert or warn message
     'You are not allowed to access this page'=>'请先登录，不允许访问此页面！',
-    'Please fill out the following fields to signup:'=>'请输入账号、邮箱、密码信息，欢迎加入沽雅美术馆~',
+    'Please fill out the following fields to signup:'=>'请输入账号、邮箱、密码信息，欢迎加入沽雅艺术馆~',
     'Signup'=>'注册',
     'Do not have a account '=>'还没有账号？',
     'This username has already been taken.'=>'用户名已经被占用',
@@ -231,7 +235,8 @@ return [
     'This name has already been taken.'=>'名称已经被占用',
     'This title has already been taken.'=>'标题已经被占用',
     'File size must less than one MB'=>'上传图片必须小于1M',
-
+    'User not through real-name authentication'=>'用户信息未通过实名制认证，请填写个人设置中的真实姓名和身份证号，并联系沽雅认证中心进行实名制认证',
+    'Gallery not through authentication'=>'机构艺术馆未通过沽雅认证中心审核，请填写艺术馆信息，并联系沽雅认证中心进行资质审核'
 
 
 ];

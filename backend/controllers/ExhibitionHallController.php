@@ -90,7 +90,7 @@ class ExhibitionHallController extends Controller
         $model = new ExhibitionHall;
         $loginUser = User::loginUser();
 
-        if ( $model->load(Yii::$app->request->post())  ) {
+        if ( (User::isAdmin()||User::isGalleryAdmin())&&$model->load(Yii::$app->request->post())  ) {
 
             if(User::isAdmin()){
                 $gallery_id = \Yii::$app->request->post()['ExhibitionHall']['gallery_id'];
@@ -375,7 +375,12 @@ class ExhibitionHallController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = ExhibitionHall::findOne($id)) !== null) {
+        if(User::isAdmin()){
+            $condition = $id;
+        }else{
+            $condition = ['id'=>$id,'user_id'=>User::loginUser()['id']];
+        }
+        if (($model = ExhibitionHall::findOne($condition)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

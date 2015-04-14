@@ -1,6 +1,7 @@
 <?php
 namespace common\models;
 
+use backend\models\Gallery;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -60,6 +61,75 @@ class User extends ActiveRecord implements IdentityInterface
 
     public static function loginUser(){
         return \Yii::$app->session->get('user');
+    }
+
+    public static function loginUserVerified()
+    {
+        return self::loginUser()['id_verify_status']==self::USER_VERIFY_SUCCESS;
+    }
+
+    public static function galleryVerified()
+    {
+        if(self::isGalleryAdmin()){
+            $gallery = Gallery::findOne(['user_id'=>self::loginUser()['id']]);
+            return $gallery['gallery_status']==Gallery::GALLERY_VERIFY_PASS;
+        }else{
+            return true;//普通用户或管理员就返回真
+        }
+
+    }
+
+    public static function setFlashErrorIfHave()
+    {
+        if(!self::isAdmin()&&!self::loginUserVerified()){
+            \Yii::$app->session->setFlash('user_not_verified',\Yii::t('app-gallery','User not through real-name authentication'));
+        }
+
+        if(self::isGalleryAdmin()&&self::loginUserVerified()&&!self::galleryVerified()){
+            \Yii::$app->session->setFlash('gallery_not_verified',\Yii::t('app-gallery','Gallery not through authentication'));
+        }
+
+    }
+
+    public static function showFlashErrorIfHave()
+    {
+        if(!User::isAdmin()){
+            self::setFlashErrorIfHave();
+            self::showWarnFlash('gallery_not_verified');
+            self::showWarnFlash('user_not_verified');
+        }
+
+
+    }
+
+    public static function showErrorFlash($flash_name)
+    {
+        if(\Yii::$app->session->hasFlash($flash_name)){
+            echo '<div class="alert alert-danger" role="alert">';
+            echo \Yii::$app->session->getFlash($flash_name);
+            echo '</div>';
+        }
+
+    }
+
+    public static function showWarnFlash($flash_name)
+    {
+        if(\Yii::$app->session->hasFlash($flash_name)){
+            echo '<div class="alert alert-warning" role="alert">';
+            echo \Yii::$app->session->getFlash($flash_name);
+            echo '</div>';
+        }
+
+    }
+
+    public static function showSuccessFlash($flash_name)
+    {
+        if(\Yii::$app->session->hasFlash($flash_name)){
+            echo '<div class="alert alert-success" role="alert">';
+            echo \Yii::$app->session->getFlash($flash_name);
+            echo '</div>';
+        }
+
     }
 
     /**

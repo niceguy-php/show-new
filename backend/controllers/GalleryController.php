@@ -89,7 +89,7 @@ class GalleryController extends Controller
     {
         $model = new Gallery();
 
-        if ($model->load(Yii::$app->request->post())) {
+        if ((User::isAdmin()||User::isGalleryAdmin())&&$model->load(Yii::$app->request->post())) {
             $logo = UploadedFile::getInstance($model, 'logo');
             if ( $model->validate()) {
                 $filename = time().rand(1000,9999);
@@ -198,7 +198,12 @@ class GalleryController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Gallery::findOne($id)) !== null) {
+        if(User::isAdmin()){
+            $condition = $id;
+        }else{
+            $condition = ['id'=>$id,'user_id'=>User::loginUser()['id']];
+        }
+        if (($model = Gallery::findOne($condition)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

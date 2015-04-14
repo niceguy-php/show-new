@@ -31,6 +31,9 @@ class Gallery extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    const GALLERY_VERIFY_PASS = 1;
+    const GALLERY_VERIFY_FAIL = 0;
+
     public static function tableName()
     {
         return 'gallery';
@@ -45,7 +48,7 @@ class Gallery extends \yii\db\ActiveRecord
 
             [['name', 'master_word', 'created_at', 'address', 'history_profile', 'phone', 'email'], 'required'],
             [['name'],'unique','message'=>\Yii::t('app-gallery','This name has already been taken.')],
-            [['created_at', 'updated_at'], 'safe'],
+            [['created_at', 'updated_at','gallery_status'], 'safe'],
             [['name', 'logo'], 'string', 'max' => 255],
             [['master_word', 'history_profile'], 'string', 'max' => 600],
             [['address'], 'string', 'max' => 300],
@@ -81,6 +84,7 @@ class Gallery extends \yii\db\ActiveRecord
             'user_name' => Yii::t('app-gallery', 'User Name'),
             'user_id' => Yii::t('app-gallery', 'User Id'),
             'updated_at' => Yii::t('app-gallery', 'Updated At'),
+            'gallery_status'=>Yii::t('app-gallery','Gallery Status'),
         ];
     }
 

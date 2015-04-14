@@ -64,7 +64,7 @@ class Work extends \yii\db\ActiveRecord
             [['image'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',],
 
             [['year', 'width', 'height', 'work_status', 'on_sale', 'mark_count', 'gallery_id', 'user_id', 'hall_id', 'show_room_id'], 'integer'],
-            [['auction_time', 'created_at', 'updated_at'], 'safe'],
+            [['auction_time', 'auction_end_time','created_at', 'updated_at'], 'safe'],
             [['name', 'image', 'material', 'gallery_name', 'hall_name', 'user_name', 'show_room_name', 'qrcode_image'], 'string', 'max' => 255],
             [['description', 'author_profile'], 'string', 'max' => 6000],
             [['author_name'], 'string', 'max' => 100],
@@ -92,6 +92,7 @@ class Work extends \yii\db\ActiveRecord
             'author_profile' => Yii::t('app-gallery', 'Author Profile'),
             'user_name' => Yii::t('app-gallery', 'User Name'),
             'auction_time' => Yii::t('app-gallery', 'Auction Time'),
+            'auction_end_time' => Yii::t('app-gallery', 'Auction End Time'),
             'auction_price' => Yii::t('app-gallery', 'Auction Price'),
             'work_status' => Yii::t('app-gallery', 'Work Status'),
             'on_sale' => Yii::t('app-gallery', 'On Sale'),

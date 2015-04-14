@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use backend\models\WorkInExhibition;
+use common\models\User;
 use Yii;
 use backend\models\ShowRoom;
 use backend\models\ShowRoomSearch;
@@ -85,7 +86,7 @@ class ShowRoomController extends Controller
         $model = new ShowRoom;
         $model->created_at = date('Y-m-d H:i:s',time());
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ((User::isAdmin()||User::isGalleryAdmin())&&$model->load(Yii::$app->request->post()) && $model->save()) {
             if( isset(\Yii::$app->request->post()['work_id']) ){
                 $transaction = \Yii::$app->db->beginTransaction();
                 try {
@@ -169,7 +170,12 @@ class ShowRoomController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = ShowRoom::findOne($id)) !== null) {
+        if(User::isAdmin()){
+            $condition = $id;
+        }else{
+            $condition = ['id'=>$id,'user_id'=>User::loginUser()['id']];
+        }
+        if (($model = ShowRoom::findOne($condition)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

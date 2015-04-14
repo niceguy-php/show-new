@@ -50,13 +50,16 @@ class CommentController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new CommentSearch;
-        $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
+        if(User::isAdmin()){
+            $searchModel = new CommentSearch;
+            $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-            'searchModel' => $searchModel,
-        ]);
+            return $this->render('index', [
+                'dataProvider' => $dataProvider,
+                'searchModel' => $searchModel,
+            ]);
+        }
+
     }
 
     /**
@@ -84,7 +87,7 @@ class CommentController extends Controller
     {
         $model = new Comment;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if (User::isAdmin() && $model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -125,9 +128,12 @@ class CommentController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+
+            $this->findModel($id)->delete();
+
+            return $this->redirect(['index']);
+
     }
 
     /**
@@ -139,10 +145,12 @@ class CommentController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Comment::findOne($id)) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+        if(User::isAdmin()){
+            if (($model = Comment::findOne($id)) !== null) {
+                return $model;
+            } else {
+                throw new NotFoundHttpException('The requested page does not exist.');
+            }
         }
     }
 }

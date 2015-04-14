@@ -17,6 +17,7 @@ $roles = ['1'=>Yii::t('app-gallery', 'Admin'),
 
 $this->title = $roles== \common\models\User::isAdmin() ? Yii::t('app-gallery', 'Users') : Yii::t('app-gallery', 'Personal Info Setting');
 $this->params['breadcrumbs'][] = $this->title;
+//\common\models\User::showFlashErrorIfHave();
 ?>
 <div class="user-index">
     <div class="page-header hide">

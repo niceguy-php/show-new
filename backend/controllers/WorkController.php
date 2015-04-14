@@ -85,6 +85,9 @@ class WorkController extends Controller
      */
     public function actionCreate()
     {
+
+        $this->ifNotVerified();
+
         $model = new Work;
         $loginUser = User::loginUser();
 
@@ -131,6 +134,9 @@ class WorkController extends Controller
      */
     public function actionUpdate($id)
     {
+
+        $this->ifNotVerified();
+
         $model = $this->findModel($id);
 
         $old_image = $model->image;
@@ -175,6 +181,8 @@ class WorkController extends Controller
      */
     public function actionDelete($id)
     {
+        $this->ifNotVerified();
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -189,10 +197,21 @@ class WorkController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Work::findOne($id)) !== null) {
+        if(User::isAdmin()){
+            $condition = $id;
+        }else{
+            $condition = ['id'=>$id,'user_id'=>User::loginUser()['id']];
+        }
+        if (($model = Work::findOne($condition)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+    protected function ifNotVerified(){
+        if(!User::loginUserVerified()||!User::galleryVerified()){
+            $this->redirect(['index']);
         }
     }
 }

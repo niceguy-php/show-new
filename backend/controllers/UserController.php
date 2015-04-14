@@ -89,8 +89,7 @@ class UserController extends Controller
     {
         $model = new User;
 
-        $this->userRole = \Yii::$app->session->get('user')['role'];
-        if($this->userRole == \common\models\User::ROLE_ADMIN) {
+        if(\common\models\User::isAdmin()) {
             $model = new User();
 
             if ($model->load(Yii::$app->request->post())) {
@@ -201,9 +200,14 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        if(\common\models\User::isAdmin()){
+            if(\common\models\User::isAdmin()&&$id==\common\models\User::loginUser()['id']){
+                return $this->redirect(['index']);
+            }
+            $this->findModel($id)->delete();
+            return $this->redirect(['index']);
+        }
 
-        return $this->redirect(['index']);
     }
 
     /**
@@ -215,7 +219,12 @@ class UserController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = User::findOne($id)) !== null) {
+        if(\common\models\User::isAdmin()){
+            $condition = $id;
+        }else{
+            $condition =\common\models\User::loginUser()['id'];
+        }
+        if (($model = User::findOne($condition)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

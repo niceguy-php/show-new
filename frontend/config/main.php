@@ -18,6 +18,7 @@ return [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
         ],
+
         'i18n' => [
             'translations' => [
                 'app*' => [

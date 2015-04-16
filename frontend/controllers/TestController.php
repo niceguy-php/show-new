@@ -16,7 +16,7 @@ use yii\filters\auth\HttpBasicAuth;
 use common\models\User;
 
 
-class UserController extends ActiveController{
+class TestController extends ActiveController{
     public $modelClass = 'common\models\User';
     public $result = ['data'=>[],'code'=>0];
     public function init()
@@ -34,7 +34,6 @@ class UserController extends ActiveController{
     public function behaviors()
     {
 
-        $behaviors = parent::behaviors();
         $behaviors['contentNegotiator']['formats']['text/html'] = Response::FORMAT_JSON;
         /*$behaviors['authenticator'] = [
             'class' => HttpBasicAuth::className(),
@@ -52,7 +51,7 @@ class UserController extends ActiveController{
 
         $request = \Yii::$app->request;
         $user = User::findByUsername($request->get('username'));
-        if( $user->password == md5($request->get('password')) ){
+        if( $user->password == $request->get('password') ){
             $this->result['data'] = $user;
             //$result['sess'] = \Yii::$app->session;
             return $this->result;

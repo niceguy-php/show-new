@@ -46,7 +46,7 @@ class LoginForm extends Model
                 //if(md5($this->password) == $user->password){
 
 //                }else{
-                    $this->addError($attribute, 'Incorrect username or password.');
+                    $this->addError($attribute, \Yii::t('app-gallery','Incorrect username or password.'));
 //                }
 
             }

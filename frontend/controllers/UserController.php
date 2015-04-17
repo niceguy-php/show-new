@@ -12,6 +12,8 @@ use yii\rest\ActiveController;
 use yii\web\Response;
 use frontend\models\PasswordResetRequestForm;
 use yii\filters\auth\HttpBasicAuth;
+use backend\models\SignupForm;
+use common\models\LoginForm;
 
 use common\models\User;
 
@@ -47,7 +49,43 @@ class UserController extends ActiveController{
         return User::findOne(9);
     }
 
-    public function actionLoginapp()
+    public function actionLogin()
+    {
+
+        $model = new LoginForm();
+        if ($model->load(\Yii::$app->request->post()) && $model->login()) {
+            $this->result['data'] = $model->getUser();
+        } else {
+            $errors = $model->errors;
+            if($errors){
+                $this->result['data'] = $errors;
+                $this->result['code'] = -1;
+            }
+        }
+        return $this->result;
+    }
+
+    public function actionSignup()
+    {
+        $model = new SignupForm();
+        if ($model->load(\Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if ( \Yii::$app->getUser()->login($user)) {
+                    $this->result['data'] = $user;
+                }
+            }
+        }
+
+        $errors = $model->errors;
+        if($errors){
+            $this->result['data'] = $errors;
+            $this->result['code'] = -1;
+        }
+
+        return $this->result;
+    }
+
+    /*public function actionLoginapp()
     {
 
         $request = \Yii::$app->request;
@@ -58,9 +96,9 @@ class UserController extends ActiveController{
             return $this->result;
         }
         return $this->result;
-    }
+    }*/
 
-    public function actionSignup()
+    /*public function actionSignup()
     {
         $post = \Yii::$app->request->post();
         $model = new User();
@@ -70,6 +108,7 @@ class UserController extends ActiveController{
             $model->username = $post['username'];
             $model->password = $post['password'];
             $model->email = $post['email'];
+            $model->role = $post['role'];
             $model->created_at = time();
             $model->status = 10;
             $model->save();
@@ -82,7 +121,7 @@ class UserController extends ActiveController{
             //var_dump($errors);
         }
         return $this->result;
-    }
+    }*/
 
     /*public function actionFindpassword()
     {

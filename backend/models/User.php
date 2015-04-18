@@ -166,6 +166,7 @@ class User extends \yii\db\ActiveRecord
 
     public function resetPassword($id,$password){
         $user = static::findOne(['id'=>$id]);
+
         $user->password_hash = \Yii::$app->security->generatePasswordHash($password);
         $user->auth_key = \Yii::$app->security->generateRandomString();
         $user->save();

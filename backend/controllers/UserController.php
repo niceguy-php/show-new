@@ -174,6 +174,7 @@ class UserController extends Controller
             if(isset($model->password) && $model != '!@#********!@#'){
                 //$user = new User();
                 //$user->resetPassword($model->id,$model->password);
+                $model->resetPassword($model->id,$model->password);
                 $model->password = md5($model->password);
             }
             if($model->save()){

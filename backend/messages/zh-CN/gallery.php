@@ -236,8 +236,8 @@ return [
     'This title has already been taken.'=>'标题已经被占用',
     'File size must less than one MB'=>'上传图片必须小于1M',
     'User not through real-name authentication'=>'用户信息未通过实名制认证，请填写个人设置中的真实姓名和身份证号，并联系沽雅认证中心进行实名制认证',
-    'Gallery not through authentication'=>'机构艺术馆未通过沽雅认证中心审核，请填写艺术馆信息，并联系沽雅认证中心进行资质审核'
-
+    'Gallery not through authentication'=>'机构艺术馆未通过沽雅认证中心审核，请填写艺术馆信息，并联系沽雅认证中心进行资质审核',
+    'Incorrect username or password.'=>'用户名或密码错误',
 
 ];
 ?>

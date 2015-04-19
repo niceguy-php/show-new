@@ -85,6 +85,16 @@ class UserController extends ActiveController{
         return $this->result;
     }
 
+    public function actionUpdateField(){
+
+        $post = \Yii::$app->request->post();
+        if($post){
+
+        }
+
+
+    }
+
     /*public function actionLoginapp()
     {
 

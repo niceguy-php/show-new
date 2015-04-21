@@ -54,6 +54,11 @@ class UserController extends ActiveController{
 
         $model = new LoginForm();
         if ($model->load(\Yii::$app->request->post()) && $model->login()) {
+            $session = \Yii::$app->session;
+            if(!$session->isActive){
+                $session->open();
+            }
+            $session->set('user',$model->getUser());
             $this->result['data'] = $model->getUser();
         } else {
             $errors = $model->errors;
@@ -71,6 +76,11 @@ class UserController extends ActiveController{
         if ($model->load(\Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if ( \Yii::$app->getUser()->login($user)) {
+                    $session = \Yii::$app->session;
+                    if(!$session->isActive){
+                        $session->open();
+                    }
+                    $session->set('user',$model->getUser());
                     $this->result['data'] = $user;
                 }
             }
@@ -89,9 +99,17 @@ class UserController extends ActiveController{
 
         $post = \Yii::$app->request->post();
         if($post){
+            $loginUser = User::loginUser();
+            \Yii::$app->db->createCommand()->update('user',$post,['id'=>$loginUser['id']])->execute();
+            $userUpdated = User::findOne(['id'=>$loginUser['id']]);
+            \Yii::$app->session->set('user',User::findOne(['id'=>$loginUser['id']]));
+            $this->result['data']=$userUpdated;
 
+        }else{
+            $this->result['code'] = -1;
         }
 
+        return $this->result;
 
     }
 

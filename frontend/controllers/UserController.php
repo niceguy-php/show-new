@@ -190,10 +190,7 @@ class UserController extends ActiveController{
         //$this->result['data'] = \Yii::$app->request->post();
         return $this->result;
     }
-    public function actionResetPass()
-    {
-
-    }
+   
 
 
 }

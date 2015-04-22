@@ -76,9 +76,26 @@ class ArticleController extends ActiveController
      */
     public function actionList()
     {
-        $category = $_POST['category'];
-        if(in_array($category,[Article::EVENTS,Article::NEWS,Article::RESEARCH])){
-            $this->result['data'] = Article::find()->where(['category'=>$category])->orderBy(['created_at'=>SORT_DESC])->asArray()->all();
+        if($_POST){
+
+            $category = $_POST['category'];
+            $limit = isset($_POST['limit'])? $_POST['limit']:5;
+
+            $offset = 0;
+            if($session_offset = \Yii::$app->session->get('article_offset')){
+                $offset = $session_offset;
+            }
+
+            if(in_array($category,[Article::EVENTS,Article::NEWS,Article::RESEARCH])){
+                $this->result['data'] = Article::find()->where(['category'=>$category])->orderBy(['created_at'=>SORT_DESC])
+                    ->offset($offset)->limit($limit)->asArray()->all();
+                $count = count($this->result['data']);
+                if($count>0){
+                    \Yii::$app->session->set('article_offset',$count+$offset);
+                }
+            }else{
+                $this->result['code'] = -1;
+            }
         }else{
             $this->result['code'] = -1;
         }

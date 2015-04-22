@@ -82,7 +82,7 @@ class ArticleController extends ActiveController
             $limit = isset($_POST['limit'])? $_POST['limit']:5;
 
             $offset = 0;
-            if($session_offset = \Yii::$app->session->get('article_offset')){
+            if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('article_offset')){//区分上下滑动时异步请求和正常请求
                 $offset = $session_offset;
             }
 
@@ -90,13 +90,14 @@ class ArticleController extends ActiveController
                 $this->result['data'] = Article::find()->where(['category'=>$category])->orderBy(['created_at'=>SORT_DESC])
                     ->offset($offset)->limit($limit)->asArray()->all();
                 $count = count($this->result['data']);
-                if($count>0){
+                if(isset($_POST['pull'])&&$count>0){//上下滑动屏幕时的请求
                     \Yii::$app->session->set('article_offset',$count+$offset);
                 }
             }else{
                 $this->result['code'] = -1;
             }
         }else{
+
             $this->result['code'] = -1;
         }
         return $this->result;

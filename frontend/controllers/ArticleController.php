@@ -110,4 +110,15 @@ class ArticleController extends ActiveController
     }
 
 
+    public function actionGetone(){
+        if($_POST){
+            $aid = $_POST['id'];
+            $this->result['data'] = Article::findOne(['id'=>$aid]);
+        }else{
+            $this->result['code']=-1;
+
+        }
+        return $this->result;
+    }
+
 }

@@ -16,6 +16,7 @@ use Yii;
  * @property string $user_realname
  * @property string $user_id
  * @property string $updated_at
+ * @property string $category
  *
  * @property Gallery $gallery
  * @property User $user
@@ -23,6 +24,9 @@ use Yii;
  */
 class Article extends \yii\db\ActiveRecord
 {
+    const NEWS = 1;//新闻
+    const EVENTS = 2;//业务动态
+    const RESEARCH = 3;//艺术研究
     /**
      * @inheritdoc
      */
@@ -36,13 +40,14 @@ class Article extends \yii\db\ActiveRecord
      */
     public function rules()
     {
+
         return [
             [['title', 'content', 'gallery_id'], 'required'],
             [['title'],'unique','message'=>\Yii::t('app-gallery','This title has already been taken.')],
             [['created_at', 'updated_at'], 'safe'],
             [['content'], 'string'],
-            [['gallery_id', 'user_id'], 'integer'],
-            [['title', 'gallery_name', 'user_realname'], 'string', 'max' => 255]
+            [['gallery_id', 'user_id','category'], 'integer'],
+            [['title', 'gallery_name', 'user_realname','image'], 'string', 'max' => 255]
         ];
     }
 
@@ -61,6 +66,8 @@ class Article extends \yii\db\ActiveRecord
             'user_realname' => Yii::t('app-gallery', 'User Realname'),
             'user_id' => Yii::t('app-gallery', 'User ID'),
             'updated_at' => Yii::t('app-gallery', 'Updated At'),
+            'category'=>Yii::t('app-gallery','Article Category'),
+            'image'=>Yii::t('app-gallery','Article Image')
         ];
     }
 

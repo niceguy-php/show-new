@@ -3,12 +3,14 @@
 use yii\helpers\Html;
 use kartik\grid\GridView;
 use yii\widgets\Pjax;
+use backend\models\Article;
 
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
  * @var backend\models\ArticleSearch $searchModel
  */
+
 
 $this->title = Yii::t('app-gallery', 'Articles');
 $this->params['breadcrumbs'][] = $this->title;
@@ -33,9 +35,15 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             //'id',
+            ['attribute'=>'category','value'=>function($model){
+                $CategoryMap = [Article::NEWS=>Yii::t('app-gallery','News')
+                    , Article::EVENTS=>Yii::t('app-gallery','Art Events'),
+                    Article::RESEARCH=>Yii::t('app-gallery','Art Research')];
+                return $CategoryMap[$model->category];
+            }],
             'title',
             ['attribute'=>'created_at','format'=>['datetime',(isset(Yii::$app->modules['datecontrol']['displaySettings']['datetime'])) ? Yii::$app->modules['datecontrol']['displaySettings']['datetime'] : 'd-m-Y H:i:s A']],
-            'content:ntext',
+            'content',
        //     'gallery_id',
             'gallery_name',
 //            'user_realname', 

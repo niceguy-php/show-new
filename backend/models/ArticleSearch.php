@@ -17,6 +17,7 @@ class ArticleSearch extends Article
     {
         return [
             [['id', 'gallery_id', 'user_id'], 'integer'],
+            [['category'],'required'],
             [['title', 'created_at', 'content', 'gallery_name', 'user_realname', 'updated_at'], 'safe'],
         ];
     }
@@ -47,13 +48,16 @@ class ArticleSearch extends Article
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }
-
+        $CategoryMap = array_flip([Article::NEWS=>Yii::t('app-gallery','News')
+            , Article::EVENTS=>Yii::t('app-gallery','Art Events'),
+            Article::RESEARCH=>Yii::t('app-gallery','Art Research')]);
         $query->andFilterWhere([
             'id' => $this->id,
             'created_at' => $this->created_at,
             'gallery_id' => $this->gallery_id,
             'user_id' => $this->user_id,
             'updated_at' => $this->updated_at,
+            'category'=>$CategoryMap[$this->category],
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])

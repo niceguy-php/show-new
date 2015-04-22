@@ -3,11 +3,16 @@
 use yii\helpers\Html;
 use kartik\detail\DetailView;
 use kartik\datecontrol\DateControl;
-
+use backend\models\Article;
+$CategoryMap = [Article::NEWS=>Yii::t('app-gallery','News')
+    , Article::EVENTS=>Yii::t('app-gallery','Art Events'),
+    Article::RESEARCH=>Yii::t('app-gallery','Art Research')];
 /**
  * @var yii\web\View $this
  * @var backend\models\Article $model
  */
+
+
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app-gallery', 'Articles'), 'url' => ['index']];
@@ -30,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         'attributes' => [
             //'id',
+            ['attribute'=>'category','value'=>$CategoryMap[$model->category]],
             'title',
             [
                 'attribute'=>'created_at',

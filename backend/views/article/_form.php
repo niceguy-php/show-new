@@ -6,6 +6,7 @@ use kartik\builder\Form;
 use kartik\datecontrol\DateControl;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
+use backend\models\Article;
 
 /**
  * @var yii\web\View $this
@@ -46,6 +47,10 @@ use yii\helpers\ArrayHelper;
     'attributes' => [
 
 'title'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入标题...', 'maxlength'=>255]],
+        'category'=>['type'=> Form::INPUT_DROPDOWN_LIST, 'items'=>[Article::NEWS=>Yii::t('app-gallery','News')
+            , Article::EVENTS=>Yii::t('app-gallery','Art Events'),
+            Article::RESEARCH=>Yii::t('app-gallery','Art Research')
+        ]],
 
 //'created_at'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]],
 

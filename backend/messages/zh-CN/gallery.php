@@ -48,6 +48,11 @@ return [
     'Create'=>'创建',
     'Articles'=>'文章',
     'Update Article: '=>'编辑文章：',
+    'Article Category'=>'文章类别',
+    'Article Image'=>'文章图片',
+    'News'=>'新闻公告',
+    'Art Events'=>'业界动态',
+    'Art Research'=>'艺术研究',
 
     //auction
     'Create Auction'=>'创建拍卖作品',

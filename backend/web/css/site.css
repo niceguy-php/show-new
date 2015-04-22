@@ -87,6 +87,12 @@ body {
 }
 
 
+td{
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    max-width:100px;
+}
 
 #w3 > li > a:hover{
     color:#ffffff;

@@ -78,12 +78,18 @@ class ArticleController extends ActiveController
     {
         if($_POST){
 
+            $offsetMap = [Article::NEWS=>'news_offset',
+                            Article::EVENTS=>'events_offset',
+                                Article::RESEARCH=>'research_offset'];
+
             $category = $_POST['category'];
+
             $limit = isset($_POST['limit'])? $_POST['limit']:5;
 
             $offset = 0;
-            if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('article_offset')){//区分上下滑动时异步请求和正常请求
+            if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get($offsetMap[$category])){//区分上下滑动时异步请求和正常请求
                 $offset = $session_offset;
+
             }
 
             if(in_array($category,[Article::EVENTS,Article::NEWS,Article::RESEARCH])){
@@ -91,7 +97,7 @@ class ArticleController extends ActiveController
                     ->offset($offset)->limit($limit)->asArray()->all();
                 $count = count($this->result['data']);
                 if($count>0){//上下滑动屏幕时的请求
-                    \Yii::$app->session->set('article_offset',$count+$offset);
+                    \Yii::$app->session->set($offsetMap[$category],$count+$offset);
                 }
             }else{
                 $this->result['code'] = -1;

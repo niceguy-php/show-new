@@ -90,7 +90,7 @@ class ArticleController extends ActiveController
                 $this->result['data'] = Article::find()->where(['category'=>$category])->orderBy(['created_at'=>SORT_DESC])
                     ->offset($offset)->limit($limit)->asArray()->all();
                 $count = count($this->result['data']);
-                if(isset($_POST['pull'])&&$count>0){//上下滑动屏幕时的请求
+                if($count>0){//上下滑动屏幕时的请求
                     \Yii::$app->session->set('article_offset',$count+$offset);
                 }
             }else{

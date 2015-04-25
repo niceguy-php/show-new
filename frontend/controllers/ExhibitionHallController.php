@@ -80,7 +80,7 @@ class ExhibitionHallController extends ActiveController
         $limit = isset($_POST['limit'])? $_POST['limit']:5;
 
         $offset = 0;
-        if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('work_offset')){//区分上下滑动时异步请求和正常请求
+        if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('hall_offset')){//区分上下滑动时异步请求和正常请求
             $offset = $session_offset;
 
         }
@@ -90,7 +90,7 @@ class ExhibitionHallController extends ActiveController
             ->offset($offset)->limit($limit)->asArray()->all();
         $count = count($this->result['data']);
         if($count>0){//上下滑动屏幕时的请求
-            \Yii::$app->session->set('work_offset',$count+$offset);
+            \Yii::$app->session->set('hall_offset',$count+$offset);
         }
 
            

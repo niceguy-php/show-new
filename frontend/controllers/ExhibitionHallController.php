@@ -110,4 +110,14 @@ class ExhibitionHallController extends ActiveController
         return $this->result;
     }
 
+    public function getByGallery(){
+        if($_POST){
+            $id = $_POST['id'];
+            $this->result['data'] = ExhibitionHall::findOne(['id'=>$id]);
+        }else{
+            $this->result['code']=-1;
+
+        }
+        return $this->result;
+    }
 }

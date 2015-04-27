@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use backend\models\ExhibitionHall;
 use Yii;
 use backend\models\Gallery;
 use yii\rest\ActiveController;
@@ -86,8 +87,22 @@ class GalleryController extends ActiveController
         }
 
        
-        $this->result['data'] = Gallery::find()->orderBy(['created_at'=>SORT_DESC])
-            ->offset($offset)->limit($limit)->asArray()->all();
+       /* $this->result['data'] = Gallery::find()->orderBy(['created_at'=>SORT_DESC])
+            ->offset($offset)->limit($limit)->asArray()->all();*/
+
+        $sql = <<<SQL
+SELECT
+*,
+(SELECT count(*) FROM subscription) as subscribleCount ,
+(SELECT count(*) FROM exhibition_hall) as allCount
+,(SELECT count(*) FROM exhibition_hall e WHERE e.created_at>=date_add(now(),interval -1 month)) as recentCount
+FROM gallery as g
+ORDER BY g.created_at ASC
+LIMIT :offset,:limit
+SQL;
+
+        $this->result['data'] = \Yii::$app->db->createCommand($sql)->bindParam(':offset',$offset)->bindParam(':limit',$limit)->queryAll();
+
         $count = count($this->result['data']);
         if($count>0){//上下滑动屏幕时的请求
             \Yii::$app->session->set('gallery_offset',$count+$offset);
@@ -103,11 +118,25 @@ class GalleryController extends ActiveController
         if($_POST){
             $id = $_POST['id'];
             $this->result['data'] = Gallery::findOne(['id'=>$id]);
+            $sql = <<<SQL
+select
+*,
+(SELECT count(*) FROM subscription WHERE subscrible_id=:id) as subscribleCount ,
+(SELECT count(*) FROM exhibition_hall WHERE gallery_id=:id) as allCount
+,(SELECT count(*) FROM exhibition_hall e WHERE gallery_id=:id AND e.created_at>=date_add(now(),interval -1 month)) as recentCount
+from gallery as g
+where id=:id
+SQL;
+
+            $this->result['data'] = \Yii::$app->db->createCommand($sql)->bindParam(':id',$id)->queryOne();
+            $this->result['data']['exhibition_list'] = ExhibitionHall::find(['gallery_id'=>$id])->orderBy(['created_at'=>SORT_ASC])->asArray()->all();
+            
         }else{
             $this->result['code']=-1;
 
         }
         return $this->result;
     }
+
 
 }

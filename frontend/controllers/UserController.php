@@ -190,7 +190,26 @@ class UserController extends ActiveController{
         //$this->result['data'] = \Yii::$app->request->post();
         return $this->result;
     }
-   
+
+    public function actionGetArtist(){
+        $limit = isset($_POST['limit'])? $_POST['limit']:10;
+
+        $offset = 0;
+        if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('artist_offset')){//区分上下滑动时异步请求和正常请求
+            $offset = $session_offset;
+
+        }
+
+
+        $this->result['data'] = User::find()->where(['role'=>User::ROLE_ARTIST])->orderBy(['created_at'=>SORT_DESC])
+            ->offset($offset)->limit($limit)->asArray()->all();
+        $count = count($this->result['data']);
+        if($count>0){//上下滑动屏幕时的请求
+            \Yii::$app->session->set('artist_offset',$count+$offset);
+        }
+
+        return $this->result;
+    }
 
 
 }

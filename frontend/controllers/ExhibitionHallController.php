@@ -120,4 +120,24 @@ class ExhibitionHallController extends ActiveController
         }
         return $this->result;
     }
+
+    public function actionGetworks(){
+        if($_POST){
+            $id = $_POST['id'];
+            $sql = <<<SQL
+SELECT
+*
+FROM work
+WHERE id in (SELECT we.work_id FROM work_in_exhibition we WHERE we.hall_id=:hall_id )
+SQL;
+
+            $this->result['data'] = \Yii::$app->db->createCommand($sql)->bindParam(':hall_id',$id)->query();
+            //$this->result['data']['exhibition_list'] = ExhibitionHall::find(['gallery_id'=>$id])->orderBy(['created_at'=>SORT_ASC])->asArray()->all();
+
+        }else{
+            $this->result['code']=-1;
+
+        }
+        return $this->result;
+    }
 }

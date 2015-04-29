@@ -89,8 +89,22 @@ class GalleryController extends ActiveController
        
        /* $this->result['data'] = Gallery::find()->orderBy(['created_at'=>SORT_DESC])
             ->offset($offset)->limit($limit)->asArray()->all();*/
-
-        $sql = <<<SQL
+if($_POST && isset($_POST['name'])){
+    $name = trim($_POST['name']);
+    $sql = <<<SQL
+SELECT
+*,
+(SELECT count(*) FROM subscription WHERE subscrible_id=g.id) as subscribleCount ,
+(SELECT count(*) FROM exhibition_hall WHERE gallery_id=g.id) as allCount
+,(SELECT count(*) FROM exhibition_hall e WHERE e.created_at>=date_add(now(),interval -1 month) AND gallery_id=g.id) as recentCount
+FROM gallery as g
+WHERE name like CONCAT('%',:name,'%')
+ORDER BY g.created_at ASC
+LIMIT :offset,:limit
+SQL;
+    $this->result['data'] = \Yii::$app->db->createCommand($sql)->bindParam(':offset',$offset)->bindParam(':limit',$limit)->bindParam(':name',$name)->queryAll();
+}else{
+    $sql = <<<SQL
 SELECT
 *,
 (SELECT count(*) FROM subscription WHERE subscrible_id=g.id) as subscribleCount ,
@@ -100,8 +114,11 @@ FROM gallery as g
 ORDER BY g.created_at ASC
 LIMIT :offset,:limit
 SQL;
+    $this->result['data'] = \Yii::$app->db->createCommand($sql)->bindParam(':offset',$offset)->bindParam(':limit',$limit)->queryAll();
+}
 
-        $this->result['data'] = \Yii::$app->db->createCommand($sql)->bindParam(':offset',$offset)->bindParam(':limit',$limit)->queryAll();
+
+
 
         $count = count($this->result['data']);
         if($count>0){//上下滑动屏幕时的请求

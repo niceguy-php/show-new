@@ -200,9 +200,15 @@ class UserController extends ActiveController{
 
         }
 
-
-        $this->result['data'] = User::find()->where(['role'=>User::ROLE_ARTIST])->orderBy(['created_at'=>SORT_DESC])
+if($_POST && isset($_POST['name'])){
+    $this->result['data'] = User::find()->where(['role'=>User::ROLE_ARTIST])->andFilterWhere(['like', 'realname',$_POST['name']])->orderBy(['created_at'=>SORT_DESC])
             ->offset($offset)->limit($limit)->asArray()->all();
+}else{
+    $this->result['data'] = User::find()->where(['role'=>User::ROLE_ARTIST])->orderBy(['created_at'=>SORT_DESC])
+            ->offset($offset)->limit($limit)->asArray()->all();
+}
+
+        
         $count = count($this->result['data']);
         if($count>0){//上下滑动屏幕时的请求
             \Yii::$app->session->set('artist_offset',$count+$offset);

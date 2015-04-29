@@ -217,5 +217,15 @@ if($_POST && isset($_POST['name'])){
         return $this->result;
     }
 
+    public function actionGetone(){
+        if($_POST){
+            $id = $_POST['id'];
+            $this->result['data'] = User::findOne(['id'=>$id]);
+        }else{
+            $this->result['code']=-1;
+        }
+        return $this->result;
+    }
+
 
 }

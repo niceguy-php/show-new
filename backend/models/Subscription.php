@@ -18,8 +18,12 @@ use common\models\User;
  */
 class Subscription extends \yii\db\ActiveRecord
 {
+    //1,艺术家，2，展览，3，美术馆，4，收藏作品，5收藏咨询
     const ARTIST = 1;
     const HALL = 2;
+    const GALLERY = 3;
+    const WORK = 4;
+    const ARTICLE = 5;
     /**
      * @inheritdoc
      */

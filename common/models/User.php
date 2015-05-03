@@ -24,6 +24,8 @@ use yii\web\IdentityInterface;
  */
 class User extends ActiveRecord implements IdentityInterface
 {
+    const IN_SUBSCRIBLE  = 1;//在用户订阅中默认显示
+    const NOT_IN_SUBSCRIBLE = 0;//在用户订阅中默认不显示
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
     const ROLE_ADMIN = 1;
@@ -57,6 +59,11 @@ class User extends ActiveRecord implements IdentityInterface
     public static function isArtist()
     {
         return \Yii::$app->session->get('user')['role']==self::ROLE_ARTIST;
+    }
+
+    public static function isLogin(){
+        $user = \Yii::$app->session->get('user');
+        return isset($user);
     }
 
     public static function loginUser(){

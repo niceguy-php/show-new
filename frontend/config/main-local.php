@@ -18,6 +18,7 @@ $config = [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'work'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'exhibition-hall'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'show-room'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'subscription'],
             ],
         ],
     ],

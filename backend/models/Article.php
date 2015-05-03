@@ -17,6 +17,7 @@ use Yii;
  * @property string $user_id
  * @property string $updated_at
  * @property string $category
+ * @property string show_in_collection
  *
  * @property Gallery $gallery
  * @property User $user
@@ -24,6 +25,8 @@ use Yii;
  */
 class Article extends \yii\db\ActiveRecord
 {
+    const IN_COLLECTION  = 1;//在用户收藏中默认显示
+    const NOT_IN_COLLECTION = 0;//在用户收藏中默认不现实
     const NEWS = 1;//新闻
     const EVENTS = 2;//业务动态
     const RESEARCH = 3;//艺术研究
@@ -46,8 +49,9 @@ class Article extends \yii\db\ActiveRecord
             [['title'],'unique','message'=>\Yii::t('app-gallery','This title has already been taken.')],
             [['created_at', 'updated_at'], 'safe'],
             [['content'], 'string'],
-            [['gallery_id', 'user_id','category'], 'integer'],
-            [['title', 'gallery_name', 'user_realname','image'], 'string', 'max' => 255]
+            [['gallery_id', 'user_id','category','show_in_collection'], 'integer'],
+            [['title', 'gallery_name', 'user_realname','image'], 'string', 'max' => 255],
+            ['show_in_collection', 'default', 'value' => 0],
         ];
     }
 
@@ -67,7 +71,8 @@ class Article extends \yii\db\ActiveRecord
             'user_id' => Yii::t('app-gallery', 'User ID'),
             'updated_at' => Yii::t('app-gallery', 'Updated At'),
             'category'=>Yii::t('app-gallery','Article Category'),
-            'image'=>Yii::t('app-gallery','Article Image')
+            'image'=>Yii::t('app-gallery','Article Image'),
+            'show_in_collection'=>Yii::t('app-gallery', 'Show in user collection')
         ];
     }
 

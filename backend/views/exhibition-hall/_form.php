@@ -19,6 +19,14 @@ use yii\helpers\ArrayHelper;
     <?php $form = ActiveForm::begin(['options'=>['enctype' => 'multipart/form-data'],'type'=>ActiveForm::TYPE_HORIZONTAL]);
 
     if(\common\models\User::isAdmin()){
+             echo Form::widget(['model' => $model,
+                 'form' => $form,
+                 'columns' => 1,
+                 'attributes' =>
+                     ['show_in_collection'=>['type'=> Form::INPUT_RADIO_LIST,
+                         'items'=>['1'=>\Yii::t('app-gallery','Show'),'0'=>\Yii::t('app-gallery','Not Show')]]
+                 ]
+             ]);
         echo $form->field($model, 'gallery_id')->widget(Select2::classname(), [
             'data' => ArrayHelper::map(\backend\models\Gallery::find()->all(),'id','name'),
             'language' => 'zh',

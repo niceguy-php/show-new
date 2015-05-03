@@ -32,12 +32,15 @@ use Yii;
  * @property string $pic3
  * @property string $pic4
  * @property string $pic5
+ * @property string show_in_collection
  *
  * @property Comment[] $comments
  * @property Gallery $gallery
  */
 class ExhibitionHall extends \yii\db\ActiveRecord
 {
+    const IN_COLLECTION  = 1;
+    const NOT_IN_COLLECTION = 0;
     const OPEN =1;
     const CLOSE =0;
     /**
@@ -62,13 +65,14 @@ class ExhibitionHall extends \yii\db\ActiveRecord
             [['name'],'unique','message'=>\Yii::t('app-gallery','This name has already been taken.')],
             [['open_ceremony_time', 'show_time', 'close_show_time', 'created_at', 'updated_at'], 'safe'],
             [['description'], 'string'],
-            [['status', 'user_id', 'gallery_id'], 'integer'],
+            [['status', 'user_id', 'gallery_id','show_in_collection'], 'integer'],
             [['gallery_name', 'name', 'address', 'user_name', 'pic1', 'pic2', 'pic3', 'pic4', 'pic5'], 'string', 'max' => 255],
             [['planner'], 'string', 'max' => 200],
             [['organizer'], 'string', 'max' => 300],
             [['assist', 'artists'], 'string', 'max' => 600],
             [['phone'], 'string', 'max' => 20],
-            [['pic1','pic2','pic3','pic4','pic5'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',]
+            [['pic1','pic2','pic3','pic4','pic5'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',],
+            ['show_in_collection', 'default', 'value' => 0],
         ];
     }
 
@@ -102,6 +106,7 @@ class ExhibitionHall extends \yii\db\ActiveRecord
             'pic3' => Yii::t('app-gallery', 'Pic3'),
             'pic4' => Yii::t('app-gallery', 'Pic4'),
             'pic5' => Yii::t('app-gallery', 'Pic5'),
+            'show_in_collection'=>Yii::t('app-gallery', 'Show in user collection')
         ];
     }
 

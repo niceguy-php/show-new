@@ -33,12 +33,15 @@ use Yii;
  * @property string $show_room_id
  * @property string $created_at
  * @property string $updated_at
+ * @property string show_in_collection
  *
  * @property Auction[] $auctions
  * @property Comment[] $comments
  */
 class Work extends \yii\db\ActiveRecord
 {
+    const IN_COLLECTION  = 1;
+    const NOT_IN_COLLECTION = 0;
     const VISIBLE = 1;
     const INVISIBLE = 0;
     const ONSELL = 1;
@@ -63,12 +66,13 @@ class Work extends \yii\db\ActiveRecord
            // [['image'], 'file', 'skipOnEmpty' => false],
             [['image'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',],
 
-            [['year', 'width', 'height', 'work_status', 'on_sale', 'mark_count', 'gallery_id', 'user_id', 'hall_id', 'show_room_id'], 'integer'],
+            [['year', 'width', 'height', 'work_status', 'on_sale', 'mark_count', 'gallery_id', 'user_id', 'hall_id', 'show_room_id','show_in_collection'], 'integer'],
             [['auction_time', 'auction_end_time','created_at', 'updated_at'], 'safe'],
             [['name', 'image', 'material', 'gallery_name', 'hall_name', 'user_name', 'show_room_name', 'qrcode_image'], 'string', 'max' => 255],
             [['description', 'author_profile'], 'string', 'max' => 6000],
             [['author_name'], 'string', 'max' => 100],
-            [['auction_price'], 'string', 'max' => 50]
+            [['auction_price'], 'string', 'max' => 50],
+            ['show_in_collection', 'default', 'value' => 0],
         ];
     }
 
@@ -105,6 +109,7 @@ class Work extends \yii\db\ActiveRecord
             'show_room_id' => Yii::t('app-gallery', 'Show Room ID'),
             'created_at' => Yii::t('app-gallery', 'Created At'),
             'updated_at' => Yii::t('app-gallery', 'Updated At'),
+            'show_in_collection'=>Yii::t('app-gallery', 'Show in user collection')
         ];
     }
 

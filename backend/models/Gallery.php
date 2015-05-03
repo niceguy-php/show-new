@@ -31,6 +31,8 @@ class Gallery extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    const IN_SUBSCRIBLE  = 1;
+    const NOT_IN_SUBSCRIBLE = 0;
     const GALLERY_VERIFY_PASS = 1;
     const GALLERY_VERIFY_FAIL = 0;
 
@@ -61,6 +63,7 @@ class Gallery extends \yii\db\ActiveRecord
             ['email', 'email'],
             ['email', 'unique', 'targetClass' => '\common\models\User',
                 'message' => \Yii::t('app-gallery','This email address has already been taken.')],
+            ['show_in_subscrible', 'default', 'value' => 0],
         ];
     }
 
@@ -85,6 +88,7 @@ class Gallery extends \yii\db\ActiveRecord
             'user_id' => Yii::t('app-gallery', 'User Id'),
             'updated_at' => Yii::t('app-gallery', 'Updated At'),
             'gallery_status'=>Yii::t('app-gallery','Gallery Status'),
+            'show_in_subscrible'=>Yii::t('app-gallery','Show in user subscribtion'),
         ];
     }
 
@@ -108,7 +112,7 @@ class Gallery extends \yii\db\ActiveRecord
     {
 
         $loginUser = \Yii::$app->session->get('user');
-        \Yii::$app->db->createCommand()->insert('gallery',['name'=>$loginUser['username'].'的美术馆',
+        \Yii::$app->db->createCommand()->insert('gallery',['name'=>$loginUser['username'].'的艺术馆',
             'master_word'=>'艺术之美，在于分享',
             'created_at'=>date('Y-m-d H:i:s',time()),
             'address'=>'成都',

@@ -92,12 +92,27 @@ class ExhibitionHallController extends ActiveController
         if($count>0){//上下滑动屏幕时的请求
             \Yii::$app->session->set('hall_offset',$count+$offset);
         }
-
-           
-        
         return $this->result;
     }
 
+    public function actionCollectedList(){
+        $defalt_collected = ExhibitionHall::find()->where(['show_in_collection'=>ExhibitionHall::IN_COLLECTION])->orderBy(['created_at'=>SORT_DESC])->asArray()->all();
+        $limit = isset($_POST['limit'])? $_POST['limit']:5;
+
+        $offset = 0;
+        if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('collected_hall_offset')){//区分上下滑动时异步请求和正常请求
+            $offset = $session_offset;
+
+        }
+        // $this->result['data'] = Work::find()->orderBy(['created_at'=>SORT_DESC])
+        //    ->offset($offset)->limit($limit)->asArray()->all();
+        $this->result['data'] = $defalt_collected;
+        $count = count($this->result['data']);
+        if($count>0){//上下滑动屏幕时的请求
+            \Yii::$app->session->set('collected_hall_offset',$count+$offset);
+        }
+        return $this->result;
+    }
 
     public function actionGetone(){
         if($_POST){
@@ -140,4 +155,6 @@ SQL;
         }
         return $this->result;
     }
+
+
 }

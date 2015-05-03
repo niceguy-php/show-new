@@ -8,6 +8,7 @@
 
 namespace frontend\controllers;
 
+use backend\models\Subscription;
 use yii\rest\ActiveController;
 use yii\web\Response;
 use frontend\models\PasswordResetRequestForm;
@@ -217,6 +218,53 @@ if($_POST && isset($_POST['name'])){
         return $this->result;
     }
 
+    public function actionCollectedArtist(){
+        $limit = isset($_POST['limit'])? $_POST['limit']:10;
+
+        $offset = 0;
+        if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('collected_artist_offset')){//区分上下滑动时异步请求和正常请求
+            $offset = $session_offset;
+
+        }
+
+        if($_POST && isset($_POST['name'])){
+
+        }else{
+            $default_subscribled_artist = User::find()->where(['show_in_subscrible'=>1])->asArray()->all();
+            //管理员设置的默认显示的艺术家和用户所收藏的艺术家
+
+            $user_subscribled_artist = [];
+            if(User::isLogin() && User::loginUser()) {
+                $sql = <<<SQL
+SELECT * FROM user WHERE role=3 AND id in (SELECT subscrible_id FROM subscription s WHERE user_id=:user_id AND subscrible_type=1)
+ORDER BY created_at ASC
+LIMIT :offset,:limit
+SQL;
+
+                $loginUser = User::loginUser();
+                if(isset($loginUser['id'])) {
+
+                    $user_id = $loginUser['id'];
+                    $user_subscribled_artist = \Yii::$app->db->createCommand($sql)
+                        ->bindParam(':user_id',$user_id)
+                        ->bindParam(':offset', $offset)
+                        ->bindParam(':limit', $limit)
+                        ->queryAll();
+                }
+            }
+
+
+            $this->result['data'] = $default_subscribled_artist + $user_subscribled_artist;
+        }
+
+
+        $count = count($user_subscribled_artist);
+        if($count>0){//上下滑动屏幕时的请求
+            \Yii::$app->session->set('collected_artist_offset',$count+$offset);
+        }
+
+        return $this->result;
+    }
     public function actionGetone(){
         if($_POST){
             $id = $_POST['id'];

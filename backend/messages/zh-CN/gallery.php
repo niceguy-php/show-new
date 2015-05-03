@@ -244,5 +244,11 @@ return [
     'Gallery not through authentication'=>'机构艺术馆未通过沽雅认证中心审核，请填写艺术馆信息，并联系沽雅认证中心进行资质审核',
     'Incorrect username or password.'=>'用户名或密码错误',
 
+
+    'Show in user collection'=>'在用户收藏中显示',
+    'Show in user subscribtion'=>'在用户订阅中显示',
+
+    'Show'=>'是',
+    'Not Show'=>'否'
 ];
 ?>

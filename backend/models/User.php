@@ -39,6 +39,8 @@ use Yii;
 
 class User extends \yii\db\ActiveRecord
 {
+    const IN_SUBSCRIBLE  = 1;
+    const NOT_IN_SUBSCRIBLE = 0;
     const USER_ON = 10;
     const USER_OFF = 0;
     const SEX_MAN = 1;
@@ -102,6 +104,8 @@ class User extends \yii\db\ActiveRecord
             ['show_room_num', 'required'],
             [['gallery_num'],'integer'],
             [['show_room_num'],'integer'],
+            ['show_in_subscrible', 'default', 'value' => 0],
+
         ];
     }
 
@@ -136,6 +140,7 @@ class User extends \yii\db\ActiveRecord
             'type' => Yii::t('app-gallery', 'Type'),
             'show_room_num'=>Yii::t('app-gallery', 'The Number of Show Rooms'),
             'gallery_num'=>Yii::t('app-gallery', 'The Number of Galleries'),
+            'show_in_subscrible'=>Yii::t('app-gallery','Show in user subscribtion'),
         ];
     }
 

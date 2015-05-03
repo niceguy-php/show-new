@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use backend\models\ExhibitionHall;
+use common\models\User;
 use Yii;
 use backend\models\Gallery;
 use yii\rest\ActiveController;
@@ -131,6 +132,62 @@ SQL;
     }
 
 
+    public function actionCollectedList()
+    {
+
+
+        $limit = isset($_POST['limit'])? $_POST['limit']:5;
+
+        $offset = 0;
+        if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('collected_gallery_offset')){//区分上下滑动时异步请求和正常请求
+            $offset = $session_offset;
+
+        }
+
+        $default_sql = <<<SQL
+SELECT
+*,
+(SELECT count(*) FROM subscription WHERE subscrible_id=g.id AND subscrible_type=3) as subscribleCount ,
+(SELECT count(*) FROM exhibition_hall WHERE gallery_id=g.id) as allCount
+,(SELECT count(*) FROM exhibition_hall e WHERE e.created_at>=date_add(now(),interval -1 month) AND gallery_id=g.id) as recentCount
+FROM gallery as g
+WHERE show_in_subscrible=1
+ORDER BY g.created_at ASC
+SQL;
+
+        $default_collected_gallery = \Yii::$app->db->createCommand($default_sql)->queryAll();
+            //->bindParam(':offset',$offset)->bindParam(':limit',$limit)->queryAll();
+        //$default_collected_gallery = $this->result['data'] = Gallery::find()->where(['show_in_subscrible'=>1])->orderBy(['created_at'=>SORT_DESC])
+          //   ->offset($offset)->limit($limit)->asArray()->all();
+        if($_POST && isset($_POST['name'])){
+
+        }else{
+            $sql = <<<SQL
+SELECT
+*,
+(SELECT count(*) FROM subscription WHERE subscrible_id=g.id AND subscrible_type=3) as subscribleCount ,
+(SELECT count(*) FROM exhibition_hall WHERE gallery_id=g.id) as allCount
+,(SELECT count(*) FROM exhibition_hall e WHERE e.created_at>=date_add(now(),interval -1 month) AND gallery_id=g.id) as recentCount
+FROM gallery as g
+WHERE id in (SELECT subscrible_id FROM subscription s WHERE user_id=:user_id AND subscrible_type=3)
+ORDER BY g.created_at ASC
+LIMIT :offset,:limit
+SQL;
+            $user_id = User::loginUser()['id'];
+            $user_collected_gallery = \Yii::$app->db->createCommand($sql)
+                ->bindParam(':user_id',$user_id)
+                ->bindParam(':offset',$offset)->bindParam(':limit',$limit)->queryAll();
+        }
+        $this->result['data'] = $user_collected_gallery+$default_collected_gallery;
+
+        $count = count($user_collected_gallery);
+        if($count>0){//上下滑动屏幕时的请求
+            \Yii::$app->session->set('collected_gallery_offset',$count+$offset);
+        }
+        return $this->result;
+    }
+
+
     public function actionGetExhibitions(){
         if($_POST){
             $id = $_POST['id'];
@@ -147,6 +204,17 @@ SQL;
             $this->result['data'] = \Yii::$app->db->createCommand($sql)->bindParam(':id',$id)->queryOne();
             $this->result['data']['exhibition_list'] = ExhibitionHall::find()->where(['gallery_id'=>$id])->orderBy(['created_at'=>SORT_ASC])->asArray()->all();
             
+        }else{
+            $this->result['code']=-1;
+
+        }
+        return $this->result;
+    }
+
+    public function actionGetone(){
+        if($_POST){
+            $id = $_POST['id'];
+            $this->result['data'] = Gallery::findOne(['id'=>$id]);
         }else{
             $this->result['code']=-1;
 

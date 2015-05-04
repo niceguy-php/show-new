@@ -120,7 +120,7 @@ echo <<<JS
             "width": 100,
             "height": 100,
             "color": "#3a3",
-            "text": "http://goolya.com{$model->image}"
+            "text": "http://goolya.com{$model->image},{$model->id},{$model->name}"
         });
     });
 })();

@@ -35,7 +35,7 @@ $this->title = $model->name;
             'id',
             'name',
             'description',
-            ['attribute'=>'image','value'=>$model->image,'format' => ['image',['width'=>'200','height'=>'200']]],
+            ['attribute'=>'image','value'=>'http://goolya.com'.$model->image,'format' => ['image',['width'=>'200','height'=>'200']]],
             'year',
             ['attribute'=>'width','value'=>$model->width.' cm'],
             ['attribute'=>'height','value'=>$model->height.' cm'],

@@ -86,20 +86,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="view.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/views/work-web/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.4838705" vertical-offset="199" max-vertical-offset="3498">
-              <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.42094016" vertical-offset="661" max-vertical-offset="3498">
+              <caret line="39" column="64" selection-start-line="39" selection-start-column="64" selection-end-line="39" selection-end-column="64" />
               <folding>
                 <element signature="e#7#28#0#PHP" expanded="true" />
-                <marker date="1431010436626" expanded="true" signature="4654:5417" placeholder="{...}" />
-                <marker date="1431010436626" expanded="true" signature="4778:5383" placeholder="{...}" />
-                <marker date="1431010436626" expanded="true" signature="4871:4932" placeholder="{...}" />
-                <marker date="1431010436626" expanded="true" signature="4954:5196" placeholder="{...}" />
-                <marker date="1431010436626" expanded="true" signature="5202:5369" placeholder="{...}" />
-                <marker date="1431010436626" expanded="true" signature="5542:5787" placeholder="{...}" />
-                <marker date="1431010436626" expanded="true" signature="5578:5779" placeholder="{&quot;render&quot;: &quot;div&quot;...}" />
+                <marker date="1431012145689" expanded="true" signature="4674:5437" placeholder="{...}" />
+                <marker date="1431012145689" expanded="true" signature="4798:5403" placeholder="{...}" />
+                <marker date="1431012145689" expanded="true" signature="4891:4952" placeholder="{...}" />
+                <marker date="1431012145689" expanded="true" signature="4974:5216" placeholder="{...}" />
+                <marker date="1431012145689" expanded="true" signature="5222:5389" placeholder="{...}" />
+                <marker date="1431012145689" expanded="true" signature="5562:5807" placeholder="{...}" />
+                <marker date="1431012145689" expanded="true" signature="5598:5799" placeholder="{&quot;render&quot;: &quot;div&quot;...}" />
               </folding>
             </state>
           </provider>
@@ -115,11 +115,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/views/layouts/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58835757" vertical-offset="1169" max-vertical-offset="1716">
-              <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+            <state vertical-scroll-proportion="-4.16129" vertical-offset="1169" max-vertical-offset="1716">
+              <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
               <folding>
                 <element signature="e#703#1858#0#PHP" expanded="true" />
               </folding>
@@ -199,10 +199,10 @@
         <option value="$PROJECT_DIR$/backend/controllers/WorkController.php" />
         <option value="$PROJECT_DIR$/frontend/controllers/WorkController.php" />
         <option value="$PROJECT_DIR$/frontend/controllers/WorkWebController.php" />
-        <option value="$PROJECT_DIR$/frontend/views/work-web/view.php" />
         <option value="$PROJECT_DIR$/frontend/config/main-local.php" />
         <option value="$PROJECT_DIR$/frontend/web/index.php" />
         <option value="$PROJECT_DIR$/frontend/views/layouts/main.php" />
+        <option value="$PROJECT_DIR$/frontend/views/work-web/view.php" />
       </list>
     </option>
   </component>
@@ -1297,23 +1297,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/work-web/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.4838705" vertical-offset="199" max-vertical-offset="3498">
-          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-          <folding>
-            <element signature="e#7#28#0#PHP" expanded="true" />
-            <marker date="1431010436626" expanded="true" signature="4654:5417" placeholder="{...}" />
-            <marker date="1431010436626" expanded="true" signature="4778:5383" placeholder="{...}" />
-            <marker date="1431010436626" expanded="true" signature="4871:4932" placeholder="{...}" />
-            <marker date="1431010436626" expanded="true" signature="4954:5196" placeholder="{...}" />
-            <marker date="1431010436626" expanded="true" signature="5202:5369" placeholder="{...}" />
-            <marker date="1431010436626" expanded="true" signature="5542:5787" placeholder="{...}" />
-            <marker date="1431010436626" expanded="true" signature="5578:5779" placeholder="{&quot;render&quot;: &quot;div&quot;...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/config/params.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="220">
@@ -1340,10 +1323,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58835757" vertical-offset="1169" max-vertical-offset="1716">
-          <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+        <state vertical-scroll-proportion="-4.16129" vertical-offset="1169" max-vertical-offset="1716">
+          <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
           <folding>
             <element signature="e#703#1858#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/work-web/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42094016" vertical-offset="661" max-vertical-offset="3498">
+          <caret line="39" column="64" selection-start-line="39" selection-start-column="64" selection-end-line="39" selection-end-column="64" />
+          <folding>
+            <element signature="e#7#28#0#PHP" expanded="true" />
+            <marker date="1431012145689" expanded="true" signature="4674:5437" placeholder="{...}" />
+            <marker date="1431012145689" expanded="true" signature="4798:5403" placeholder="{...}" />
+            <marker date="1431012145689" expanded="true" signature="4891:4952" placeholder="{...}" />
+            <marker date="1431012145689" expanded="true" signature="4974:5216" placeholder="{...}" />
+            <marker date="1431012145689" expanded="true" signature="5222:5389" placeholder="{...}" />
+            <marker date="1431012145689" expanded="true" signature="5562:5807" placeholder="{...}" />
+            <marker date="1431012145689" expanded="true" signature="5598:5799" placeholder="{&quot;render&quot;: &quot;div&quot;...}" />
           </folding>
         </state>
       </provider>

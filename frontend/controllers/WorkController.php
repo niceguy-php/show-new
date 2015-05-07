@@ -137,5 +137,28 @@ class WorkController extends ActiveController
         return $this->result;
     }
 
+    public function actionView($id)
+    {
+        //$model = $this->findModel($id);
+        $model = $this->findModelForView($id);
+
+
+        if ($model->load(Yii::$app->request->post())) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('view', ['model' => $model]);
+        }
+    }
+
+    protected function findModelForView($id)
+    {
+
+        if (($model = Work::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
 
 }

@@ -24,11 +24,11 @@ class WorkController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => [],
+                'only' => ['view'],
                 'rules' => [
                     [
-                        'actions' => [],
-                        'allow' => false,
+                        'actions' => ['view'],
+                        'allow' => true,
                         'roles' => ['?'],
                     ],
                     [
@@ -69,7 +69,9 @@ class WorkController extends Controller
      */
     public function actionView($id)
     {
-        $model = $this->findModel($id);
+        //$model = $this->findModel($id);
+        $model = $this->findModelForView($id);
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
         return $this->redirect(['view', 'id' => $model->id]);
@@ -203,6 +205,16 @@ class WorkController extends Controller
             $condition = ['id'=>$id,'user_id'=>User::loginUser()['id']];
         }
         if (($model = Work::findOne($condition)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+    protected function findModelForView($id)
+    {
+
+        if (($model = Work::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

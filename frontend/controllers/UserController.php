@@ -209,7 +209,20 @@ if($_POST && isset($_POST['name'])){
             ->offset($offset)->limit($limit)->asArray()->all();
 }
 
-        
+        $loginUser = User::loginUser();
+        if($loginUser){
+            $subscribled_obj = Subscription::find()->where(['subscrible_type'=>Subscription::ARTIST,'user_id'=>$loginUser['id']])
+                ->asArray()->all();
+            if($subscribled_obj){
+                $this->result['subscribled'] = $subscribled_obj;
+            }else{
+                $this->result['subscribled'] = [];
+            }
+        }else{
+            $this->result['subscribled'] = [];
+        }
+
+
         $count = count($this->result['data']);
         if($count>0){//上下滑动屏幕时的请求
             \Yii::$app->session->set('artist_offset',$count+$offset);
@@ -275,5 +288,21 @@ SQL;
         return $this->result;
     }
 
+    public function actionHasSubscribled(){
+        $loginUser = User::loginUser();
+        if($loginUser){
+            $subscribled_obj = Subscription::find()->where(['subscrible_type'=>Subscription::ARTIST,'user_id'=>$loginUser['id']])
+                ->asArray()->all();
+            if($subscribled_obj){
+                $this->result['data'] = $subscribled_obj;
+            }else{
+                $this->result['data'] = [];
+            }
+        }else{
+            $this->result['code'] = -1;
+        }
+        return $this->result;
+        //SELECT subscrible_id FROM subscription WHERE user_id = 44 AND subscrible_type=1
+    }
 
 }

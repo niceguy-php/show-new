@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use backend\models\ExhibitionHall;
+use backend\models\Subscription;
 use common\models\User;
 use Yii;
 use backend\models\Gallery;
@@ -207,6 +208,27 @@ SQL;
         }else{
             $this->result['code']=-1;
 
+        }
+        return $this->result;
+    }
+
+    public function actionHasSubscribled(){
+        $subscrible_type = $_POST['type'];
+        $subscrible_id = $_POST['id'];
+        $loginUser = User::loginUser();
+//SELECT * FROM subscription WHERE user_id=44 AND subscrible_id=3 AND subscrible_type=3
+        if($loginUser && $subscrible_type && $subscrible_id){
+            $subscribled_obj = Subscription::find()->where(['user_id'=>$loginUser['id'],
+                                        'subscrible_id'=>$subscrible_id,
+                                        'subscrible_type'=>$subscrible_type])->asArray()->one();
+            if($subscribled_obj){
+                $this->result['data'] = 'true';
+            }else{
+                $this->result['data'] = 'false';
+            }
+
+        }else{
+            $this->result['code'] = -1;
         }
         return $this->result;
     }

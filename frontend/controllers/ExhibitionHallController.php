@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use backend\models\User;
 use Yii;
 use backend\models\ExhibitionHall;
 use yii\rest\ActiveController;
@@ -101,17 +102,29 @@ class ExhibitionHallController extends ActiveController
     }
 
     public function actionCollectedList(){
-        $defalt_collected = ExhibitionHall::find()->where(['show_in_collection'=>ExhibitionHall::IN_COLLECTION])->orderBy(['created_at'=>SORT_DESC])->asArray()->all();
-        $limit = isset($_POST['limit'])? $_POST['limit']:5;
+       // $defalt_collected = ExhibitionHall::find()->where(['show_in_collection'=>ExhibitionHall::IN_COLLECTION])->orderBy(['created_at'=>SORT_DESC])->asArray()->all();
+        $limit = isset($_POST['limit'])? $_POST['limit']:10;
+
+
 
         $offset = 0;
         if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('collected_hall_offset')){//区分上下滑动时异步请求和正常请求
             $offset = $session_offset;
 
         }
+
+        $sql = <<<SQL
+SELECT * FROM exhibition_hall h
+WHERE show_in_collection=1 OR h.id in (SELECT subscrible_id FROM subscription WHERE subscrible_type=2 AND user_id=:user_id)
+ORDER BY show_time DESC
+LIMIT :offset,:limit
+SQL;
+        $loginUser = \common\models\User::loginUser();
+        $login_uid = isset($loginUser['id'])?$loginUser['id']:0;
+        $this->result['data'] = \Yii::$app->db->createCommand($sql)->bindParam(':user_id',$login_uid)->bindParam(':offset',$offset)->bindParam(':limit',$limit)->queryAll();
         // $this->result['data'] = Work::find()->orderBy(['created_at'=>SORT_DESC])
         //    ->offset($offset)->limit($limit)->asArray()->all();
-        $this->result['data'] = $defalt_collected;
+        //$this->result['data'] = $defalt_collected;
         $count = count($this->result['data']);
         if($count>0){//上下滑动屏幕时的请求
             \Yii::$app->session->set('collected_hall_offset',$count+$offset);

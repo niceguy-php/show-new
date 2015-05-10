@@ -101,7 +101,7 @@ class WorkController extends ActiveController
     public function actionCollectedList()
     {
 
-        $defalt_collected = Work::find()->where(['show_in_collection'=>Work::IN_COLLECTION])->orderBy(['created_at'=>SORT_DESC])->asArray()->all();
+        //$defalt_collected = Work::find()->where(['show_in_collection'=>Work::IN_COLLECTION])->orderBy(['created_at'=>SORT_DESC])->asArray()->all();
 
         $limit = isset($_POST['limit'])? $_POST['limit']:5;
 
@@ -111,10 +111,21 @@ class WorkController extends ActiveController
 
         }
 
+        $sql = <<<SQL
+SELECT * FROM work h
+WHERE show_in_collection=1 OR h.id in (SELECT subscrible_id FROM subscription WHERE subscrible_type=4 AND user_id=:user_id)
+ORDER BY created_at DESC
+LIMIT :offset,:limit
+SQL;
+
+        $loginUser = \common\models\User::loginUser();
+        $login_uid = isset($loginUser['id'])?$loginUser['id']:0;
+        $this->result['data'] = \Yii::$app->db->createCommand($sql)->bindParam(':user_id',$login_uid)->bindParam(':offset',$offset)->bindParam(':limit',$limit)->queryAll();
+
 
        // $this->result['data'] = Work::find()->orderBy(['created_at'=>SORT_DESC])
         //    ->offset($offset)->limit($limit)->asArray()->all();
-        $this->result['data'] = $defalt_collected;
+       // $this->result['data'] = $defalt_collected;
         $count = count($this->result['data']);
         if($count>0){//上下滑动屏幕时的请求
             \Yii::$app->session->set('collected_work_offset',$count+$offset);

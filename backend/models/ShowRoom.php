@@ -82,7 +82,7 @@ class ShowRoom extends \yii\db\ActiveRecord
         $num = 5;
         for($i=1; $i<= $num; $i++)
         {
-            \Yii::$app->db->createCommand()->insert('show_room',['name'=>$loginUser['username'].'沽雅展厅'.$i,
+            \Yii::$app->db->createCommand()->insert('show_room',['name'=>$loginUser['username'].'微馆'.$i,
                 'description'=>'沽雅展厅可以创建一些风格各异或者有一定特色的画展，每个沽雅展厅可以上传相应风格的艺术图片~',
                 'user_id'=>$loginUser['id'],
                 'user_name'=>$loginUser['username'],

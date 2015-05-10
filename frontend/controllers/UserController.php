@@ -15,6 +15,8 @@ use frontend\models\PasswordResetRequestForm;
 use yii\filters\auth\HttpBasicAuth;
 use backend\models\SignupForm;
 use common\models\LoginForm;
+use backend\models\Gallery;
+use backend\models\ShowRoom;
 
 use common\models\User;
 
@@ -59,8 +61,11 @@ class UserController extends ActiveController{
             if(!$session->isActive){
                 $session->open();
             }
-            $session->set('user',$model->getUser());
+            $loginUser = $model->getUser();
+            $session->set('user',$loginUser);
             $this->result['data'] = $model->getUser();
+
+            $this->result['default_gallery_name'] = Gallery::findOne($loginUser['default_gallery_id'])['name'];
         } else {
             $errors = $model->errors;
             if($errors){
@@ -81,8 +86,14 @@ class UserController extends ActiveController{
                     if(!$session->isActive){
                         $session->open();
                     }
-                    $session->set('user',$model->getUser());
-                    $this->result['data'] = $user;
+                   // $loginUser = User::loginUser();
+                    $loginUser = User::findOne(['username'=>$model->username]);
+                    $session->set('user',$loginUser);
+                    $gallery = new Gallery();
+                    $showroom = new ShowRoom();
+                    $gallery->addDefaultGallery();
+                    $showroom->addDefaultShowRoom();
+                    $this->result['data'] = $loginUser;
                 }
             }
         }
@@ -313,6 +324,8 @@ SQL;
             $default_gallery_id = $_POST['default_gallery_id'];
             if($default_gallery_id){
                 User::updateAll(['default_gallery_id'=>$default_gallery_id],['id'=>$loginUser['id']]);
+                $default_gallery = Gallery::findOne($default_gallery_id);
+                $this->result['data'] = $default_gallery['name'];
             }else{
                 $this->result['code'] = -1;
             }

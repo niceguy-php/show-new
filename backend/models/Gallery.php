@@ -124,7 +124,6 @@ class Gallery extends \yii\db\ActiveRecord
             'user_name'=>$loginUser['username']
         ])->execute();
 
-
     }
 
     public static function IDName($user_id = null)

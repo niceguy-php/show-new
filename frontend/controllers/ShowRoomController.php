@@ -84,16 +84,31 @@ class ShowRoomController extends ActiveController
             $offset = $session_offset;
 
         }
+if($_POST['gallery_id']){
+    $sql =<<<SQL
+SELECT s.*,g.name AS gallery_name FROM show_room s, gallery g WHERE s.user_id = g.user_id AND s.status=1 AND s.gallery_id=:gallery_id
+ORDER BY s.created_at DESC
+LIMIT :offset,:limit
+SQL;
 
-        $sql =<<<SQL
+    $this->result['data'] =  \Yii::$app->db->createCommand($sql)
+        ->bindParam(':gallery_id',$_POST['gallery_id'])
+        ->bindParam(':offset',$offset)
+        ->bindParam(':limit',$limit)
+        ->queryAll();
+}else{
+$sql =<<<SQL
 SELECT s.*,g.name AS gallery_name FROM show_room s, gallery g WHERE s.user_id = g.user_id AND s.status=1
 ORDER BY s.created_at DESC
 LIMIT :offset,:limit
 SQL;
 
-        $this->result['data'] =  \Yii::$app->db->createCommand($sql)->bindParam(':offset',$offset)->bindParam(':limit',$limit)->queryAll();
-        /*$this->result['data'] = ShowRoom::find()->where(['status'=>ShowRoom::OPEN])->orderBy(['created_at'=>SORT_DESC])
-            ->offset($offset)->limit($limit)->asArray()->all();*/
+$this->result['data'] =  \Yii::$app->db->createCommand($sql)->bindParam(':offset',$offset)->bindParam(':limit',$limit)->queryAll();
+
+}
+
+/*$this->result['data'] = ShowRoom::find()->where(['status'=>ShowRoom::OPEN])->orderBy(['created_at'=>SORT_DESC])
+    ->offset($offset)->limit($limit)->asArray()->all();*/
         $count = count($this->result['data']);
         if($count>0){//上下滑动屏幕时的请求
             \Yii::$app->session->set('showroom_offset',$count+$offset);

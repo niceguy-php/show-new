@@ -85,9 +85,14 @@ class ExhibitionHallController extends ActiveController
 
         }
 
-       
-        $this->result['data'] = ExhibitionHall::find()->orderBy(['created_at'=>SORT_DESC])
-            ->offset($offset)->limit($limit)->asArray()->all();
+
+        if($_POST['gallery_id']){
+            $this->result['data'] = ExhibitionHall::find()->where(['gallery_id'=>$_POST['gallery_id']])->orderBy(['created_at'=>SORT_DESC])
+                ->offset($offset)->limit($limit)->asArray()->all();
+        }else{
+            $this->result['data'] = ExhibitionHall::find()->orderBy(['created_at'=>SORT_DESC])
+                ->offset($offset)->limit($limit)->asArray()->all();
+        }
         $count = count($this->result['data']);
         if($count>0){//上下滑动屏幕时的请求
             \Yii::$app->session->set('hall_offset',$count+$offset);

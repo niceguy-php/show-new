@@ -305,4 +305,23 @@ SQL;
         //SELECT subscrible_id FROM subscription WHERE user_id = 44 AND subscrible_type=1
     }
 
+    public function actionDefaultGallery(){
+
+        $loginUser = User::loginUser();
+        $default_gallery_id = $_POST['default_gallery_id'];
+        if($default_gallery_id){
+            User::updateAll(['default_gallery_id'=>$default_gallery_id],['id'=>$loginUser['id']]);
+        }else{
+            $this->result['code'] = -1;
+        }
+
+        return $this->result;
+
+    }
+
+    public function actionLogout(){
+        unset(\Yii::$app->session['user']);
+        return $this->result;
+    }
+
 }

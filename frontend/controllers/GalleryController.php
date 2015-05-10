@@ -119,6 +119,11 @@ SQL;
     $this->result['data'] = \Yii::$app->db->createCommand($sql)->bindParam(':offset',$offset)->bindParam(':limit',$limit)->queryAll();
 }
 
+        $loginUser = User::loginUser();
+        $user = User::findOne(['id'=>$loginUser['id']]);
+
+        $this->result['default_gallery_id'] = $user['default_gallery_id'];
+
 
 
 

@@ -33,31 +33,46 @@
       <file leaf-file-name="GalleryController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/controllers/GalleryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.16129" vertical-offset="4715" max-vertical-offset="5588">
-              <caret line="223" column="12" selection-start-line="223" selection-start-column="12" selection-end-line="227" selection-end-column="13" />
+            <state vertical-scroll-proportion="-21.064516" vertical-offset="2009" max-vertical-offset="5698">
+              <caret line="121" column="39" selection-start-line="121" selection-start-column="39" selection-end-line="121" selection-end-column="39" />
               <folding>
                 <element signature="e#40#74#0#PHP" expanded="true" />
-                <marker date="1431170997922" expanded="true" signature="2745:3143" placeholder="SELECT *, (S..gallery..." />
-                <marker date="1431170997922" expanded="true" signature="2756:2814" placeholder="SELECT count..subscription..." />
-                <marker date="1431170997922" expanded="true" signature="2838:2896" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431170997922" expanded="true" signature="2912:3024" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431170997922" expanded="true" signature="3335:3695" placeholder="SELECT *, (S..gallery..." />
-                <marker date="1431170997922" expanded="true" signature="3346:3404" placeholder="SELECT count..subscription..." />
-                <marker date="1431170997922" expanded="true" signature="3428:3486" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431170997922" expanded="true" signature="3502:3614" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431170997922" expanded="true" signature="4402:4790" placeholder="SELECT *, (S..gallery..." />
-                <marker date="1431170997922" expanded="true" signature="4413:4493" placeholder="SELECT count..subscription..." />
-                <marker date="1431170997922" expanded="true" signature="4517:4575" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431170997922" expanded="true" signature="4591:4703" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431170997922" expanded="true" signature="5280:5762" placeholder="SELECT *, (S..gallery..." />
-                <marker date="1431170997922" expanded="true" signature="5291:5371" placeholder="SELECT count..subscription..." />
-                <marker date="1431170997922" expanded="true" signature="5395:5453" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431170997922" expanded="true" signature="5469:5581" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431170997922" expanded="true" signature="5629:5714" placeholder="SELECT subsc..subscription..." />
-                <marker date="1431170997922" expanded="true" signature="6456:6779" placeholder="select *, (S..gallery..." />
-                <marker date="1431170997922" expanded="true" signature="6467:6524" placeholder="SELECT count..subscription..." />
-                <marker date="1431170997922" expanded="true" signature="6548:6605" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431170997922" expanded="true" signature="6621:6732" placeholder="SELECT count..exhibition_hall..." />
+                <marker date="1431247811671" expanded="true" signature="2745:3143" placeholder="SELECT *, (S..gallery..." />
+                <marker date="1431247811671" expanded="true" signature="2756:2814" placeholder="SELECT count..subscription..." />
+                <marker date="1431247811671" expanded="true" signature="2838:2896" placeholder="SELECT count..exhibition_hall..." />
+                <marker date="1431247811671" expanded="true" signature="2912:3024" placeholder="SELECT count..exhibition_hall..." />
+                <marker date="1431247811671" expanded="true" signature="3335:3695" placeholder="SELECT *, (S..gallery..." />
+                <marker date="1431247811671" expanded="true" signature="3346:3404" placeholder="SELECT count..subscription..." />
+                <marker date="1431247811671" expanded="true" signature="3428:3486" placeholder="SELECT count..exhibition_hall..." />
+                <marker date="1431247811671" expanded="true" signature="3502:3614" placeholder="SELECT count..exhibition_hall..." />
+                <marker date="1431247811671" expanded="true" signature="4576:4964" placeholder="SELECT *, (S..gallery..." />
+                <marker date="1431247811671" expanded="true" signature="4587:4667" placeholder="SELECT count..subscription..." />
+                <marker date="1431247811671" expanded="true" signature="4691:4749" placeholder="SELECT count..exhibition_hall..." />
+                <marker date="1431247811671" expanded="true" signature="4765:4877" placeholder="SELECT count..exhibition_hall..." />
+                <marker date="1431247811671" expanded="true" signature="5454:5936" placeholder="SELECT *, (S..gallery..." />
+                <marker date="1431247811671" expanded="true" signature="5465:5545" placeholder="SELECT count..subscription..." />
+                <marker date="1431247811671" expanded="true" signature="5569:5627" placeholder="SELECT count..exhibition_hall..." />
+                <marker date="1431247811671" expanded="true" signature="5643:5755" placeholder="SELECT count..exhibition_hall..." />
+                <marker date="1431247811671" expanded="true" signature="5803:5888" placeholder="SELECT subsc..subscription..." />
+                <marker date="1431247811671" expanded="true" signature="6630:6953" placeholder="select *, (S..gallery..." />
+                <marker date="1431247811671" expanded="true" signature="6641:6698" placeholder="SELECT count..subscription..." />
+                <marker date="1431247811671" expanded="true" signature="6722:6779" placeholder="SELECT count..exhibition_hall..." />
+                <marker date="1431247811671" expanded="true" signature="6795:6906" placeholder="SELECT count..exhibition_hall..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExhibitionHallController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/controllers/ExhibitionHallController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.3225806" vertical-offset="1833" max-vertical-offset="3762">
+              <caret line="88" column="11" selection-start-line="88" selection-start-column="11" selection-end-line="88" selection-end-column="31" />
+              <folding>
+                <element signature="e#40#48#0#PHP" expanded="true" />
+                <marker date="1431250224524" expanded="true" signature="4562:4699" placeholder="..." />
+                <marker date="1431250224524" expanded="true" signature="4563:4667" placeholder="SELECT * FRO..work..." />
+                <marker date="1431250224524" expanded="true" signature="4595:4665" placeholder="SELECT we.wo..work_in_exhibition..." />
               </folding>
             </state>
           </provider>
@@ -66,12 +81,27 @@
       <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67094016" vertical-offset="4372" max-vertical-offset="6776">
-              <caret line="218" column="42" selection-start-line="218" selection-start-column="31" selection-end-line="218" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.71794873" vertical-offset="6616" max-vertical-offset="7194">
+              <caret line="321" column="35" selection-start-line="321" selection-start-column="35" selection-end-line="321" selection-end-column="35" />
               <folding>
                 <element signature="e#125#157#0#PHP" expanded="true" />
-                <marker date="1431182691648" expanded="true" signature="7561:7735" placeholder="SELECT * FRO..user..." />
-                <marker date="1431182691648" expanded="true" signature="7604:7689" placeholder="SELECT subsc..subscription..." />
+                <marker date="1431252694374" expanded="true" signature="7561:7735" placeholder="SELECT * FRO..user..." />
+                <marker date="1431252694374" expanded="true" signature="7604:7689" placeholder="SELECT subsc..subscription..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShowRoomController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/controllers/ShowRoomController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.580645" vertical-offset="1930" max-vertical-offset="3388">
+              <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
+              <folding>
+                <marker date="1431250562955" expanded="true" signature="2451:2632" placeholder="SELECT s.*,g..show_room..." />
+                <marker date="1431250562955" expanded="true" signature="2878:3030" placeholder="SELECT s.*,g..show_room..." />
+                <marker date="1431250562955" expanded="true" signature="3941:4050" placeholder="SELECT * FRO..work..." />
+                <marker date="1431250562955" expanded="true" signature="3973:4048" placeholder="SELECT we.wo..work_in_exhibition..." />
               </folding>
             </state>
           </provider>
@@ -121,9 +151,7 @@
         <option value="$PROJECT_DIR$/backend/models/Gallery.php" />
         <option value="$PROJECT_DIR$/common/models/User.php" />
         <option value="$PROJECT_DIR$/frontend/controllers/SubscriptionController.php" />
-        <option value="$PROJECT_DIR$/frontend/controllers/ExhibitionHallController.php" />
         <option value="$PROJECT_DIR$/backend/views/work/view.php" />
-        <option value="$PROJECT_DIR$/frontend/controllers/ShowRoomController.php" />
         <option value="$PROJECT_DIR$/backend/controllers/WorkController.php" />
         <option value="$PROJECT_DIR$/frontend/controllers/WorkController.php" />
         <option value="$PROJECT_DIR$/frontend/controllers/WorkWebController.php" />
@@ -132,6 +160,8 @@
         <option value="$PROJECT_DIR$/frontend/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/frontend/views/work-web/view.php" />
         <option value="$PROJECT_DIR$/frontend/controllers/GalleryController.php" />
+        <option value="$PROJECT_DIR$/frontend/controllers/ExhibitionHallController.php" />
+        <option value="$PROJECT_DIR$/frontend/controllers/ShowRoomController.php" />
         <option value="$PROJECT_DIR$/frontend/controllers/UserController.php" />
       </list>
     </option>
@@ -995,13 +1025,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/controllers/ExhibitionHallController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.129032" vertical-offset="3118" max-vertical-offset="3652">
-          <caret line="156" column="5" selection-start-line="138" selection-start-column="4" selection-end-line="156" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/models/Work.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.8387096" vertical-offset="1254" max-vertical-offset="3014">
@@ -1021,6 +1044,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.290323" vertical-offset="1719" max-vertical-offset="2332">
           <caret line="87" column="52" selection-start-line="87" selection-start-column="52" selection-end-line="87" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1050,18 +1074,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="4180">
           <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/controllers/ShowRoomController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2370" max-vertical-offset="3058">
-          <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
-          <folding>
-            <marker date="1431008163057" expanded="true" signature="-1:-1" placeholder="SELECT s.*,g..show_room..." />
-            <marker date="1431008163057" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..work..." />
-            <marker date="1431008163057" expanded="true" signature="-1:-1" placeholder="SELECT we.wo..work_in_exhibition..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1152,43 +1164,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/controllers/GalleryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.16129" vertical-offset="4715" max-vertical-offset="5588">
-          <caret line="223" column="12" selection-start-line="223" selection-start-column="12" selection-end-line="227" selection-end-column="13" />
+        <state vertical-scroll-proportion="-21.064516" vertical-offset="2009" max-vertical-offset="5698">
+          <caret line="121" column="39" selection-start-line="121" selection-start-column="39" selection-end-line="121" selection-end-column="39" />
           <folding>
             <element signature="e#40#74#0#PHP" expanded="true" />
-            <marker date="1431170997922" expanded="true" signature="2745:3143" placeholder="SELECT *, (S..gallery..." />
-            <marker date="1431170997922" expanded="true" signature="2756:2814" placeholder="SELECT count..subscription..." />
-            <marker date="1431170997922" expanded="true" signature="2838:2896" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431170997922" expanded="true" signature="2912:3024" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431170997922" expanded="true" signature="3335:3695" placeholder="SELECT *, (S..gallery..." />
-            <marker date="1431170997922" expanded="true" signature="3346:3404" placeholder="SELECT count..subscription..." />
-            <marker date="1431170997922" expanded="true" signature="3428:3486" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431170997922" expanded="true" signature="3502:3614" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431170997922" expanded="true" signature="4402:4790" placeholder="SELECT *, (S..gallery..." />
-            <marker date="1431170997922" expanded="true" signature="4413:4493" placeholder="SELECT count..subscription..." />
-            <marker date="1431170997922" expanded="true" signature="4517:4575" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431170997922" expanded="true" signature="4591:4703" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431170997922" expanded="true" signature="5280:5762" placeholder="SELECT *, (S..gallery..." />
-            <marker date="1431170997922" expanded="true" signature="5291:5371" placeholder="SELECT count..subscription..." />
-            <marker date="1431170997922" expanded="true" signature="5395:5453" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431170997922" expanded="true" signature="5469:5581" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431170997922" expanded="true" signature="5629:5714" placeholder="SELECT subsc..subscription..." />
-            <marker date="1431170997922" expanded="true" signature="6456:6779" placeholder="select *, (S..gallery..." />
-            <marker date="1431170997922" expanded="true" signature="6467:6524" placeholder="SELECT count..subscription..." />
-            <marker date="1431170997922" expanded="true" signature="6548:6605" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431170997922" expanded="true" signature="6621:6732" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431247811671" expanded="true" signature="2745:3143" placeholder="SELECT *, (S..gallery..." />
+            <marker date="1431247811671" expanded="true" signature="2756:2814" placeholder="SELECT count..subscription..." />
+            <marker date="1431247811671" expanded="true" signature="2838:2896" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431247811671" expanded="true" signature="2912:3024" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431247811671" expanded="true" signature="3335:3695" placeholder="SELECT *, (S..gallery..." />
+            <marker date="1431247811671" expanded="true" signature="3346:3404" placeholder="SELECT count..subscription..." />
+            <marker date="1431247811671" expanded="true" signature="3428:3486" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431247811671" expanded="true" signature="3502:3614" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431247811671" expanded="true" signature="4576:4964" placeholder="SELECT *, (S..gallery..." />
+            <marker date="1431247811671" expanded="true" signature="4587:4667" placeholder="SELECT count..subscription..." />
+            <marker date="1431247811671" expanded="true" signature="4691:4749" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431247811671" expanded="true" signature="4765:4877" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431247811671" expanded="true" signature="5454:5936" placeholder="SELECT *, (S..gallery..." />
+            <marker date="1431247811671" expanded="true" signature="5465:5545" placeholder="SELECT count..subscription..." />
+            <marker date="1431247811671" expanded="true" signature="5569:5627" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431247811671" expanded="true" signature="5643:5755" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431247811671" expanded="true" signature="5803:5888" placeholder="SELECT subsc..subscription..." />
+            <marker date="1431247811671" expanded="true" signature="6630:6953" placeholder="select *, (S..gallery..." />
+            <marker date="1431247811671" expanded="true" signature="6641:6698" placeholder="SELECT count..subscription..." />
+            <marker date="1431247811671" expanded="true" signature="6722:6779" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431247811671" expanded="true" signature="6795:6906" placeholder="SELECT count..exhibition_hall..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/controllers/ExhibitionHallController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3225806" vertical-offset="1833" max-vertical-offset="3762">
+          <caret line="88" column="11" selection-start-line="88" selection-start-column="11" selection-end-line="88" selection-end-column="31" />
+          <folding>
+            <element signature="e#40#48#0#PHP" expanded="true" />
+            <marker date="1431250224524" expanded="true" signature="4562:4699" placeholder="..." />
+            <marker date="1431250224524" expanded="true" signature="4563:4667" placeholder="SELECT * FRO..work..." />
+            <marker date="1431250224524" expanded="true" signature="4595:4665" placeholder="SELECT we.wo..work_in_exhibition..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/controllers/ShowRoomController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.580645" vertical-offset="1930" max-vertical-offset="3388">
+          <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
+          <folding>
+            <marker date="1431250562955" expanded="true" signature="2451:2632" placeholder="SELECT s.*,g..show_room..." />
+            <marker date="1431250562955" expanded="true" signature="2878:3030" placeholder="SELECT s.*,g..show_room..." />
+            <marker date="1431250562955" expanded="true" signature="3941:4050" placeholder="SELECT * FRO..work..." />
+            <marker date="1431250562955" expanded="true" signature="3973:4048" placeholder="SELECT we.wo..work_in_exhibition..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67094016" vertical-offset="4372" max-vertical-offset="6776">
-          <caret line="218" column="42" selection-start-line="218" selection-start-column="31" selection-end-line="218" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.71794873" vertical-offset="6616" max-vertical-offset="7194">
+          <caret line="321" column="35" selection-start-line="321" selection-start-column="35" selection-end-line="321" selection-end-column="35" />
           <folding>
             <element signature="e#125#157#0#PHP" expanded="true" />
-            <marker date="1431182691648" expanded="true" signature="7561:7735" placeholder="SELECT * FRO..user..." />
-            <marker date="1431182691648" expanded="true" signature="7604:7689" placeholder="SELECT subsc..subscription..." />
+            <marker date="1431252694374" expanded="true" signature="7561:7735" placeholder="SELECT * FRO..user..." />
+            <marker date="1431252694374" expanded="true" signature="7604:7689" placeholder="SELECT subsc..subscription..." />
           </folding>
         </state>
       </provider>

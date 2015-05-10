@@ -307,14 +307,17 @@ SQL;
 
     public function actionDefaultGallery(){
 
-        $loginUser = User::loginUser();
-        $default_gallery_id = $_POST['default_gallery_id'];
-        if($default_gallery_id){
-            User::updateAll(['default_gallery_id'=>$default_gallery_id],['id'=>$loginUser['id']]);
-        }else{
-            $this->result['code'] = -1;
-        }
+        if($_POST){
 
+            $loginUser = User::loginUser();
+            $default_gallery_id = $_POST['default_gallery_id'];
+            if($default_gallery_id){
+                User::updateAll(['default_gallery_id'=>$default_gallery_id],['id'=>$loginUser['id']]);
+            }else{
+                $this->result['code'] = -1;
+            }
+
+        }
         return $this->result;
 
     }

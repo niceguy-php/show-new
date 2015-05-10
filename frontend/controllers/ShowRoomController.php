@@ -84,7 +84,7 @@ class ShowRoomController extends ActiveController
             $offset = $session_offset;
 
         }
-if($_POST['gallery_id']){
+if(isset($_POST['gallery_id'])){
     $sql =<<<SQL
 SELECT s.*,g.name AS gallery_name FROM show_room s, gallery g WHERE s.user_id = g.user_id AND s.status=1 AND s.gallery_id=:gallery_id
 ORDER BY s.created_at DESC

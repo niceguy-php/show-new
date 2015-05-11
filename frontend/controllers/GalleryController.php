@@ -175,7 +175,7 @@ SELECT
 (SELECT count(*) FROM exhibition_hall WHERE gallery_id=g.id) as allCount
 ,(SELECT count(*) FROM exhibition_hall e WHERE e.created_at>=date_add(now(),interval -1 month) AND gallery_id=g.id) as recentCount
 FROM gallery as g
-WHERE show_in_subscrible=1 AND id in (SELECT subscrible_id FROM subscription s WHERE user_id=:user_id AND subscrible_type=3)
+WHERE show_in_subscrible=1 OR id in (SELECT subscrible_id FROM subscription s WHERE user_id=:user_id AND subscrible_type=3)
 ORDER BY g.created_at ASC
 LIMIT :offset,:limit
 SQL;

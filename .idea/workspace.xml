@@ -106,8 +106,8 @@
       <file leaf-file-name="ArticleController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/controllers/ArticleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4362606" vertical-offset="2464" max-vertical-offset="3410">
-              <caret line="126" column="20" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.5609065" vertical-offset="2464" max-vertical-offset="3410">
+              <caret line="128" column="54" selection-start-line="128" selection-start-column="54" selection-end-line="128" selection-end-column="54" />
               <folding>
                 <marker date="1431273072642" expanded="true" signature="3846:4039" placeholder="SELECT * FRO..article..." />
                 <marker date="1431273072642" expanded="true" signature="3909:3992" placeholder="SELECT subsc..subscription..." />
@@ -861,8 +861,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="0" width="1302" height="766" extended-state="0" />
-    <editor active="true" />
+    <frame x="4" y="0" width="1302" height="766" extended-state="1" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -871,7 +871,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21695179" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35159817" sideWeight="0.88491446" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35159817" sideWeight="0.88491446" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35159817" sideWeight="0.115085535" order="8" side_tool="true" content_ui="tabs" />
@@ -1358,8 +1358,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/controllers/ArticleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4362606" vertical-offset="2464" max-vertical-offset="3410">
-          <caret line="126" column="20" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.5609065" vertical-offset="2464" max-vertical-offset="3410">
+          <caret line="128" column="54" selection-start-line="128" selection-start-column="54" selection-end-line="128" selection-end-column="54" />
           <folding>
             <marker date="1431273072642" expanded="true" signature="3846:4039" placeholder="SELECT * FRO..article..." />
             <marker date="1431273072642" expanded="true" signature="3909:3992" placeholder="SELECT subsc..subscription..." />

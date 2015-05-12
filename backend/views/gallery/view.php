@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'user_id',
             ['attribute'=>'user_id','value'=>\common\models\User::findOne(['id'=>$model->user_id])['username']],
             'name',
+            'full_screen_url',
             'master_word',
             [
                 'attribute'=>'created_at',

@@ -38,6 +38,7 @@ return [
     'Gallery Verify Pass'=>'通过',
     'Gallery Verify Fail'=>'不通过',
     'Gallery Status'=>'审核状态',
+    'Full Sreen Url'=>'立体全景地址',
 
     //article
      'Create Article'=>'发布文章',
@@ -127,7 +128,7 @@ return [
 
 
     //show room
-    'Show Rooms'=>'沽雅展厅',
+    'Show Rooms'=>'微展厅',
     'Room Status'=>'展厅状态',
     'Create Show Room'=>'创建展厅',
     'Update Show Room'=>'更新展厅',
@@ -192,11 +193,11 @@ return [
     'Image'=>'作品图片',
     'Material'=>'作品材质',
     'Author Profile'=>'作者简介',
-    'Show Room Name'=>'所属沽雅展厅',
+    'Show Room Name'=>'所属微展厅',
     'Auction Price'=>'拍卖底价（元）',
     'Auction Time'=>'起拍时间',
     'Auction End Time'=>'止拍时间',
-    'Show Room ID'=>'所属沽雅展厅',
+    'Show Room ID'=>'所属微展厅',
     'Create Work'=>'创建作品',
     'Update Work'=>'更新作品',
     'My Works'=>'我的作品',

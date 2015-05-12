@@ -16,7 +16,22 @@ use yii\helpers\ArrayHelper;
 
 <div class="show-room-form">
 
-    <?php $form = ActiveForm::begin(['type'=>ActiveForm::TYPE_HORIZONTAL]); echo Form::widget([
+
+    <?php
+
+    $form = ActiveForm::begin(['type'=>ActiveForm::TYPE_HORIZONTAL]);
+
+    if(\common\models\User::isAdmin()){
+        echo Form::widget([
+            'model' => $model,
+            'form' => $form,
+            'columns' => 1,
+            'attributes' => [
+                'full_screen_url'=>['type'=> Form::INPUT_TEXT,  'options'=>['placeholder'=>'输入全景地址...', 'maxlength'=>255]],
+            ]
+        ]);
+    }
+    echo Form::widget([
 
     'model' => $model,
     'form' => $form,

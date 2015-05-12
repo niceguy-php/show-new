@@ -50,7 +50,7 @@ class Gallery extends \yii\db\ActiveRecord
 
             [['name', 'master_word', 'created_at', 'address', 'history_profile', 'phone', 'email'], 'required'],
             [['name'],'unique','message'=>\Yii::t('app-gallery','This name has already been taken.')],
-            [['created_at', 'updated_at','gallery_status'], 'safe'],
+            [['created_at', 'updated_at','gallery_status','full_screen_url'], 'safe'],
             [['name', 'logo'], 'string', 'max' => 255],
             [['master_word', 'history_profile'], 'string', 'max' => 600],
             [['address'], 'string', 'max' => 300],
@@ -89,6 +89,7 @@ class Gallery extends \yii\db\ActiveRecord
             'updated_at' => Yii::t('app-gallery', 'Updated At'),
             'gallery_status'=>Yii::t('app-gallery','Gallery Status'),
             'show_in_subscrible'=>Yii::t('app-gallery','Show in user subscribtion'),
+            'full_screen_url'=>Yii::t('app-gallery','Full Sreen Url'),
         ];
     }
 

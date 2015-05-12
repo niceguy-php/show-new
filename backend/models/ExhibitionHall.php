@@ -63,7 +63,7 @@ class ExhibitionHall extends \yii\db\ActiveRecord
                 return User::isAdmin();
             }],
             [['name'],'unique','message'=>\Yii::t('app-gallery','This name has already been taken.')],
-            [['open_ceremony_time', 'show_time', 'close_show_time', 'created_at', 'updated_at'], 'safe'],
+            [['open_ceremony_time', 'show_time', 'close_show_time', 'created_at', 'updated_at','full_screen_url'], 'safe'],
             [['description'], 'string'],
             [['status', 'user_id', 'gallery_id','show_in_collection'], 'integer'],
             [['gallery_name', 'name', 'address', 'user_name', 'pic1', 'pic2', 'pic3', 'pic4', 'pic5'], 'string', 'max' => 255],
@@ -106,7 +106,8 @@ class ExhibitionHall extends \yii\db\ActiveRecord
             'pic3' => Yii::t('app-gallery', 'Pic3'),
             'pic4' => Yii::t('app-gallery', 'Pic4'),
             'pic5' => Yii::t('app-gallery', 'Pic5'),
-            'show_in_collection'=>Yii::t('app-gallery', 'Show in user collection')
+            'show_in_collection'=>Yii::t('app-gallery', 'Show in user collection'),
+             'full_screen_url'=>Yii::t('app-gallery','Full Sreen Url'),
         ];
     }
 

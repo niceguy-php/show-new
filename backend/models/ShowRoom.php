@@ -40,7 +40,7 @@ class ShowRoom extends \yii\db\ActiveRecord
             [['description','status','name'],'required'],
             [['description'], 'string'],
             [['user_id', 'status', 'hall_id'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['created_at', 'updated_at','full_screen_url'], 'safe'],
             [['name', 'user_name'], 'string', 'max' => 255],
             [['name'],'unique','message'=>\Yii::t('app-gallery','This name has already been taken.')],
         ];
@@ -61,6 +61,7 @@ class ShowRoom extends \yii\db\ActiveRecord
             'hall_id' => Yii::t('app-gallery', 'Hall ID'),
             'created_at' => Yii::t('app-gallery', 'Created At'),
             'updated_at' => Yii::t('app-gallery', 'Updated At'),
+            'full_screen_url'=>Yii::t('app-gallery','Full Sreen Url'),
         ];
     }
 

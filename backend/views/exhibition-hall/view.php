@@ -45,6 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         'attributes' => [
             'id',
+            'full_screen_url',
             'gallery_name',
             'name',
             'address',

@@ -174,5 +174,26 @@ SQL;
         return $this->result;
     }
 
+    public function actionGetartistworks(){
+        if($_POST){
+            $id = $_POST['id'];
+            $sql = <<<SQL
+SELECT
+*
+FROM work
+WHERE user_id=:user_id
+SQL;
+
+            $this->result['data'] = \Yii::$app->db->createCommand($sql)->bindParam(':user_id',$id)->query();
+            //$this->result['data']['exhibition_list'] = ExhibitionHall::find(['gallery_id'=>$id])->orderBy(['created_at'=>SORT_ASC])->asArray()->all();
+
+        }else{
+            $this->result['code']=-1;
+
+        }
+        return $this->result;
+    }
+
+
 
 }

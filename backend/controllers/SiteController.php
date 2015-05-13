@@ -32,10 +32,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup','reset-password'],
+                'only' => ['logout', 'signup','reset-password','download'],
                 'rules' => [
                     [
-                        'actions' => ['signup','reset-password'],
+                        'actions' => ['signup','reset-password','download'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
@@ -92,6 +92,30 @@ class SiteController extends Controller
         $models = $provider->getModels();*/
         $models = null;
         return $this->render('say',['msg'=>\Yii::t('app-index','test1'),'data'=>$models]);
+    }
+
+    public function actionDownload($app_type){
+        $app_type = $_GET['app_type'];
+        if($app_type=='android'){
+            $file = '../../weiyi.apk';
+        }else{
+            $file = '../../weiyi.ipa';
+        }
+        if (file_exists($file)) {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename='.basename($file));
+            header('Content-Transfer-Encoding: binary');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($file));
+            ob_clean();
+            flush();
+            readfile($file);
+            exit;
+        }
+
     }
 
     public function actionIndex($lang='zh-CN')

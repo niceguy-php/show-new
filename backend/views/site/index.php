@@ -12,6 +12,13 @@ $this->title = \Yii::t('app-gallery','GoolYa');
         <h1><?=\Yii::t('app-gallery','Welcome to GoolYa')?></h1>
 
         <p class="lead"><?=\Yii::t('app-gallery','GoolYa Description')?></p>
+        <div class="row">
+            <div>扫一扫下载微艺APP</div>
+            <div><img width="200px" src="/images/android.png"></div>
+            <br/>
+            <br/>
+           <!-- <div  class="col-lg-4"><img width="200px" src="/images/ios.png"></div>-->
+        </div>
         <?php if(!\common\models\User::loginUser()){?>
         <p><?= Html::a(\Yii::t('app-gallery','join us'), ['site/signup'],['class' => 'btn btn-lg btn-success']) ?>&nbsp;&nbsp;<?= Html::a(\Yii::t('app-gallery','Login Now'), ['site/login'],['class' => 'btn btn-lg btn-success']) ?></p>
         <?php } ?>

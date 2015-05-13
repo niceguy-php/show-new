@@ -336,7 +336,7 @@ SQL;
     }
 
     public function actionLogout(){
-        unset(\Yii::$app->session['user']);
+        Yii::$app->user->logout();
         return $this->result;
     }
 

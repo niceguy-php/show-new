@@ -158,6 +158,9 @@ return [
     //Article
     'Gallery Name'=>'艺术馆名称',
 
+    'Exhibition'=>'普通展',
+    'Collection'=>'馆藏作品展',
+
     //Recommend Applies
     'Recommend Applies'=>'推荐申请',
     'Apply User Name' => '申请人',

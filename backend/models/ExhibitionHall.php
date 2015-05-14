@@ -43,6 +43,8 @@ class ExhibitionHall extends \yii\db\ActiveRecord
     const NOT_IN_COLLECTION = 0;
     const OPEN =1;
     const CLOSE =0;
+    const EXHIBTION = 1;//普通展览
+    const COLLECTION = 2;//馆藏展览
     /**
      * @inheritdoc
      */
@@ -65,7 +67,7 @@ class ExhibitionHall extends \yii\db\ActiveRecord
             [['name'],'unique','message'=>\Yii::t('app-gallery','This name has already been taken.')],
             [['open_ceremony_time', 'show_time', 'close_show_time', 'created_at', 'updated_at','full_screen_url'], 'safe'],
             [['description'], 'string'],
-            [['status', 'user_id', 'gallery_id','show_in_collection'], 'integer'],
+            [['status', 'user_id', 'gallery_id','show_in_collection','type'], 'integer'],
             [['gallery_name', 'name', 'address', 'user_name', 'pic1', 'pic2', 'pic3', 'pic4', 'pic5'], 'string', 'max' => 255],
             [['planner'], 'string', 'max' => 200],
             [['organizer'], 'string', 'max' => 300],
@@ -108,6 +110,7 @@ class ExhibitionHall extends \yii\db\ActiveRecord
             'pic5' => Yii::t('app-gallery', 'Pic5'),
             'show_in_collection'=>Yii::t('app-gallery', 'Show in user collection'),
              'full_screen_url'=>Yii::t('app-gallery','Full Sreen Url'),
+            'type'=>Yii::t('app-gallery','展览类型')
         ];
     }
 

@@ -101,7 +101,7 @@ SELECT
 ,(SELECT count(*) FROM exhibition_hall e WHERE e.created_at>=date_add(now(),interval -1 month) AND gallery_id=g.id) as recentCount
 FROM gallery as g
 WHERE name like CONCAT('%',:name,'%')
-ORDER BY g.created_at ASC
+ORDER BY g.created_at DESC
 LIMIT :offset,:limit
 SQL;
     $this->result['data'] = \Yii::$app->db->createCommand($sql)->bindParam(':offset',$offset)->bindParam(':limit',$limit)->bindParam(':name',$name)->queryAll();
@@ -113,7 +113,7 @@ SELECT
 (SELECT count(*) FROM exhibition_hall WHERE gallery_id=g.id) as allCount
 ,(SELECT count(*) FROM exhibition_hall e WHERE e.created_at>=date_add(now(),interval -1 month) AND gallery_id=g.id) as recentCount
 FROM gallery as g
-ORDER BY g.created_at ASC
+ORDER BY g.created_at DESC
 LIMIT :offset,:limit
 SQL;
     $this->result['data'] = \Yii::$app->db->createCommand($sql)->bindParam(':offset',$offset)->bindParam(':limit',$limit)->queryAll();
@@ -158,7 +158,7 @@ SELECT
 ,(SELECT count(*) FROM exhibition_hall e WHERE e.created_at>=date_add(now(),interval -1 month) AND gallery_id=g.id) as recentCount
 FROM gallery as g
 WHERE show_in_subscrible=1 AND id in (SELECT subscrible_id FROM subscription s WHERE user_id=:user_id AND subscrible_type=3)
-ORDER BY g.created_at ASC
+ORDER BY g.created_at DESC
 SQL;
 
         $default_collected_gallery = \Yii::$app->db->createCommand($default_sql)->queryAll();*/
@@ -176,7 +176,7 @@ SELECT
 ,(SELECT count(*) FROM exhibition_hall e WHERE e.created_at>=date_add(now(),interval -1 month) AND gallery_id=g.id) as recentCount
 FROM gallery as g
 WHERE show_in_subscrible=1 OR id in (SELECT subscrible_id FROM subscription s WHERE user_id=:user_id AND subscrible_type=3)
-ORDER BY g.created_at ASC
+ORDER BY g.created_at DESC
 LIMIT :offset,:limit
 SQL;
             $user_id = User::loginUser()['id'];
@@ -208,7 +208,7 @@ where id=:id
 SQL;
 
             $this->result['data'] = \Yii::$app->db->createCommand($sql)->bindParam(':id',$id)->queryOne();
-            $this->result['data']['exhibition_list'] = ExhibitionHall::find()->where(['gallery_id'=>$id])->orderBy(['created_at'=>SORT_ASC])->asArray()->all();
+            $this->result['data']['exhibition_list'] = ExhibitionHall::find()->where(['gallery_id'=>$id])->orderBy(['created_at'=>SORT_DESC])->asArray()->all();
             
         }else{
             $this->result['code']=-1;

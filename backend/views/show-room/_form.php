@@ -82,7 +82,27 @@ use yii\helpers\ArrayHelper;
         ],
     ]);
     echo '</div></div></div>';
-    echo Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']);
+    echo Html::button($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']);
     ActiveForm::end(); ?>
 
 </div>
+<?php
+
+\yii\web\YiiAsset::register($this);
+
+$this->beginBlock('CHECK');
+echo <<<JS
+(function(){
+$('.btn-primary').on('click',function(){
+    if($('.select2-search-choice').length > 9){
+        alert('不能超过9个作品！');
+        return false;
+    }else{
+        $('#w0').submit();
+    }
+});
+})();
+JS;
+$this->endBlock();
+$this->registerJs($this->blocks['CHECK'],\yii\web\View::POS_END);
+?>

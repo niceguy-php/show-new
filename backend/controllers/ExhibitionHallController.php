@@ -229,7 +229,12 @@ class ExhibitionHallController extends Controller
         $pic5_old = $model->pic5;
 
         if ($model->load(Yii::$app->request->post())) {
-            $gallery_id = \Yii::$app->request->post()['ExhibitionHall']['gallery_id'];
+            if(User::isAdmin()){
+                $gallery_id = \Yii::$app->request->post()['ExhibitionHall']['gallery_id'];
+            }else {
+                $gallery_id = Gallery::find()->where(['user_id' => User::loginUser()['id']])->one()['id'];
+                $model->gallery_id = $gallery_id;
+            }
             $model->gallery_name = Gallery::findOne(['id'=>$gallery_id])['name'];
             $model->updated_at = date('Y-m-d H:i:s',time());
 

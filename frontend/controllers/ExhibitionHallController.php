@@ -87,8 +87,8 @@ class ExhibitionHallController extends ActiveController
         }
 
 
-        if($_POST['gallery_id']){
-            $this->result['data'] = ExhibitionHall::find()->where(['gallery_id'=>$_POST['gallery_id']])->orderBy(['created_at'=>SORT_DESC])
+        if(isset($_POST['gallery_id'])&&isset($_POST['type'])){
+            $this->result['data'] = ExhibitionHall::find()->where(['gallery_id'=>$_POST['gallery_id'],'type'=>$_POST['type']])->orderBy(['created_at'=>SORT_DESC])
                 ->offset($offset)->limit($limit)->asArray()->all();
         }else{
             $this->result['data'] = ExhibitionHall::find()->orderBy(['created_at'=>SORT_DESC])

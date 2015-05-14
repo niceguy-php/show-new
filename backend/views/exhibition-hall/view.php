@@ -81,6 +81,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'assist',
             'description:ntext',
             'artists',
+            ['attribute'=>'type',
+                'value'=>$model->type==\backend\models\ExhibitionHall::EXHIBTION ?\Yii::t('app-gallery','Exhibition'):\Yii::t('app-gallery','Collection')],
             ['attribute'=>'status',
                 'value'=>$model->status==\backend\models\ExhibitionHall::OPEN ?\Yii::t('app-gallery','Open'):\Yii::t('app-gallery','Close')],
             'user_name',

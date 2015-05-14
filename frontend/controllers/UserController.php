@@ -94,6 +94,7 @@ class UserController extends ActiveController{
                     $gallery->addDefaultGallery();
                     $showroom->addDefaultShowRoom();
                     $this->result['data'] = $loginUser;
+                    $this->result['default_gallery_name'] = Gallery::findOne($loginUser['default_gallery_id'])['name'];
                 }
             }
         }

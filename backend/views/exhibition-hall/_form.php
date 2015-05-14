@@ -68,6 +68,8 @@ use yii\helpers\ArrayHelper;
 
 'description'=>['type'=> Form::INPUT_TEXTAREA, 'options'=>['placeholder'=>'输入描述...','rows'=> 6]],
 
+        'type'=>['type'=> Form::INPUT_RADIO_LIST, 'items'=>['1'=>\Yii::t('app-gallery','Exhibition'),'2'=>\Yii::t('app-gallery','Collection')]],
+
 'status'=>['type'=> Form::INPUT_RADIO_LIST, 'items'=>['1'=>\Yii::t('app-gallery','Open'),'0'=>\Yii::t('app-gallery','Close')]],
 
 //'user_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入用户...', 'maxlength'=>20]],
@@ -156,3 +158,6 @@ use yii\helpers\ArrayHelper;
     ActiveForm::end(); ?>
 
 </div>
+
+
+

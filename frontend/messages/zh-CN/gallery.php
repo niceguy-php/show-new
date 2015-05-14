@@ -142,11 +142,11 @@ return [
     'Remember Me'=>'记住密码',
     'If you forgot your password you can '=>'忘记密码？ ',
     'Request password reset'=>'申请重置密码',
-    'Welcome to GoolYa'=>'欢迎来到沽雅移动艺术馆~',
-    'GoolYa'=>'沽雅移动艺术馆',
+    'Welcome to GoolYa'=>'欢迎来到沽雅微艺术馆~',
+    'GoolYa'=>'沽雅微艺术馆',
     'GoolYa Description'=>'www.goolya.com',
     'join us'=>'加入我们',
-    'My Company'=>'移动艺术馆',
+    'My Company'=>'微艺术馆',
     'Gallery ID'=>'所属艺术馆',
 
     //Article

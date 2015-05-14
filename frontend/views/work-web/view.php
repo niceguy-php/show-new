@@ -71,7 +71,7 @@ $this->title = $model->name;
             //'show_room_name',
             //'qrcode_image',
             ['attribute'=>'qrcode_image','format' => 'raw','value'=>'<div id="qrcode_image"></div>'],
-            'mark_count',
+            //'mark_count',
             //'gallery_id',
             //'user_id',
             //'hall_id',
@@ -85,7 +85,7 @@ $this->title = $model->name;
                     'type'=>DateControl::FORMAT_DATETIME
                 ]
             ],
-            [
+            /*[
                 'attribute'=>'updated_at',
                 'format'=>['datetime',(isset(Yii::$app->modules['datecontrol']['displaySettings']['datetime'])) ? Yii::$app->modules['datecontrol']['displaySettings']['datetime'] : 'd-m-Y H:i:s A'],
                 'type'=>DetailView::INPUT_WIDGET,
@@ -93,7 +93,7 @@ $this->title = $model->name;
                     'class'=>DateControl::classname(),
                     'type'=>DateControl::FORMAT_DATETIME
                 ]
-            ],
+            ],*/
         ],
         'deleteOptions'=>[
         'url'=>['delete', 'id' => $model->id],

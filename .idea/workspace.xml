@@ -45,18 +45,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/views/exhibition-hall/_form.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.064516" vertical-offset="1242" max-vertical-offset="3608">
-              <caret line="70" column="144" selection-start-line="70" selection-start-column="144" selection-end-line="70" selection-end-column="144" />
-              <folding>
-                <marker date="1431613866337" expanded="true" signature="4148:4180" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ExhibitionHallController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/controllers/ExhibitionHallController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -73,21 +61,6 @@
             <state vertical-scroll-proportion="-1.4754099" vertical-offset="2440" max-vertical-offset="5192">
               <caret line="131" column="35" selection-start-line="131" selection-start-column="35" selection-end-line="131" selection-end-column="35" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_form.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/views/show-room/_form.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.483871" vertical-offset="1801" max-vertical-offset="2398">
-              <caret line="96" column="47" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
-              <folding>
-                <marker date="1431612336780" expanded="true" signature="2331:2351" placeholder="..." />
-                <marker date="1431612336780" expanded="true" signature="3062:3207" placeholder="{...}" />
-                <marker date="1431612336780" expanded="true" signature="3110:3167" placeholder="{...}" />
-                <marker date="1431612336780" expanded="true" signature="3171:3205" placeholder="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -141,28 +114,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default.jpg" pinned="false" current-in-tab="true">
+      <file leaf-file-name="default.jpg" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/web/uploads/gallery_logo/default.jpg">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/views/work/view.php">
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/views/layouts/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.548387" vertical-offset="2178" max-vertical-offset="3454">
-              <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="150" selection-end-column="2" />
-              <folding>
-                <marker date="1430705270004" expanded="true" signature="4645:5408" placeholder="{...}" />
-                <marker date="1430705270004" expanded="true" signature="4769:5374" placeholder="{...}" />
-                <marker date="1430705270004" expanded="true" signature="4862:4923" placeholder="{...}" />
-                <marker date="1430705270004" expanded="true" signature="4945:5187" placeholder="{...}" />
-                <marker date="1430705270004" expanded="true" signature="5193:5360" placeholder="{...}" />
-                <marker date="1430705270004" expanded="true" signature="5533:5778" placeholder="{...}" />
-                <marker date="1430705270004" expanded="true" signature="5569:5770" placeholder="{&quot;render&quot;: &quot;div&quot;...}" />
-              </folding>
+            <state vertical-scroll-proportion="0.4698795" vertical-offset="2164" max-vertical-offset="3058">
+              <caret line="113" column="93" selection-start-line="113" selection-start-column="93" selection-end-line="113" selection-end-column="93" />
+              <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gallery.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/messages/zh-CN/gallery.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.1967213" vertical-offset="2863" max-vertical-offset="5676">
+              <caret line="144" column="64" selection-start-line="144" selection-start-column="64" selection-end-line="144" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="default.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/web/uploads/sence_pic/default.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -171,7 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/backend/web/js/create_qrcode.js" />
         <option value="$PROJECT_DIR$/backend/assets/AppAsset.php" />
         <option value="$PROJECT_DIR$/frontend/controllers/TestController.php" />
         <option value="$PROJECT_DIR$/common/config/main-local.php" />
@@ -213,7 +194,6 @@
         <option value="$PROJECT_DIR$/backend/views/site/index.php" />
         <option value="$PROJECT_DIR$/frontend/views/work-web/view.php" />
         <option value="$PROJECT_DIR$/frontend/messages/zh-CN/gallery.php" />
-        <option value="$PROJECT_DIR$/backend/messages/zh-CN/gallery.php" />
         <option value="$PROJECT_DIR$/backend/models/ExhibitionHall.php" />
         <option value="$PROJECT_DIR$/backend/views/exhibition-hall/view.php" />
         <option value="$PROJECT_DIR$/backend/controllers/ExhibitionHallController.php" />
@@ -222,6 +202,8 @@
         <option value="$PROJECT_DIR$/backend/views/exhibition-hall/_form.php" />
         <option value="$PROJECT_DIR$/frontend/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/frontend/controllers/GalleryController.php" />
+        <option value="$PROJECT_DIR$/backend/messages/zh-CN/gallery.php" />
+        <option value="$PROJECT_DIR$/backend/views/layouts/main.php" />
       </list>
     </option>
   </component>
@@ -323,8 +305,8 @@
   </component>
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" port="9010" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-57" />
-    <option name="y" value="146" />
+    <option name="x" value="2" />
+    <option name="y" value="2" />
     <option name="width" value="1302" />
     <option name="height" value="766" />
   </component>
@@ -414,58 +396,6 @@
               <option name="myItemId" value="backend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="show1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="show-new" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uploads" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="show1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="show-new" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uploads" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gallery_logo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -498,6 +428,14 @@
               <option name="myItemId" value="backend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="messages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zh-CN" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -513,7 +451,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="messages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -582,8 +520,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-57" y="146" width="1302" height="766" extended-state="0" />
-    <editor active="false" />
+    <frame x="2" y="2" width="1302" height="766" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -596,7 +534,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21695179" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21695179" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -636,30 +574,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/models/SignupForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="28.161291" vertical-offset="1049" max-vertical-offset="1980">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/controllers/ShowRoomController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1732" max-vertical-offset="3388">
-          <caret line="96" column="36" selection-start-line="96" selection-start-column="36" selection-end-line="96" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/models/SubscriptionSearch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1474">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/models/Subscription.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="242" max-vertical-offset="2310">
@@ -947,14 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/messages/zh-CN/gallery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.360656" vertical-offset="3166" max-vertical-offset="5676">
-          <caret line="161" column="6" selection-start-line="161" selection-start-column="6" selection-end-line="161" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/models/ExhibitionHall.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.387096" vertical-offset="615" max-vertical-offset="3014">
@@ -996,13 +902,13 @@
         <state vertical-scroll-proportion="-3.548387" vertical-offset="2178" max-vertical-offset="3454">
           <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="150" selection-end-column="2" />
           <folding>
-            <marker date="1430705270004" expanded="true" signature="4645:5408" placeholder="{...}" />
-            <marker date="1430705270004" expanded="true" signature="4769:5374" placeholder="{...}" />
-            <marker date="1430705270004" expanded="true" signature="4862:4923" placeholder="{...}" />
-            <marker date="1430705270004" expanded="true" signature="4945:5187" placeholder="{...}" />
-            <marker date="1430705270004" expanded="true" signature="5193:5360" placeholder="{...}" />
-            <marker date="1430705270004" expanded="true" signature="5533:5778" placeholder="{...}" />
-            <marker date="1430705270004" expanded="true" signature="5569:5770" placeholder="{&quot;render&quot;: &quot;div&quot;...}" />
+            <marker date="1430705270004" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430705270004" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430705270004" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430705270004" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430705270004" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430705270004" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430705270004" expanded="true" signature="-1:-1" placeholder="{&quot;render&quot;: &quot;div&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -1012,10 +918,10 @@
         <state vertical-scroll-proportion="-6.483871" vertical-offset="1801" max-vertical-offset="2398">
           <caret line="96" column="47" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
           <folding>
-            <marker date="1431612336780" expanded="true" signature="2331:2351" placeholder="..." />
-            <marker date="1431612336780" expanded="true" signature="3062:3207" placeholder="{...}" />
-            <marker date="1431612336780" expanded="true" signature="3110:3167" placeholder="{...}" />
-            <marker date="1431612336780" expanded="true" signature="3171:3205" placeholder="{...}" />
+            <marker date="1431612336780" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431612336780" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1431612336780" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1431612336780" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1025,7 +931,7 @@
         <state vertical-scroll-proportion="-6.064516" vertical-offset="1242" max-vertical-offset="3608">
           <caret line="70" column="144" selection-start-line="70" selection-start-column="144" selection-end-line="70" selection-end-column="144" />
           <folding>
-            <marker date="1431613866337" expanded="true" signature="4148:4180" placeholder="..." />
+            <marker date="1431613866337" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1097,6 +1003,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/uploads/work_images/14306390568153.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/uploads/sence_pic/default.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/web/uploads/gallery_logo/default.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1105,6 +1021,22 @@
     <entry file="file://$PROJECT_DIR$/backend/web/uploads/gallery_logo/default.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/messages/zh-CN/gallery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.1967213" vertical-offset="2863" max-vertical-offset="5676">
+          <caret line="144" column="64" selection-start-line="144" selection-start-column="64" selection-end-line="144" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4698795" vertical-offset="2164" max-vertical-offset="3058">
+          <caret line="113" column="93" selection-start-line="113" selection-start-column="93" selection-end-line="113" selection-end-column="93" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

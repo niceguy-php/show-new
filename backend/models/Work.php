@@ -65,13 +65,13 @@ class Work extends \yii\db\ActiveRecord
             [['name'],'unique','message'=>\Yii::t('app-gallery','This name has already been taken.')],
            // [['image'], 'file', 'skipOnEmpty' => false],
             [['image'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',],
-
-            [['year', 'width', 'height', 'work_status', 'on_sale', 'mark_count', 'gallery_id', 'user_id', 'hall_id', 'show_room_id','show_in_collection'], 'integer'],
+            [['width', 'height'],'string'],
+            [['work_status', 'on_sale', 'mark_count', 'gallery_id', 'user_id', 'hall_id', 'show_room_id','show_in_collection'], 'integer'],
             [['auction_time', 'auction_end_time','created_at', 'updated_at'], 'safe'],
             [['name', 'image', 'material', 'gallery_name', 'hall_name', 'user_name', 'show_room_name', 'qrcode_image'], 'string', 'max' => 255],
             [['description', 'author_profile'], 'string', 'max' => 6000],
             [['author_name'], 'string', 'max' => 100],
-            [['auction_price'], 'string', 'max' => 50],
+            [['auction_price','year'], 'string', 'max' => 50],
             ['show_in_collection', 'default', 'value' => 0],
         ];
     }

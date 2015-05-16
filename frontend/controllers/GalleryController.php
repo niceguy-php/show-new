@@ -100,7 +100,7 @@ SELECT
 (SELECT count(*) FROM exhibition_hall WHERE gallery_id=g.id) as allCount
 ,(SELECT count(*) FROM exhibition_hall e WHERE e.created_at>=date_add(now(),interval -1 month) AND gallery_id=g.id) as recentCount
 FROM gallery as g
-WHERE name like CONCAT('%',:name,'%')
+WHERE name like CONCAT('%',:name,'%') AND gallery_status = 1
 ORDER BY g.created_at DESC
 LIMIT :offset,:limit
 SQL;
@@ -113,6 +113,7 @@ SELECT
 (SELECT count(*) FROM exhibition_hall WHERE gallery_id=g.id) as allCount
 ,(SELECT count(*) FROM exhibition_hall e WHERE e.created_at>=date_add(now(),interval -1 month) AND gallery_id=g.id) as recentCount
 FROM gallery as g
+WHERE gallery_status = 1
 ORDER BY g.created_at DESC
 LIMIT :offset,:limit
 SQL;

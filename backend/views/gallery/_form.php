@@ -77,7 +77,7 @@ use yii\helpers\ArrayHelper;
 
 //'updated_at'=>['type'=> Form::INPUT_WIDGET, 'widgetClass'=>DateControl::classname(),'options'=>['type'=>DateControl::FORMAT_DATETIME]],
 
-'logo'=>['type'=> Form::INPUT_FILE, 'options'=>['placeholder'=>'Enter Logo...', 'maxlength'=>255]],
+'logo'=>['type'=> Form::INPUT_FILE, 'options'=>['placeholder'=>'Enter Logo...', 'maxlength'=>255],'hint'=>'建议图片尺寸为530X200像素'],
 
 'postcode'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入邮编...', 'maxlength'=>20]],
 

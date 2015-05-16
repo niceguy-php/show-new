@@ -13,7 +13,7 @@ $this->title = \Yii::t('app-gallery','GoolYa');
 
         <p class="lead"><?=\Yii::t('app-gallery','GoolYa Description')?></p>
         <div class="row">
-            <div>扫一扫下载微艺APP</div>
+            <div>扫一扫或<a href="http://goolya.com/site/download?app_type=android"><b style="text-decoration: underline;">点击此下载</b></a></div>
             <div><img width="200px" src="/images/android.png"></div>
             <br/>
             <br/>

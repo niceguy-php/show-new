@@ -214,10 +214,10 @@ class UserController extends ActiveController{
         }
 
 if($_POST && isset($_POST['name'])){
-    $this->result['data'] = User::find()->where(['role'=>User::ROLE_ARTIST])->andFilterWhere(['like', 'realname',$_POST['name']])->orderBy(['created_at'=>SORT_DESC])
+    $this->result['data'] = User::find()->where(['role'=>User::ROLE_ARTIST,'id_verify_status'=>1])->andFilterWhere(['like', 'realname',$_POST['name']])->orderBy(['created_at'=>SORT_DESC])
             ->offset($offset)->limit($limit)->asArray()->all();
 }else{
-    $this->result['data'] = User::find()->where(['role'=>User::ROLE_ARTIST])->orderBy(['created_at'=>SORT_DESC])
+    $this->result['data'] = User::find()->where(['role'=>User::ROLE_ARTIST,'id_verify_status'=>1])->orderBy(['created_at'=>SORT_DESC])
             ->offset($offset)->limit($limit)->asArray()->all();
 }
 

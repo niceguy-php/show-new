@@ -171,7 +171,7 @@ class UserController extends Controller
                 unset($model->username);
             }
 
-            if(isset($model->password) && $model != '!@#********!@#'){
+            if(isset($model->password) && $model->password != '!@#********!@#'){
                 //$user = new User();
                 //$user->resetPassword($model->id,$model->password);
                 $model->resetPassword($model->id,$model->password);

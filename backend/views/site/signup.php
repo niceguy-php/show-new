@@ -10,7 +10,7 @@ $this->title = \Yii::t('app-gallery','Signup');
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="container">
-    <div style="float: left;width:500px"><img class="" src="/uploads/system/logo_image1.png" width="100%"> </div>
+    <div style="float: left;width:500px"><img class="" src="/uploads/system/logo_image3.png" width="100%"> </div>
 <div class="site-signup " >
     <h1 class=""><?= Html::encode($this->title) ?></h1>
 

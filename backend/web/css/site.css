@@ -8,7 +8,7 @@ body {
     height: auto;
     margin: 0 auto -60px;
     padding: 0 0 60px;
-    background: url("/images/bg.png") no-repeat;
+    /*background: url("/images/bg.png") no-repeat;*/
 }
 
 .wrap > .container {

@@ -9,7 +9,7 @@ use yii\bootstrap\ActiveForm;
 $this->title = \Yii::t('app-gallery','Login');
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div style="float: left;width:500px"><img class="" src="/uploads/system/logo_image1.png" width="100%"> </div>
+<div style="float: left;width:500px"><img class="" src="/uploads/system/logo_image3.png" width="100%"> </div>
 <div class="site-login" style="">
     <h1 class=""><?= Html::encode($this->title) ?></h1>
 

@@ -30,57 +30,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ArticleController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/controllers/ArticleController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.806452" vertical-offset="1672" max-vertical-offset="3410">
-              <caret line="94" column="86" selection-start-line="94" selection-start-column="86" selection-end-line="94" selection-end-column="86" />
-              <folding>
-                <marker date="1431273072642" expanded="true" signature="3846:4039" placeholder="SELECT * FRO..article..." />
-                <marker date="1431273072642" expanded="true" signature="3909:3992" placeholder="SELECT subsc..subscription..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GalleryController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/controllers/GalleryController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.0666666" vertical-offset="4676" max-vertical-offset="5698">
-              <caret line="221" column="38" selection-start-line="221" selection-start-column="38" selection-end-line="221" selection-end-column="38" />
-              <folding>
-                <element signature="e#40#74#0#PHP" expanded="true" />
-                <marker date="1431616093378" expanded="true" signature="2745:3144" placeholder="SELECT *, (S..gallery..." />
-                <marker date="1431616093378" expanded="true" signature="2756:2814" placeholder="SELECT count..subscription..." />
-                <marker date="1431616093378" expanded="true" signature="2838:2896" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431616093378" expanded="true" signature="2912:3024" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431616093378" expanded="true" signature="3336:3697" placeholder="SELECT *, (S..gallery..." />
-                <marker date="1431616093378" expanded="true" signature="3347:3405" placeholder="SELECT count..subscription..." />
-                <marker date="1431616093378" expanded="true" signature="3429:3487" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431616093378" expanded="true" signature="3503:3615" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431616093378" expanded="true" signature="5560:6067" placeholder="SELECT *, (S..gallery..." />
-                <marker date="1431616093378" expanded="true" signature="5571:5651" placeholder="SELECT count..subscription..." />
-                <marker date="1431616093378" expanded="true" signature="5675:5733" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431616093378" expanded="true" signature="5749:5861" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431616093378" expanded="true" signature="5933:6018" placeholder="SELECT subsc..subscription..." />
-                <marker date="1431616093378" expanded="true" signature="6734:7057" placeholder="select *, (S..gallery..." />
-                <marker date="1431616093378" expanded="true" signature="6745:6802" placeholder="SELECT count..subscription..." />
-                <marker date="1431616093378" expanded="true" signature="6826:6883" placeholder="SELECT count..exhibition_hall..." />
-                <marker date="1431616093378" expanded="true" signature="6899:7010" placeholder="SELECT count..exhibition_hall..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="default.png" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/web/uploads/gallery_logo/default.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="default.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/web/uploads/gallery_logo/default.jpg">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
@@ -119,25 +70,55 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/web/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.548388" vertical-offset="109" max-vertical-offset="528">
+            <state vertical-scroll-proportion="-10.16129" vertical-offset="59" max-vertical-offset="528">
               <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gallery.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gallery.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/messages/zh-CN/gallery.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33009708" vertical-offset="4310" max-vertical-offset="5676">
+            <state vertical-scroll-proportion="-1.1147541" vertical-offset="4310" max-vertical-offset="5676">
               <caret line="204" column="24" selection-start-line="204" selection-start-column="22" selection-end-line="204" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/web/uploads/sence_pic/default.jpg">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/views/site/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.870968" vertical-offset="930" max-vertical-offset="1518">
+              <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/views/site/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.8387096" vertical-offset="132" max-vertical-offset="902">
+              <caret line="11" column="109" selection-start-line="11" selection-start-column="109" selection-end-line="11" selection-end-column="109" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/views/site/signup.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.096491225" vertical-offset="198" max-vertical-offset="968">
+              <caret line="12" column="104" selection-start-line="12" selection-start-column="104" selection-end-line="12" selection-end-column="104" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="logo_image1.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/web/uploads/system/logo_image1.png">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
@@ -148,8 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/backend/assets/AppAsset.php" />
-        <option value="$PROJECT_DIR$/frontend/controllers/TestController.php" />
         <option value="$PROJECT_DIR$/common/config/main-local.php" />
         <option value="$PROJECT_DIR$/frontend/config/.gitignore" />
         <option value="$PROJECT_DIR$/frontend/config/main.php" />
@@ -199,6 +178,8 @@
         <option value="$PROJECT_DIR$/backend/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/backend/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/backend/messages/zh-CN/gallery.php" />
+        <option value="$PROJECT_DIR$/backend/views/site/login.php" />
+        <option value="$PROJECT_DIR$/backend/views/site/signup.php" />
       </list>
     </option>
   </component>
@@ -301,10 +282,10 @@
   </component>
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" port="9010" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="538" />
-    <option name="y" value="53" />
+    <option name="x" value="-11" />
+    <option name="y" value="15" />
     <option name="width" value="1302" />
-    <option name="height" value="766" />
+    <option name="height" value="760" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -347,60 +328,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="show1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="show-new" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="show1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="show-new" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zh-CN" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="show1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="show-new" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -417,10 +344,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\www\show-new" />
+      <recent name="E:\www\show-new\backend\web\uploads\system" />
       <recent name="E:\www\show-new\backend\web\uploads\gallery_logo" />
       <recent name="E:\www\show-new\backend\web\images" />
       <recent name="E:\www\show-new\frontend\web" />
-      <recent name="E:\www\show-new\frontend\controllers" />
     </key>
   </component>
   <component name="RunManager">
@@ -466,21 +393,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="538" y="53" width="1302" height="766" extended-state="0" />
-    <editor active="true" />
+    <frame x="-11" y="15" width="1302" height="760" extended-state="1" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5296804" sideWeight="0.88413686" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5296804" sideWeight="0.115863144" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18740399" sideWeight="0.88413686" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18740399" sideWeight="0.115863144" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21695179" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21695179" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -525,30 +452,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/base/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.419355" vertical-offset="3216" max-vertical-offset="10846">
-          <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/web/Request.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2903225" vertical-offset="8610" max-vertical-offset="30514">
-          <caret line="402" column="0" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/base/ModelEvent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.7741935" vertical-offset="147" max-vertical-offset="550">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/BaseYii.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.2903225" vertical-offset="6146" max-vertical-offset="11748">
@@ -733,14 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/views/site/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.387097" vertical-offset="198" max-vertical-offset="1518">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/web/images/android.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -892,8 +787,8 @@
         <state vertical-scroll-proportion="-7.806452" vertical-offset="1672" max-vertical-offset="3410">
           <caret line="94" column="86" selection-start-line="94" selection-start-column="86" selection-end-line="94" selection-end-column="86" />
           <folding>
-            <marker date="1431273072642" expanded="true" signature="3846:4039" placeholder="SELECT * FRO..article..." />
-            <marker date="1431273072642" expanded="true" signature="3909:3992" placeholder="SELECT subsc..subscription..." />
+            <marker date="1431273072642" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..article..." />
+            <marker date="1431273072642" expanded="true" signature="-1:-1" placeholder="SELECT subsc..subscription..." />
           </folding>
         </state>
       </provider>
@@ -904,23 +799,23 @@
           <caret line="221" column="38" selection-start-line="221" selection-start-column="38" selection-end-line="221" selection-end-column="38" />
           <folding>
             <element signature="e#40#74#0#PHP" expanded="true" />
-            <marker date="1431616093378" expanded="true" signature="2745:3144" placeholder="SELECT *, (S..gallery..." />
-            <marker date="1431616093378" expanded="true" signature="2756:2814" placeholder="SELECT count..subscription..." />
-            <marker date="1431616093378" expanded="true" signature="2838:2896" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431616093378" expanded="true" signature="2912:3024" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431616093378" expanded="true" signature="3336:3697" placeholder="SELECT *, (S..gallery..." />
-            <marker date="1431616093378" expanded="true" signature="3347:3405" placeholder="SELECT count..subscription..." />
-            <marker date="1431616093378" expanded="true" signature="3429:3487" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431616093378" expanded="true" signature="3503:3615" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431616093378" expanded="true" signature="5560:6067" placeholder="SELECT *, (S..gallery..." />
-            <marker date="1431616093378" expanded="true" signature="5571:5651" placeholder="SELECT count..subscription..." />
-            <marker date="1431616093378" expanded="true" signature="5675:5733" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431616093378" expanded="true" signature="5749:5861" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431616093378" expanded="true" signature="5933:6018" placeholder="SELECT subsc..subscription..." />
-            <marker date="1431616093378" expanded="true" signature="6734:7057" placeholder="select *, (S..gallery..." />
-            <marker date="1431616093378" expanded="true" signature="6745:6802" placeholder="SELECT count..subscription..." />
-            <marker date="1431616093378" expanded="true" signature="6826:6883" placeholder="SELECT count..exhibition_hall..." />
-            <marker date="1431616093378" expanded="true" signature="6899:7010" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT *, (S..gallery..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT count..subscription..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT *, (S..gallery..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT count..subscription..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT *, (S..gallery..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT count..subscription..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT subsc..subscription..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="select *, (S..gallery..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT count..subscription..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT count..exhibition_hall..." />
+            <marker date="1431616093378" expanded="true" signature="-1:-1" placeholder="SELECT count..exhibition_hall..." />
           </folding>
         </state>
       </provider>
@@ -935,36 +830,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/web/uploads/gallery_logo/default.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/web/uploads/gallery_logo/default.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.387096" vertical-offset="2164" max-vertical-offset="3058">
           <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/web/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.4838705" vertical-offset="0" max-vertical-offset="572">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/web/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.548388" vertical-offset="109" max-vertical-offset="528">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -977,10 +846,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/uploads/gallery_logo/default.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/uploads/gallery_logo/default.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/web/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.4838705" vertical-offset="0" max-vertical-offset="572">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.16129" vertical-offset="59" max-vertical-offset="528">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/messages/zh-CN/gallery.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33009708" vertical-offset="4310" max-vertical-offset="5676">
+        <state vertical-scroll-proportion="-1.1147541" vertical-offset="4310" max-vertical-offset="5676">
           <caret line="204" column="24" selection-start-line="204" selection-start-column="22" selection-end-line="204" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/views/site/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.870968" vertical-offset="930" max-vertical-offset="1518">
+          <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/uploads/system/logo_image1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/views/site/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8387096" vertical-offset="132" max-vertical-offset="902">
+          <caret line="11" column="109" selection-start-line="11" selection-start-column="109" selection-end-line="11" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/views/site/signup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.096491225" vertical-offset="198" max-vertical-offset="968">
+          <caret line="12" column="104" selection-start-line="12" selection-start-column="104" selection-end-line="12" selection-end-column="104" />
           <folding />
         </state>
       </provider>

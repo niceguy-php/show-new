@@ -103,7 +103,7 @@ return [
     'Workplace'=>'工作地址',
     'Profile'=>'简介',
     'Sex'=>'性别',
-    'Publish Books'=>'发布的书籍',
+    'Publish Books'=>'出版书籍',
     'Create User'=>'创建用户',
     'Users'=>'用户',
     'Update User: '=>'编辑用户',
@@ -123,8 +123,8 @@ return [
     'Yes'=>'审核通过',
     'No'=>'审核失败',
     'Login Now'=>'马上登录',
-    'The Number of Galleries'=>'艺术馆馆数量',
-    'The Number of Show Rooms'=>'沽雅展厅数量',
+    'The Number of Galleries'=>'艺术馆数量',
+    'The Number of Show Rooms'=>'微展厅数量',
 
 
     //show room
@@ -162,7 +162,7 @@ return [
     'Collection'=>'馆藏作品展',
 
     //Recommend Applies
-    'Recommend Applies'=>'推荐申请',
+    'Recommend Applies'=>'发起微展',
     'Apply User Name' => '申请人',
     'Recommend Work Name' => '申请展览作品',
     'Apply Reason' => '申请原因',

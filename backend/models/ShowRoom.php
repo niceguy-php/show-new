@@ -84,7 +84,7 @@ class ShowRoom extends \yii\db\ActiveRecord
         for($i=1; $i<= $num; $i++)
         {
             \Yii::$app->db->createCommand()->insert('show_room',['name'=>$loginUser['username'].'微展'.$i,
-                'description'=>'沽雅展厅可以创建一些风格各异或者有一定特色的画展，每个沽雅展厅可以上传相应风格的艺术图片~',
+                'description'=>'拥有微展、拥有互联网思维！站内艺术家将通过本站向您推荐作品，经您审核编辑后，该艺术家的推荐作品将出现在您的微展厅内。每个作品只能推荐给一家艺术机构展示，请珍视这一份托付。',
                 'user_id'=>$loginUser['id'],
                 'user_name'=>$loginUser['username'],
                 'status'=>0,

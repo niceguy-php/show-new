@@ -83,6 +83,7 @@ class ArticleController extends ActiveController
                                 Article::RESEARCH=>'research_offset'];
 
             $category = $_POST['category'];
+            $gallery_id = $_POST['gallery_id'];
 
             $limit = isset($_POST['limit'])? $_POST['limit']:5;
 
@@ -93,7 +94,11 @@ class ArticleController extends ActiveController
             }
 
             if(in_array($category,[Article::EVENTS,Article::NEWS,Article::RESEARCH])){
-                $this->result['data'] = Article::find()->where(['category'=>$category])->orderBy(['created_at'=>SORT_DESC])
+                $condition = ['category'=>$category];
+                if(isset($gallery_id)){
+                    $condition = ['category'=>$category,'gallery_id'=>$gallery_id];
+                }
+                $this->result['data'] = Article::find()->where($condition)->orderBy(['created_at'=>SORT_DESC])
                     ->offset($offset)->limit($limit)->asArray()->all();
                 $count = count($this->result['data']);
                 if($count>0){//上下滑动屏幕时的请求

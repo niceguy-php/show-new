@@ -40,7 +40,7 @@ use yii\helpers\ArrayHelper;
 
 'year'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入创作年代']],
 
-        'image'=>['type'=> Form::INPUT_FILE, 'options'=>['placeholder'=>'Enter Image...', 'maxlength'=>255]],
+        'image'=>['type'=> Form::INPUT_FILE, 'options'=>['placeholder'=>'Enter Image...', 'maxlength'=>255],'hint'=>'图片大小必须小于1M'],
 
         'width'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'输入作品宽度，单位厘米（cm）...']],
 

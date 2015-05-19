@@ -152,7 +152,7 @@ $this->registerJs($this->blocks['QR_JS'],\yii\web\View::POS_END);
 $this->beginBlock("CSS");
 echo 'td{white-space: normal !important;}';
 $this->endBlock();
-$this->registerCss($this->blocks['CSS'],\yii\web\View::POS_END);
+$this->registerCss($this->blocks['CSS']);
 
 ?>
 

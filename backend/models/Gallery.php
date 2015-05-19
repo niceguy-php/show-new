@@ -61,7 +61,7 @@ class Gallery extends \yii\db\ActiveRecord
 
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass' => '\common\models\User',
+            ['email', 'unique', 'targetClass' => '\backend\models\Gallery',
                 'message' => \Yii::t('app-gallery','This email address has already been taken.')],
             ['show_in_subscrible', 'default', 'value' => 0],
         ];

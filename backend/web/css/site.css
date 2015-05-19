@@ -88,8 +88,8 @@ body {
 
 
 td{
-    white-space:nowrap;
-    text-overflow:ellipsis;
+    /*white-space:nowrap;
+    text-overflow:ellipsis;*/
     overflow:hidden;
     max-width:100px;
 }

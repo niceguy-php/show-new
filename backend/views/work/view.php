@@ -111,6 +111,7 @@ $this->params['breadcrumbs'][] = $this->title;
 $this->registerJsFile('@web/js/jquery.qrcode-0.11.0.min.js',['position'=>\yii\web\View::POS_END,'depends'=>[yii\web\JqueryAsset::className()]]) ;
 //$this->registerJsFile('@web/js/create_qrcode.js',\yii\web\View::POS_END) ;
 $this->beginBlock('QR_JS');
+$work_image = basename($model->image);
 echo <<<JS
 (function(){
 var utf16to8 = function(str) {
@@ -141,7 +142,7 @@ var utf16to8 = function(str) {
             "width": 100,
             "height": 100,
             "color": "#3a3",
-            "text": "http://goolya.com{$model->image},{$model->id},"+work_name
+            "text": "http://app.goolya.com/work-web/view?id={$model->id}&img={$image}&name="+work_name
         });
     });
 })();

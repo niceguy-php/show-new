@@ -142,7 +142,7 @@ var utf16to8 = function(str) {
             "width": 100,
             "height": 100,
             "color": "#3a3",
-            "text": "http://app.goolya.com/work-web/view?id={$model->id}&img={$image}&name="+work_name
+            "text": "http://app.goolya.com/work-web/view?id={$model->id}&img={$model->image}&name="+work_name
         });
     });
 })();

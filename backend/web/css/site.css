@@ -86,6 +86,12 @@ body {
     background-color: transparent;
 }
 
+body {
+  font-family: "Microsoft YaHei" ! important;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: inherit;
+}
 
 td{
     white-space:nowrap;

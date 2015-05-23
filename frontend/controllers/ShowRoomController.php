@@ -20,6 +20,7 @@ class ShowRoomController extends ActiveController
     public function init()
     {
         parent::init();
+        header("Access-Control-Allow-Origin: *");
         //\Yii::$app->user->enableSession = false;
     }
     public function behaviors()

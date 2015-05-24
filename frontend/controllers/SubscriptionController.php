@@ -78,6 +78,9 @@ class SubscriptionController extends ActiveController
         $_POST['user_name'] = $loginUser['username'].'('.$loginUser['realname'].')';
         $_POST['user_id'] = $loginUser['id'];
         $_POST['created_at'] = date('Y-m-d H:i:s',time());
+        if(isset($_POST['login_id'])){
+            unset($_POST['login_id']);
+        }
         if($_POST){
            \Yii::$app->db->createCommand()->insert('subscription',$_POST)->execute();
         }else{

@@ -67,7 +67,15 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     public static function loginUser(){
-        return \Yii::$app->session->get('user');
+        $session_user = \Yii::$app->session->get('user');
+        if($session_user){
+            return \Yii::$app->session->get('user');
+        }else{
+            if(isset($_POST['login_id'])){
+                return User::findOne($_POST['login_id']);
+            }
+        }
+        
     }
 
     public static function loginUserVerified()

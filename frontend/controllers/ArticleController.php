@@ -143,7 +143,9 @@ SQL;
             \Yii::$app->session->set('collected_article_offset',$count+$offset);
         }
 
-
+        if(isset($_POST['pull']) && $offset==0){
+            $this->result['data'] = [];
+        }
 
         return $this->result;
     }

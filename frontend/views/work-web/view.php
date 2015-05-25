@@ -20,7 +20,9 @@ $this->title = $model->name;
     <div class="page-header hide">
         <h1><?= Html::encode($this->title) ?></h1>
     </div>
-
+    <div style="text-align: center;margin: auto auto;">
+    <a style="width:100%;" href="http://goolya.com"><img width="100%" src="http://goolya.com/images/h.jpg"></a>
+    <div>
 
     <?= DetailView::widget([
             'model' => $model,

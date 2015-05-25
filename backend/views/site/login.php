@@ -9,13 +9,13 @@ use yii\bootstrap\ActiveForm;
 $this->title = \Yii::t('app-gallery','Login');
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div style="float: left;width:500px"><img class="" src="/uploads/system/logo_image3.png" width="100%"> </div>
-<div class="site-login" style="">
+<div id="img_div" style="float: left;width:500px;"><img class="" src="/uploads/system/logo_image3.png" width="100%"> </div>
+<div class="site-login">
     <h1 class=""><?= Html::encode($this->title) ?></h1>
 
     <p><?=\Yii::t('app-gallery','Please fill out the following fields to login:')?></p>
 
-    <div class="row">
+    <div class="row" >
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
                 <?= $form->field($model, 'username') ?>
@@ -34,3 +34,20 @@ $this->title = \Yii::t('app-gallery','Login');
         </div>
     </div>
 </div>
+
+<?php
+$this->beginBlock('JS');
+echo <<<JS
+(function(){
+    $(document).ready(function(){
+        var w = $('body').width();
+        if(w<900){
+            $('.site-login').css('clear','both');
+            $('#img_div').css('width','100%');
+        }
+    });
+})();
+JS;
+$this->endBlock();
+$this->registerJs($this->blocks['JS'],\yii\web\View::POS_END);
+?>

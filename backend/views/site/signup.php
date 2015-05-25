@@ -10,7 +10,7 @@ $this->title = \Yii::t('app-gallery','Signup');
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="container">
-    <div style="float: left;width:500px"><img class="" src="/uploads/system/logo_image3.png" width="100%"> </div>
+    <div id="img_div" style="float: left;width:500px"><img class="" src="/uploads/system/logo_image3.png" width="100%"> </div>
 <div class="site-signup " >
     <h1 class=""><?= Html::encode($this->title) ?></h1>
 
@@ -38,3 +38,19 @@ $this->title = \Yii::t('app-gallery','Signup');
 </div>
 
 </div>
+
+<?php
+$this->beginBlock('JS');
+echo <<<JS
+(function(){
+    $(document).ready(function(){
+        var w = $('body').width();
+        if(w<900){
+            $('.site-signup').css('clear','both');
+            $('#img_div').css('width','100%');
+        }
+    });
+})();
+JS;
+$this->endBlock();
+$this->registerJs($this->blocks['JS'],\yii\web\View::POS_END);

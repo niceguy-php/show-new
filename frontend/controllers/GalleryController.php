@@ -81,7 +81,7 @@ class GalleryController extends ActiveController
     {
         
 
-        $limit = isset($_POST['limit'])? $_POST['limit']:5;
+        $limit = isset($_POST['limit'])? $_POST['limit']:100;
 
         $offset = 0;
         if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('gallery_offset')){//区分上下滑动时异步请求和正常请求
@@ -134,7 +134,10 @@ SQL;
             \Yii::$app->session->set('gallery_offset',$count+$offset);
         }
 
-           
+        
+        if(isset($_POST['pull']) && $offset==0){
+            $this->result['data'] = [];
+        }
         
         return $this->result;
     }
@@ -144,7 +147,7 @@ SQL;
     {
 
 
-        $limit = isset($_POST['limit'])? $_POST['limit']:10;
+        $limit = isset($_POST['limit'])? $_POST['limit']:100;
 
         $offset = 0;
         if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('collected_gallery_offset')){//区分上下滑动时异步请求和正常请求
@@ -191,6 +194,9 @@ SQL;
         $count = count($user_collected_gallery);
         if($count>0){//上下滑动屏幕时的请求
             \Yii::$app->session->set('collected_gallery_offset',$count+$offset);
+        }
+        if(isset($_POST['pull']) && $offset==0){
+            $this->result['data'] = [];
         }
         return $this->result;
     }

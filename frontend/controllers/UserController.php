@@ -206,7 +206,7 @@ class UserController extends ActiveController{
     }
 
     public function actionGetArtist(){
-        $limit = isset($_POST['limit'])? $_POST['limit']:10;
+        $limit = isset($_POST['limit'])? $_POST['limit']:100;
 
         $offset = 0;
         if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('artist_offset')){//区分上下滑动时异步请求和正常请求
@@ -241,11 +241,16 @@ if($_POST && isset($_POST['name'])){
             \Yii::$app->session->set('artist_offset',$count+$offset);
         }
 
+
+        if(isset($_POST['pull']) && $offset==0){
+            $this->result['data'] = [];
+        }
+
         return $this->result;
     }
 
     public function actionCollectedArtist(){
-        $limit = isset($_POST['limit'])? $_POST['limit']:10;
+        $limit = isset($_POST['limit'])? $_POST['limit']:100;
 
         $offset = 0;
         if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('collected_artist_offset')){//区分上下滑动时异步请求和正常请求
@@ -289,6 +294,10 @@ SQL;
             \Yii::$app->session->set('collected_artist_offset',$count+$offset);
         }
 
+
+        if(isset($_POST['pull']) && $offset==0){
+            $this->result['data'] = [];
+        }
         return $this->result;
     }
     public function actionGetone(){

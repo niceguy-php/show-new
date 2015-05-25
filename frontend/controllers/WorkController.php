@@ -78,7 +78,7 @@ class WorkController extends ActiveController
     {
         
 
-        $limit = isset($_POST['limit'])? $_POST['limit']:5;
+        $limit = isset($_POST['limit'])? $_POST['limit']:100;
 
         $offset = 0;
         if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('work_offset')){//区分上下滑动时异步请求和正常请求
@@ -94,7 +94,10 @@ class WorkController extends ActiveController
             \Yii::$app->session->set('work_offset',$count+$offset);
         }
 
-           
+        
+        if(isset($_POST['pull']) && $offset==0){
+            $this->result['data'] = [];
+        }
         
         return $this->result;
     }
@@ -104,7 +107,7 @@ class WorkController extends ActiveController
 
         //$defalt_collected = Work::find()->where(['show_in_collection'=>Work::IN_COLLECTION])->orderBy(['created_at'=>SORT_DESC])->asArray()->all();
 
-        $limit = isset($_POST['limit'])? $_POST['limit']:5;
+        $limit = isset($_POST['limit'])? $_POST['limit']:100;
 
         $offset = 0;
         if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('collected_work_offset')){//区分上下滑动时异步请求和正常请求
@@ -133,7 +136,9 @@ SQL;
         }
 
 
-
+        if(isset($_POST['pull']) && $offset==0){
+            $this->result['data'] = [];
+        }
         return $this->result;
     }
 

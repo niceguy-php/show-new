@@ -118,7 +118,7 @@ class ArticleController extends ActiveController
     public function actionCollectedList(){
        // $defalt_collected = Article::find()->where(['show_in_collection'=>Article::IN_COLLECTION])->orderBy(['created_at'=>SORT_DESC])->asArray()->all();
 
-        $limit = isset($_POST['limit'])? $_POST['limit']:10;
+        $limit = isset($_POST['limit'])? $_POST['limit']:100;
 
         $offset = 0;
         if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('collected_article_offset')){//区分上下滑动时异步请求和正常请求

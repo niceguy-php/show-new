@@ -78,7 +78,7 @@ class ShowRoomController extends ActiveController
     {
         
 
-        $limit = isset($_POST['limit'])? $_POST['limit']:10;
+        $limit = isset($_POST['limit'])? $_POST['limit']:100;
 
         $offset = 0;
         if(isset($_POST['pull'])&&$session_offset = \Yii::$app->session->get('showroom_offset')){//区分上下滑动时异步请求和正常请求
@@ -115,7 +115,11 @@ $this->result['data'] =  \Yii::$app->db->createCommand($sql)->bindParam(':offset
             \Yii::$app->session->set('showroom_offset',$count+$offset);
         }
 
-           
+        
+
+        if(isset($_POST['pull']) && $offset==0){
+            $this->result['data'] = [];
+        }
         
         return $this->result;
     }

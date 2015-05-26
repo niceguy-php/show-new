@@ -13,12 +13,17 @@ $this->title = \Yii::t('app-gallery','GoolYa');
 
         <p class="lead"><?=\Yii::t('app-gallery','GoolYa Description')?></p>
         <div class="row">
-            <div>扫一扫或<a href="http://goolya.com/site/download?app_type=android"><b style="text-decoration: underline;">点击此下载</b></a></div>
-            <div><img width="200px" src="/images/android.png"></div>
-            <br/>
-            <br/>
+            <div class="col-md-6 col-xs-6">
+                <div>扫一扫或<a href="http://goolya.com/site/download?app_type=android"><b style="text-decoration: underline;">点击此下载</b></a></div>
+                <div><img width="200px" src="/images/android.png"></div>
+            </div>
+            <div class="col-md-6 col-xs-6">
+                <div>扫一扫或<a href="http://goolya.com/site/download?app_type=ios"><b style="text-decoration: underline;">点击此下载</b></a></div>
+                <div><img width="200px" src="/images/ios.png"></div>
+            </div>
            <!-- <div  class="col-lg-4"><img width="200px" src="/images/ios.png"></div>-->
         </div>
+    
         <?php if(!\common\models\User::loginUser()){?>
         <p><?= Html::a(\Yii::t('app-gallery','join us'), ['site/signup'],['class' => 'btn btn-lg btn-success']) ?>&nbsp;&nbsp;<?= Html::a(\Yii::t('app-gallery','Login Now'), ['site/login'],['class' => 'btn btn-lg btn-success']) ?></p>
         <?php } ?>

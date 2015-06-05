@@ -128,7 +128,7 @@ return [
 
 
     //show room
-    'Show Rooms'=>'微展厅',
+    'Show Rooms'=>'微展',
     'Room Status'=>'展厅状态',
     'Create Show Room'=>'创建展厅',
     'Update Show Room'=>'更新展厅',
@@ -158,8 +158,8 @@ return [
     //Article
     'Gallery Name'=>'艺术馆名称',
 
-    'Exhibition'=>'普通展',
-    'Collection'=>'馆藏作品展',
+    'Exhibition'=>'展览',
+    'Collection'=>'馆藏',
 
     //Recommend Applies
     'Recommend Applies'=>'发起微展',

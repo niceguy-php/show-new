@@ -103,14 +103,14 @@ use yii\helpers\ArrayHelper;
     $selectedWorksId = ArrayHelper::getColumn($selectedWorks,'work_id');
 
     echo '<div class="row"><div class="col-sm-12" style="margin-bottom: 20px;padding: 0 0">';
-    echo '<label class="col-md-2 control-label">参展作品</label>';
+    echo '<label class="col-md-2 control-label">参展艺术品</label>';
     echo '<div class="col-md-10">';
     echo Select2::widget([
         'name' => 'work_id',
         'data' => $work_list,
         'value'=>$selectedWorksId,
         'options' => [
-            'placeholder' => '选择参展作品 ...',
+            'placeholder' => '选择参展艺术品 ...',
             'multiple' => true
         ],
     ]);

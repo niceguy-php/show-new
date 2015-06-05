@@ -14,11 +14,11 @@ $this->title = \Yii::t('app-gallery','GoolYa');
         <p class="lead"><?=\Yii::t('app-gallery','GoolYa Description')?></p>
         <div class="row">
             <div class="col-md-6 col-xs-6">
-                <div>扫码或<a href="http://goolya.com/site/download?app_type=android"><b style="text-decoration: underline;">点此下载安卓版</b></a></div>
+                <div><!--http://goolya.com/site/download?app_type=android--><a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.goolya.weiyi"><b style="text-decoration: underline;">下载安卓版</b></a></div>
                 <div><img width="100px" src="/images/android.png"></div>
             </div>
             <div class="col-md-6 col-xs-6">
-                <div>扫码或<a href="http://goolya.com/site/download?app_type=ios"><b style="text-decoration: underline;">点此下载IOS版
+                <div><a href="http://goolya.com/site/download?app_type=ios"><b style="text-decoration: underline;">下载IOS版
                 </b></a></div>
                 <div><img width="100px" src="/images/ios.png"></div>
             </div>

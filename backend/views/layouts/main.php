@@ -111,8 +111,8 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-        <p class="pull-left">&copy; <?=Yii::t('app','Company Name')?> <?= date('Y') ?> &nbsp;鲁ICP备15011785号</p>
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-left">&copy; <?=Yii::t('app','Company Name')?> <?= date('Y') ?> <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鲁ICP备15011785号</p>
+        <p class="pull-right hide"><!--<?= Yii::powered() ?>--></p>
         </div>
     </footer>
 

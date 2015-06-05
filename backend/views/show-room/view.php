@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php
 
-    echo '<div class="row" style="margin-left: 0px;"><h3>参展作品</h3>';
+    echo '<div class="row" style="margin-left: 0px;"><h3>参展艺术品</h3>';
     $works = \Yii::$app->db->createCommand("SELECT id,name FROM `work` WHERE id in (SELECT work_id FROM work_in_exhibition where show_room_id = :show_room_id)")
         ->bindValue(':show_room_id',$model->id)->query();
     $works_arr = [];
@@ -78,7 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
         $works_arr[] = $a_html;
     }
     $str = implode('，',$works_arr);
-    echo $str ? $str:'你还未配置参展作品~';
+    echo $str ? $str:'你还未配置参展艺术品~';
     echo '</div>';
     ?>
 

@@ -20,6 +20,10 @@ class ArticleController extends ActiveController
     public $result = ['data'=>[],'code'=>0];
     public function init()
     {
+        $session = \Yii::$app->session;
+        if(!$session->isActive){
+            $session->open();
+        }
         parent::init();
         header("Access-Control-Allow-Origin: *");
         //\Yii::$app->user->enableSession = false;

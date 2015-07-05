@@ -20,10 +20,6 @@ class ArticleController extends ActiveController
     public $result = ['data'=>[],'code'=>0];
     public function init()
     {
-        $session = \Yii::$app->session;
-        if(!$session->isActive){
-            $session->open();
-        }
         parent::init();
         header("Access-Control-Allow-Origin: *");
         //\Yii::$app->user->enableSession = false;
@@ -88,7 +84,7 @@ class ArticleController extends ActiveController
                                 Article::RESEARCH=>'research_offset'];
 
             $category = $_POST['category'];
-            $gallery_id = $_POST['gallery_id'];
+            $gallery_id = isset($_POST['gallery_id'])?$_POST['gallery_id']:null;
 
             $limit = isset($_POST['limit'])? $_POST['limit']:5;
 

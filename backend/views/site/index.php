@@ -18,7 +18,7 @@ $this->title = \Yii::t('app-gallery','GoolYa');
                 <div><img width="100px" src="/images/android.png"></div>
             </div>
             <div class="col-md-6 col-xs-6">
-                <div><!--<a href="http://goolya.com/site/download?app_type=ios">--><a href="https://itunes.apple.com/cn/app/gu-ya-wei-yi/id998760067?mt=8"><b style="text-decoration: underline;">下载IOS版
+                <div><!--<a href="http://goolya.com/site/download?app_type=ios">--><a href="http://mp.weixin.qq.com/mp/redirect?url=https://itunes.apple.com/cn/app/gu-ya-wei-yi/id998760067?mt=8"><b style="text-decoration: underline;">下载IOS版
                 </b></a></div>
                 <div><img width="100px" src="/images/ios.png"></div>
             </div>

@@ -20,6 +20,9 @@
     "pjkui/kindeditor": "*",
 
     
-    "kartik-v/yii2-nav-x": "*"
+    "kartik-v/yii2-nav-x": "*",
+
+    
+    "heyanlong/yii2-kindeditor": "~1.0"
     }
 }

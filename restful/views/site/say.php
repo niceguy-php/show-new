@@ -7,7 +7,7 @@
  */
 
 use yii\helpers\Html;
-var_dump(name);
+var_dump($name);
 ?>
 <?= Html::encode($msg) ?>
 <?= Html::encode($name) ?>

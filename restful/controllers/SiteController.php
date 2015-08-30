@@ -24,6 +24,7 @@ class SiteController extends Controller
 {
 
     const TOKEN = 'c4ca4238a0b923820dcc509a6f75849b';
+    public $enableCsrfValidation = false;
     /**
      * @inheritdoc
      */
@@ -104,7 +105,7 @@ class SiteController extends Controller
 
     public function actionWechat(){
         $this->log('start');
-        $xml = Yii::$app->request->getRawBody();
+        $xml = \Yii::$app->request->getRawBody();
         if($xml){
             $postStr = $xml;
             if (!empty($postStr)){

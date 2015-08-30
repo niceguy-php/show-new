@@ -104,8 +104,9 @@ class SiteController extends Controller
 
     public function actionWechat(){
         $this->log('start');
-        if(isset($GLOBALS["HTTP_RAW_POST_DATA"])){
-            $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+        $xml = Yii::$app->request->getRawBody();
+        if($xml){
+            $postStr = $xml;
             if (!empty($postStr)){
                 $this->log($postStr);
                 $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);

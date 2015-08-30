@@ -119,7 +119,7 @@ class SiteController extends Controller
 
                     if('subscribe'==$postObj->Event){
 
-                        $r = new stdClass();
+                        /*$r = new stdClass();
                         $r->tit = '【抢红包】点击进入，速领现金';
                         $r->des = '【抢红包】点击进入，速领现金';
                         $r->pic = '/data/resource/examples/red_envelope.jpg';
@@ -139,8 +139,11 @@ class SiteController extends Controller
 
                         $res = [$r,$r1,$r3];
 
-                        $this->response_morearts($res, 1, $postObj);
+                        $this->response_morearts($res, 1, $postObj);*/
 
+                        $this->response_text('关注,标记sign',$postObj);return;
+                    }elseif('unsubscribe'==$postObj->Event){
+                        $this->response_text('取消关注,标记sign',$postObj);return;
                     }
                 }
 
@@ -192,6 +195,23 @@ class SiteController extends Controller
         }
         $resstr = str_replace('ITEM', $item, $resstr);
         echo $resstr;
+    }
+
+    //回复文本
+    private function response_text($txt,$postObj){
+        $fromUsername = $postObj->FromUserName;
+        $toUsername = $postObj->ToUserName;
+        $textTpl = "<xml>
+		<ToUserName><![CDATA[%s]]></ToUserName>
+		<FromUserName><![CDATA[%s]]></FromUserName>
+		<CreateTime>%s</CreateTime>
+		<MsgType><![CDATA[%s]]></MsgType>
+		<Content><![CDATA[%s]]></Content>
+		<FuncFlag>0</FuncFlag>
+		</xml>";
+        $res = sprintf($textTpl, $fromUsername, $toUsername, time(), "text", trim($txt));
+        //Log::error($res);
+        echo $res;
     }
 
 

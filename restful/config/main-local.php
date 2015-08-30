@@ -6,21 +6,15 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '-lOLWc5MNJdrC1Pzu9yTsryd4Yj1vqYQ',
         ],
-        /*'urlManager' => [
+        'urlManager' => [
             'class'=> 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             //'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'article'],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'gallery'],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'work'],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'exhibition-hall'],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'show-room'],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'subscription'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'site'],
             ],
-        ],*/
+        ],
     ],
 
 ];

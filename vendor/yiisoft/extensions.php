@@ -318,4 +318,31 @@ return array (
       '@dosamigos/datepicker' => $vendorDir . '/2amigos/yii2-date-picker-widget',
     ),
   ),
+  'heyanlong/yii2-kindeditor' => 
+  array (
+    'name' => 'heyanlong/yii2-kindeditor',
+    'version' => '1.0.0.0',
+    'alias' => 
+    array (
+      '@heyanlong/kindeditor' => $vendorDir . '/heyanlong/yii2-kindeditor',
+    ),
+  ),
+  'kartik-v/yii2-dropdown-x' => 
+  array (
+    'name' => 'kartik-v/yii2-dropdown-x',
+    'version' => '1.2.0.0',
+    'alias' => 
+    array (
+      '@kartik/dropdown' => $vendorDir . '/kartik-v/yii2-dropdown-x',
+    ),
+  ),
+  'kartik-v/yii2-nav-x' => 
+  array (
+    'name' => 'kartik-v/yii2-nav-x',
+    'version' => '1.2.0.0',
+    'alias' => 
+    array (
+      '@kartik/nav' => $vendorDir . '/kartik-v/yii2-nav-x',
+    ),
+  ),
 );

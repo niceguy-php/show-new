@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "96fe016b09142ef38cb40daaa561d811",
+    "hash": "2525a4dcf4acc0ab6ee9e635a5d9a5d4",
     "packages": [
         {
             "name": "2amigos/yii2-date-picker-widget",
@@ -347,6 +347,65 @@
             ]
         },
         {
+            "name": "callmez/yii2-app-wechat",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/callmez/yii2-app-wechat.git",
+                "reference": "b9cf97323933769d0f815f786c9974c61aaef2b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/callmez/yii2-app-wechat/b9cf97323933769d0f815f786c9974c61aaef2b5.zip",
+                "reference": "b9cf97323933769d0f815f786c9974c61aaef2b5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-bootstrap": "*",
+                "yiisoft/yii2-swiftmailer": "*"
+            },
+            "require-dev": {
+                "yiisoft/yii2-codeception": "*",
+                "yiisoft/yii2-debug": "*",
+                "yiisoft/yii2-faker": "*",
+                "yiisoft/yii2-gii": "*"
+            },
+            "type": "project",
+            "extra": {
+                "yii\\composer\\Installer::postCreateProject": {
+                    "setPermission": [
+                        {
+                            "runtime": "0777",
+                            "web/assets": "0777",
+                            "yii": "0755"
+                        }
+                    ],
+                    "generateCookieValidationKey": [
+                        "config/web.php"
+                    ]
+                },
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Yii 2 Basic Application Template",
+            "homepage": "http://www.yiiframework.com/",
+            "keywords": [
+                "application template",
+                "basic",
+                "framework",
+                "yii2"
+            ],
+            "time": "2015-03-01 06:22:44"
+        },
+        {
             "name": "cebe/markdown",
             "version": "1.0.2",
             "source": {
@@ -599,6 +658,53 @@
                 "fixtures"
             ],
             "time": "2014-06-04 14:43:02"
+        },
+        {
+            "name": "heyanlong/yii2-kindeditor",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/heyanlong/yii2-kindeditor.git",
+                "reference": "cd1a7cf38dc46d07d83e67723abe2aa515018470"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/heyanlong/yii2-kindeditor/cd1a7cf38dc46d07d83e67723abe2aa515018470.zip",
+                "reference": "cd1a7cf38dc46d07d83e67723abe2aa515018470",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "heyanlong\\kindeditor\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "heyanlong",
+                    "email": "yanlong_he@163.com",
+                    "homepage": "https://www.hyl.pw"
+                }
+            ],
+            "description": "Yii 2 kindeditor is the WYSIWYG HTML editor of the Yii 2.0 widget.",
+            "homepage": "https://github.com/heyanlong/yii2-kindeditor",
+            "keywords": [
+                "extension",
+                "kindeditor",
+                "widget",
+                "yii2"
+            ],
+            "time": "2015-08-05 06:14:38"
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
@@ -919,6 +1025,53 @@
             "time": "2015-03-02 13:30:23"
         },
         {
+            "name": "kartik-v/yii2-dropdown-x",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-dropdown-x.git",
+                "reference": "4689a7635e290ef1b71eb4f0962e3b77e347b6fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/kartik-v/yii2-dropdown-x/4689a7635e290ef1b71eb4f0962e3b77e347b6fe.zip",
+                "reference": "4689a7635e290ef1b71eb4f0962e3b77e347b6fe",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\dropdown\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An extended bootstrap dropdown widget for Yii 2 with submenu drilldown.",
+            "homepage": "https://github.com/kartik-v/yii2-dropdown-x",
+            "keywords": [
+                "Context",
+                "click",
+                "extension",
+                "menu",
+                "mouse",
+                "widget",
+                "yii2"
+            ],
+            "time": "2014-12-08 04:31:32"
+        },
+        {
             "name": "kartik-v/yii2-grid",
             "version": "v3.0.0",
             "source": {
@@ -1100,6 +1253,53 @@
                 "yii2"
             ],
             "time": "2015-02-13 03:36:35"
+        },
+        {
+            "name": "kartik-v/yii2-nav-x",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-nav-x.git",
+                "reference": "b4b03037131d9a8b29791984b80bf062bdb814e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/kartik-v/yii2-nav-x/b4b03037131d9a8b29791984b80bf062bdb814e3.zip",
+                "reference": "b4b03037131d9a8b29791984b80bf062bdb814e3",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-dropdown-x": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\nav\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An extended bootstrap Nav widget for Yii 2 with submenu drilldown.",
+            "homepage": "https://github.com/kartik-v/yii2-nav-x",
+            "keywords": [
+                "Context",
+                "click",
+                "extension",
+                "menu",
+                "mouse",
+                "widget",
+                "yii2"
+            ],
+            "time": "2014-12-06 18:38:52"
         },
         {
             "name": "kartik-v/yii2-widget-activeform",

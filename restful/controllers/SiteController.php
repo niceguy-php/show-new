@@ -131,19 +131,13 @@ class SiteController extends Controller
                         $r1->pic = '/data/resource/examples/see_story.jpg';
                         $r1->ourl = 'http://m.70c.com/w/SYCWQA';
 
-                        $r2 = new stdClass();
-                        $r2->tit = '【吃货入】带你开启最梦幻的舌尖之旅';
-                        $r2->des = '【吃货入】带你开启最梦幻的舌尖之旅';
-                        $r2->pic = '/data/resource/examples/eat_in.jpg';
-                        $r2->ourl = 'http://www.pbyaj.com/wap/index.html?_a=share&_f=index&uid=' . $share_id;
-
                         $r3 = new stdClass();
                         $r3->tit = '【手别抖】免单的机会在此，根本停不下来！';
                         $r3->des = '【手别抖】免单的机会在此，根本停不下来！';
                         $r3->pic = '/data/resource/examples/play_game.jpg';
                         $r3->ourl = 'http://www.pbyaj.com/wap/tmpl/activity/zl';
 
-                        $res = [$r,$r1,$r2,$r3];
+                        $res = [$r,$r1,$r3];
 
                         $this->response_morearts($res, 1, $postObj);
 
@@ -212,7 +206,7 @@ class SiteController extends Controller
     }
 
     private function log($str=''){
-        file_put_contents('/data/www/test.log',$str.'\r\n',FILE_APPEND);
+        file_put_contents('/data/www/test.log',$str."\n\r",FILE_APPEND);
     }
 
     private function checkSignature(){

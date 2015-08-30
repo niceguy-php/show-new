@@ -102,10 +102,11 @@ class SiteController extends Controller
     }
 
     public function actionWechat(){
+        $this->log('start');
         if(isset($GLOBALS["HTTP_RAW_POST_DATA"])){
             $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
             if (!empty($postStr)){
-                // Log::record($postStr);
+                $this->log($postStr);
                 $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
 
                 $fromUsername = $postObj->FromUserName;
@@ -154,7 +155,7 @@ class SiteController extends Controller
             $signature = $_GET["signature"];
             $timestamp = $_GET["timestamp"];
             $nonce = $_GET["nonce"];
-            file_put_contents('./test.log',$signature);
+            $this->log($signature);
             if($this->valid()){
             } else {
                 $echoStr = $_GET["echostr"];
@@ -208,6 +209,10 @@ class SiteController extends Controller
             return true;
         }
         return false;
+    }
+
+    private function log($str=''){
+        file_put_contents('/data/www/test.log',$str.'\r\n',FILE_APPEND);
     }
 
     private function checkSignature(){

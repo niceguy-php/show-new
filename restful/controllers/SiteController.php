@@ -22,7 +22,8 @@ use restful\models\Customer;
  */
 class SiteController extends Controller
 {
-    const TOKEN = '123456';
+
+    const TOKEN = 'c4ca4238a0b923820dcc509a6f75849b';
     /**
      * @inheritdoc
      */
